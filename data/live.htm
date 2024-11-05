@@ -1,0 +1,92 @@
+<html>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="jquery-lastest.min.js" type="text/javascript"></script>
+   <script src="alarm.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+</head>
+<body>
+<div id='cssmenu'>
+<ul>
+    <li><a href='index.htm'>Principal</a></li>
+    <li><a href='channel.htm'>Configuración de canales</a></li>
+    <li><a href='group.htm'>Configuración de grupos</a></li>
+    <li><a href='ioport.htm'>Configuración de puertos IO</a></li>
+    <li><a href='live.htm'>Vista en vivo</a></li>
+    <li><a href='textmode.htm'>Sólo texto</a></li>
+    <li><a href='mqtt.htm'>Configuración de MQTT</a></li>
+    <li><a href='wlan.htm'>Configuración de WLAN</a></li>
+</ul>
+</div>
+<h1>Vista en vivo</h1>
+<div id=OScope class="collapsible">
+  <table width="100%" border="0">
+     <tr>
+       <td width="80%">
+         <canvas id=OScopeCanvas width="900" height="400"></canvas>
+       </td>
+       <td width="20%">
+         <canvas id=FFTCanvas width="300" height="400"></canvas>
+       </td>
+       <td>
+        <input id="OSCMultIn" type="range" value="1" max="20" min="0.1" step="0.1" orient="vertical">
+      </td>
+     </tr>
+       <td>
+         <input type=button onclick="ToggleOScopePause(); OScopeProbe();" id=OScopeProbeButton value="|| / >">
+         <button id="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+         zoom: <output id="OSCMultOut"></output><br></td>
+          <table width="100%" border="1">
+            <tr width="100%"><div id='fixedfooter'><span id='status'>Desconectado</span></div></tr>
+            <td width="70%">
+              <input type="checkbox" id="channel0" checked><label id="channel_0_name" for="channel0">I1</label>
+              <input type="checkbox" id="channel1" checked><label id="channel_1_name" for="channel1">U1</label>
+              <input type="checkbox" id="channel2" checked><label id="channel_2_name" for="channel2">P1</label>
+              <input type="checkbox" id="channel3" checked><label id="channel_3_name" for="channel3">Q1</label><br>
+              <input type="checkbox" id="channel4" checked><label id="channel_4_name" for="channel4">I2</label>
+              <input type="checkbox" id="channel5" checked><label id="channel_5_name" for="channel5">U2</label>
+              <input type="checkbox" id="channel6" checked><label id="channel_6_name" for="channel6">P2</label>
+              <input type="checkbox" id="channel7" checked><label id="channel_7_name" for="channel7">Q2</label><br>
+              <input type="checkbox" id="channel8" checked><label id="channel_8_name" for="channel8">I3</label>
+              <input type="checkbox" id="channel9" checked><label id="channel_9_name" for="channel9">U3</label>
+              <input type="checkbox" id="channel10" checked><label id="channel_10_name" for="channel10">P3</label>
+              <input type="checkbox" id="channel11" checked><label id="channel_11_name" for="channel11">Q3</label><br>
+              <input type="checkbox" id="channel12" checked><label id="channel_12_name" for="channel12">TP</label>
+              </td>
+              <td width="30%">
+                Tasa de muestreo:<br><input type=button onclick="SampleratePlus(); " id=SampleratePlusButton value="+">
+                <input type=button onclick="SamplerateMinus(); " id=SamplerateMinusButton value="-">
+                <input type=button onclick="SaveSettings(); " id=SaveButton value="guardar"><br>
+                Desfase: 
+                <select id="channel" name="channel" onchange='SendSetting("channel");'>
+                  <option value="0">Canal 0</option>
+                  <option value="1">Canal 1</option>
+                  <option value="2">Canal 2</option>
+                  <option value="3">Canal 3</option>
+                  <option value="4">Canal 4</option>
+                  <option value="5">Canal 5</option>
+                  <option value="6">Canal 6</option>
+                  <option value="7">Canal 7</option>
+                  <option value="8">Canal 8</option>
+                  <option value="9">Canal 9</option>
+                  <option value="10">Canal 10</option>
+                  <option value="11">Canal 11</option>
+                  <option value="12">Canal 12</option>
+                </select>
+                <input type=button onclick="PhaseshiftPlus(); " id=PlusButton value="<">
+                <input type=button onclick="PhaseshiftMinus(); " id=MinusButton value=">">
+                <input type=button onclick="SaveSettings(); " id=SaveButton value="guardar">
+            </td>
+        </table>
+   </table>
+</div>  
+</body>
+</html>
+<style>
+  #status {
+      white-space: pre-wrap;  /* Esto asegura que los saltos de línea \n sean respetados */
+  }
+  </style>

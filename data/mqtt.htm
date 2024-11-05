@@ -1,0 +1,75 @@
+<html>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="jquery-lastest.min.js" type="text/javascript"></script>
+   <script src="alarm.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+</head>
+<body>
+<div id='cssmenu'>
+<ul>
+    <li><a href='index.htm'>Principal</a></li>
+    <li><a href='channel.htm'>Configuración de canales</a></li>
+    <li><a href='group.htm'>Configuración de grupos</a></li>
+    <li><a href='ioport.htm'>Configuración de puertos IO</a></li>
+    <li><a href='live.htm'>Vista en vivo</a></li>    
+    <li><a href='textmode.htm'>Sólo texto</a></li>
+    <li><a href='mqtt.htm'>Configuración de MQTT</a></li>
+    <li><a href='wlan.htm'>Configuración de WLAN</a></li>
+</ul>
+</div>
+<h1>Configuración de MQTT</h1>
+<div id="mqtt_settings" class="hbox">
+  <div class="vbox">
+    <label>Servidor MQTT</label><br>
+    <div class="box">
+      <input type='text' size='32' id='mqtt_server'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Puerto MQTT</label><br>
+    <div class="box">
+      <input type='text' size='32' id='mqtt_port'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Usuario MQTT</label><br>
+    <div class="box">
+      <input type='text' size='32' id='mqtt_username'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Contraseña MQTT</label><br>
+    <div class="box">
+      <input type='text' size='32' id='mqtt_password'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Tema MQTT ( stat/%topic%/... y cmnd/%topic%/... )</label><br>
+    <div class="box">
+      <input type='text' size='32' id='mqtt_topic'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Intervalo de actualización MQTT</label><br>
+    <div class="box">
+      <input type='text' size='32' id='mqtt_interval'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <input type="checkbox" id="mqtt_realtimestats" checked>
+    <label for="mqtt_realtimestats"> estadísticas adicionales cada segundo</label>
+  </div class="vbox">
+</div>
+<br>
+<br>
+<button type='button' onclick='SendSetting("mqtt_server");SendSetting("mqtt_port");SendSetting("mqtt_username");SendSetting("mqtt_password");SendSetting("mqtt_topic");SendSetting("mqtt_interval");SendCheckboxSetting("mqtt_realtimestats");SaveSettings();get_mqtt_settings();' class='button'>Guardar</button><br><br>
+<br>
+<br>
+<br>
+<div id='fixedfooter'><span id='status'>Desconectado</span></div>
+</body>
+</html>

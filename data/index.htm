@@ -1,0 +1,41 @@
+<html>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="jquery-lastest.min.js" type="text/javascript"></script>
+   <script src="alarm.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+</head>
+<body>
+<div id='cssmenu'>
+<ul>
+  <li><a href='index.htm'>Principal</a></li>
+  <li><a href='channel.htm'>Configuración de canales</a></li>
+  <li><a href='group.htm'>Configuración de grupos</a></li>
+  <li><a href='ioport.htm'>Configuración de puertos IO</a></li>
+  <li><a href='live.htm'>Vista en vivo</a></li>
+  <li><a href='textmode.htm'>Sólo texto</a></li>
+  <li><a href='mqtt.htm'>Configuración de MQTT</a></li>
+  <li><a href='wlan.htm'>Configuración de WLAN</a></li>
+</ul>
+</div>
+<h1>Configuración del host</h1>
+<div id="hostname_settings" class="hbox">
+  <div class="vbox">
+    <label>Nombre del host</label><br>
+    <div class="box">
+      <input type='text' size='63' id='hostname'></input>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<button type='button' onclick='SendSetting("hostname");SaveSettings();get_hostname_settings();' class='button'>Guardar</button><br><br>
+<br>
+<br>
+<br>
+<div id='fixedfooter'><span id='status'>Desconectado</span></div>
+</body>
+</html>

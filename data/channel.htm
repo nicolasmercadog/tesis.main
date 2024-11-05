@@ -1,0 +1,603 @@
+<html>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="jquery-lastest.min.js" type="text/javascript"></script>
+   <script src="alarm.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+</head>
+<body>
+<div id='cssmenu'>
+<ul>
+    <li><a href='index.htm'>Principal</a></li>
+    <li><a href='channel.htm'>Configuración de canales</a></li>
+    <li><a href='group.htm'>Configuración de grupos</a></li>
+    <li><a href='ioport.htm'>Configuración de puertos IO</a></li>
+    <li><a href='live.htm'>Vista en vivo</a></li>
+    <li><a href='mqtt.htm'>Configuración de MQTT</a></li>
+    <li><a href='wlan.htm'>Configuración de WLAN</a></li>
+</ul>
+</div>
+<div id="measurement_settings" class="hbox">
+  <h2>Configuración general del ADC</h2>
+  <div class="vbox">
+    <label>Frecuencia base de voltaje CA en Hz</label><br>
+    <div class="box">
+      <input type='text' size='32' id='network_frequency'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Valor de corrección de la tasa de muestreo en Hz</label><br>
+    <div class="box">
+      <input type='text' size='32' id='samplerate_corr'></input>
+    </div>
+  </div>
+  <h2>Configuración de canales virtuales</h2>
+  <div class="vbox">
+    <label>Canal</label><br>
+    <div class="box">
+      <div class="select-wrapper">
+        <select id="channel" name="channel" onchange='SendSetting("channel");get_channel_config();refreshOpcode( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="10">Canal 10</option>
+          <option value="11">Canal 11</option>
+          <option value="12">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <input type="checkbox" id="realtime_edit" name="realtime_edit" unchecked>
+    <label for="realtime_edit"> Permitir edición en tiempo real, ¡pero no olvides guardar tus configuraciones!</label>
+  </div class="vbox">
+  <div class="vbox">
+    <label>Nombre</label><br>
+    <div class="box">
+      <input type='text' size='32' id='channel_name' onchange='if( document.getElementById( "realtime_edit" ).checked ) SendSetting( "channel_name" );'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Grupo</label><br>
+    <div class="box">
+      <div class="select-wrapper">
+        <select id="channel_group_id" name="channel_group_id">
+          <option value="0">Grupo 0</option>
+          <option value="1">Grupo 1</option>
+          <option value="2">Grupo 2</option>
+          <option value="3">Grupo 3</option>
+          <option value="4">Grupo 4</option>
+          <option value="5">Grupo 5</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Reportar valor en</label><br>
+    <div class="box">
+      <div class="select-wrapper">
+        <select id="channel_report_exp" name="channel_report_exp" onchange='if( document.getElementById( "realtime_edit" ).checked ) SendSetting( "channel_report_exp" );'>
+          <option value="-3">10^-3 Mili</option>
+          <option value="0">10^0</option>
+          <option value="3">10^3 Kilo</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <h2>Configuración del sensor</h2>
+  <div class="vbox">
+    <label>Tipo</label><br>
+    <div class="box">
+      <div class="select-wrapper">
+        <select id="channel_type" name="channel_type" onchange='if( document.getElementById( "realtime_edit" ).checked ) SendSetting( "channel_type" );'>
+          <option value="0">CA_CORRIENTE</option>
+          <option value="1">CA_VOLTAGE</option>
+          <option value="2">CC_CORRIENTE</option>
+          <option value="3">CC_VOLTAGE</option>
+          <option value="4">CA_POTENCIA</option>
+          <option value="5">CA_POTENCIA_REACTIVA</option>
+          <option value="6">CC_POTENCIA</option>
+          <option value="7">CANAL_NO_USADO</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <input type="checkbox" id="channel_true_rms" name="channel_true_rms" onchange='if( document.getElementById( "realtime_edit" ).checked ) SendCheckboxSetting( "channel_true_rms" );' unchecked>
+    <label for="channel_true_rms"> usar true rms para el cálculo de CA</label>
+  </div class="vbox">
+  <div class="vbox">
+    <label>Relación</label><br>
+    <div class="box">
+      <input type='text' size='32' id='channel_ratio' onchange='if( document.getElementById( "realtime_edit" ).checked ) SendSetting( "channel_ratio" );'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Desfase</label><br>
+    <div class="box">
+      <input type='text' size='32' id='channel_phaseshift' onchange='if( document.getElementById( "realtime_edit" ).checked ) SendSetting( "channel_phaseshift" );'></input>
+    </div>
+  </div>
+  <div class="vbox">
+    <label>Desplazamiento</label><br>
+    <div class="box">
+      <input type='text' size='32' id='channel_offset' onchange='if( document.getElementById( "realtime_edit" ).checked ) SendSetting( "channel_offset" );'></input>
+    </div>
+  </div>
+  <h2>Microcódigo</h2>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_0" name="opcode_0" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_0" name="channel_0" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_1" name="opcode_1" onclick='refreshOpcodeStr( "channel_opcodeseq_str");'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_1" name="channel_1" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_2" name="opcode_2" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_2" name="channel_2" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_3" name="opcode_3" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_3" name="channel_3" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_4" name="opcode_4" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_4" name="channel_4" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_5" name="opcode_5" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_5" name="channel_5" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_6" name="opcode_6" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_6" name="channel_6" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_7" name="opcode_7" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_7" name="channel_7" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_8" name="opcode_8" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_8" name="channel_8" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="vbox">
+    <div class="box">
+      <label>Opcode</label><br>
+      <div class="select-wrapper">
+        <select id="opcode_9" name="opcode_9" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">BRK</option>
+          <option value="4">NOP</option>
+          <option value="1">A = A + OPERANDO</option>
+          <option value="2">A = A - OPERANDO</option>
+          <option value="3">A = A * OPERANDO</option>
+          <option value="8">A = A * RATIO DE OPERANDO</option>
+          <option value="9">A = A * SIGNO DE OPERANDO</option>
+          <option value="b">A = A * SIGNO REACTIVO DE OPERANDO</option>
+          <option value="a">A = |A|</option>
+          <option value="d">NEG</option>
+          <option value="e">PASAR NEGATIVO</option>
+          <option value="f">PASAR POSITIVO</option>
+          <option value="5">A = ADC DE OPERANDO</option>
+          <option value="7">FILTRAR A CON</option>
+          <option value="6">CONFIGURAR A A</option>
+        </select>
+      </div>
+    </div>
+    <div class="box">
+      <label>Operando</label><br>
+      <div class="select-wrapper">
+        <select id="channel_9" name="channel_9" onclick='refreshOpcodeStr( "channel_opcodeseq_str" );'>
+          <option value="0">Canal 0</option>
+          <option value="1">Canal 1</option>
+          <option value="2">Canal 2</option>
+          <option value="3">Canal 3</option>
+          <option value="4">Canal 4</option>
+          <option value="5">Canal 5</option>
+          <option value="6">Canal 6</option>
+          <option value="7">Canal 7</option>
+          <option value="8">Canal 8</option>
+          <option value="9">Canal 9</option>
+          <option value="a">Canal 10</option>
+          <option value="b">Canal 11</option>
+          <option value="c">Canal 12</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <h2>Microcódigo como secuencia de opcode</h2>
+  <div class="vbox">
+    <label>Secuencia de opcode antigua</label><br>
+    <div class="box">
+      <input type='text' size='32' id='old_channel_opcodeseq_str' name='old_channel_opcodeseq_str' disabled></input>
+    </div>
+    <div class="box">
+      <button type='button' onclick='document.getElementById( "channel_opcodeseq_str" ).value = document.getElementById( "old_channel_opcodeseq_str" ).value; refreshOpcode( "channel_opcodeseq_str" );' class='smallbutton'>Restaurar opcodes</button>
+    </div>
+  </div> 
+  <div class="vbox">
+    <label>Secuencia de opcode</label><br>
+    <div class="box">
+      <input type='text' size='32' id='channel_opcodeseq_str' name='channel_opcodeseq_str' onchange='refreshOpcode( "channel_opcodeseq_str" );'></input>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<button type='button' onclick='SendSetting("network_frequency");SendSetting("samplerate_corr");SendCheckboxSetting("channel_true_rms");SendSetting("channel_opcodeseq_str");SendSetting("channel_type");SendSetting("channel_phaseshift");SendSetting("channel_report_exp");SendSetting("channel_offset");SendSetting("channel_name");SendSetting("channel_ratio");SendSetting("channel_group_id");SaveSettings();get_channel_config();get_measurement_settings();' class='button'>Guardar</button><br><br>
+<br>
+<br>
+<br>
+<div id='fixedfooter'><span id='status'>desconectado</span></div>
+</body>
+</html>

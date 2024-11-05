@@ -1,0 +1,4 @@
+.pio
+.vscode
+update_firmware.sh
+update_spiffs.sh
