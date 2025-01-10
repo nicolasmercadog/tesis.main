@@ -1,13 +1,41 @@
+// Declaración de las variables globales
 var pause_osc = true;
-var connect = false;
+var connect = true;
 var timeout = 3;
 var savecounter = 0;
 var connection;
-var otx, ftx; // Declaración de las variables globales
+let fftChartData = [];
+// Esperar a que el DOM esté listo antes de ejecutar cualquier lógica que acceda a elementos del DOM
+document.addEventListener('DOMContentLoaded', function () {
+    // Llamada a getconnect() una vez que el DOM está listo
+    getconnect();
 
+    // Configuración del intervalo para obtener el estado cada 500 ms
+    setInterval(function () {
+        if (connection && connection.readyState === WebSocket.OPEN) {
+            getStatus();
+            if (!pause_osc) {
+                OScopeProbe();
+            }
+        }
+    }, 1000);
 
-getconnect();
-setInterval(function () {getStatus();}, 1000);
+    // Código para agregar el evento al botón de restablecer zoom
+    const resetZoomButton = document.getElementById('resetZoomButton');
+    if (resetZoomButton) {
+        resetZoomButton.addEventListener('click', function () {
+            if (charts['oscilloscopeChart']) {
+                charts['oscilloscopeChart'].resetZoom();
+            }
+            if (charts['fftChart']) {
+                charts['fftChart'].resetZoom();
+            }
+        });
+    } else {
+        console.error("El botón 'resetZoomButton' no se encontró.");
+    }
+});
+
 
 function getconnect() {
     connection = new WebSocket('ws://' + location.hostname + '/ws', ['arduino']);
@@ -44,90 +72,84 @@ function getconnect() {
     };
 
     connection.onmessage = function (e) {
-        console.log('Server: ', e.data);
+        //console.log('Server: ', e.data);
         partsarry = e.data.split('\\');
     
-        if( partsarry[0] == 'OScopeProbe' ) {
-            GotOScope(e.data );
+        if (partsarry[0] == 'OScopeProbe') {
+            window.GotOScope(e.data);
             return;
-        }
-        
-        if( partsarry[0] == 'status' ) {
-            if ( partsarry[1] == 'Save' ) {
+        }    
+        // Procesar otros tipos de mensajes como antes
+        if (partsarry[0] == 'status') {
+            if (partsarry[1] == 'Save') {
                 document.getElementById('fixedfooter').style.background = "#008000";
                 savecounter = 2;
-            }
-            else {
+            } else {
                 document.getElementById('status').firstChild.nodeValue = partsarry[1];
             }
     
             timeout = 4;
             return;
         }
-  
-        if(partsarry[0] == 'get_channel_list' ) {
-            if ( document.getElementById( partsarry[1] ) ) {
-                const label = document.getElementById( partsarry[1] );
-                label.textContent = partsarry[2];
-            }
-            return;
-        }
-  
-        if(partsarry[0] == 'get_channel_use_list') {
-            if ( document.getElementById( partsarry[1] ) ) {
-                if ( partsarry[2] == 'true' )
-                    document.getElementById( partsarry[1] ).checked = true;
-                else
-                    document.getElementById( partsarry[1] ).checked = false;
-            }
-            if ( document.getElementById( partsarry[3] ) ) {
-                document.getElementById( partsarry[3] ).options[ partsarry[4] ].text = partsarry[5];
-            }
-            return;
-        }
-  	
-        if(partsarry[0] == 'get_group_use_list') {
-            if ( document.getElementById( partsarry[1] ) && partsarry[2] == 'true' ) {
-                document.getElementById( partsarry[1] ).checked = true;
-            }
-            if ( document.getElementById( partsarry[3] ) ) {
-                const label = document.getElementById( partsarry[3] );
-                label.textContent = partsarry[4];
-            }    
-            return;
-        }
-  
-        if( partsarry[0] == 'option') {
-            if ( document.getElementById( partsarry[1] ).options[ partsarry[2] ] ) {
-                document.getElementById( partsarry[1] ).options[ partsarry[2] ].text = partsarry[3];
-                refreshOpcode('channel_opcodeseq_str');
-            }
-            return;
-        }
-  	
-        if( partsarry[0] == 'label') {
-            if ( document.getElementById( partsarry[1] ) ) {
-                document.getElementById( partsarry[1] ).textContent = partsarry[2];
-            }
-            return;
-        }
-    
-        if( partsarry[0] == 'checkbox') {
-            if ( document.getElementById( partsarry[1] ) ) {
-                if( partsarry[2] == 'true' )
-                    document.getElementById( partsarry[1] ).checked = true;
-                else
-                    document.getElementById( partsarry[1] ).checked = false;
-            }
-            return;
-        }
 
-        if ( document.getElementById( partsarry[0] ) ) {
-            document.getElementById( partsarry[0] ).value = partsarry[1];
-            if( document.getElementById( 'channel_opcodeseq_str' ) )
-                refreshOpcode('channel_opcodeseq_str');
+    if (partsarry[0] == 'get_channel_list') {
+        if (document.getElementById(partsarry[1])) {
+            const label = document.getElementById(partsarry[1]);
+            label.textContent = partsarry[2];
+        }
+        return;
+    }
+
+    if (partsarry[0] == 'get_channel_use_list') {
+        if (document.getElementById(partsarry[1])) {
+            document.getElementById(partsarry[1]).checked = partsarry[2] == 'true';
+        }
+        if (document.getElementById(partsarry[3])) {
+            document.getElementById(partsarry[3]).options[partsarry[4]].text = partsarry[5];
+        }
+        return;
+    }
+
+    if (partsarry[0] == 'get_group_use_list') {
+        if (document.getElementById(partsarry[1]) && partsarry[2] == 'true') {
+            document.getElementById(partsarry[1]).checked = true;
+        }
+        if (document.getElementById(partsarry[3])) {
+            const label = document.getElementById(partsarry[3]);
+            label.textContent = partsarry[4];
+        }
+        return;
+    }
+
+    if (partsarry[0] == 'option') {
+        if (document.getElementById(partsarry[1]).options[partsarry[2]]) {
+            document.getElementById(partsarry[1]).options[partsarry[2]].text = partsarry[3];
+            refreshOpcode('channel_opcodeseq_str');
+        }
+        return;
+    }
+
+    if (partsarry[0] == 'label') {
+        if (document.getElementById(partsarry[1])) {
+            document.getElementById(partsarry[1]).textContent = partsarry[2];
+        }
+        return;
+    }
+
+    if (partsarry[0] == 'checkbox') {
+        if (document.getElementById(partsarry[1])) {
+            document.getElementById(partsarry[1]).checked = partsarry[2] == 'true';
+        }
+        return;
+    }
+
+    if (document.getElementById(partsarry[0])) {
+        document.getElementById(partsarry[0]).value = partsarry[1];
+        if (document.getElementById('channel_opcodeseq_str')) {
+            refreshOpcode('channel_opcodeseq_str');
         }
     }
+}
 
     connection.onclose = function(e) {
         console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
@@ -253,10 +275,6 @@ function get_hostname_settings() {
     sendCMD("get_hostname_settings");
 }
 
-function get_display_settings() {
-    sendCMD("get_display_settings");
-}
-
 function get_ioport_settings() {
     sendCMD("get_ioport_settings");
 }
@@ -319,12 +337,6 @@ function getStatus() {
     }
 }
 
-
-/**
- * refresh opcodes from opcode string
- * 
- * @param value opcode string id
- */
 function refreshOpcode( value ) {
     if( !document.getElementById( value ) )
         return;
@@ -364,11 +376,7 @@ function refreshOpcode( value ) {
     return;
 }
 
-/**
- * refresh opcode string
- * 
- * @param value opcode string id
- */
+
 function refreshOpcodeStr( value ) {
     var opcode_str = '';
     /**
@@ -412,239 +420,230 @@ function refreshOpcodeStr( value ) {
 
 }
 
-function OScopeProbe() {
-    channel_list_str = "";
-    
-    for( var i = 0; i < 13 ; i++ ) {
-        /**
-         * check if channel id exist
-         */
-        if ( document.getElementById( "channel" + i ) ) {
-            if( document.getElementById( "channel" + i ).checked )
-                channel_list_str += "1";
-            else
-                channel_list_str += "0";
-        }
-    }
-    
-    sendCMD( "OSC\\"+ channel_list_str );
+// Asegúrate de que las funciones estén en el ámbito global
+window.OScopeProbe = function() {
+    let channelListStr = Array.from({ length: 13 }, (_, i) => {
+        const channelElement = document.getElementById(`channel${i}`);
+        return channelElement && channelElement.checked ? "1" : "0";
+    }).join("");
+
+    sendCMD(`OSC\\${channelListStr}`);
 }
 
-function toggleDarkMode() {
+window.toggleDarkMode = function() {
     document.body.classList.toggle('dark-mode');
-    // Aquí podrías ajustar el gráfico según el modo
-    if (document.body.classList.contains('dark-mode')) {
-        // Cambia los colores de los gráficos para modo oscuro
-        otx.strokeStyle = "#FFFFFF";
-        ftx.strokeStyle = "#FFFFFF";
-    } else {
-        // Cambia los colores de los gráficos para modo claro
-        otx.strokeStyle = "#000000";
-        ftx.strokeStyle = "#000000";
-    }}
-    // Actualiza el gráfico después del cambio de modo}
-
-
-// Actualizar los colores de las señales según los canales y la paleta proporcionada
-function GotOScope(data) {
-    var mult = Number(document.getElementById('OSCMultIn').value);
-    document.getElementById('OSCMultOut').innerHTML = mult;
-
-    var ocanvas = document.getElementById('OScopeCanvas');
-    otx = ocanvas.getContext('2d');
-    var fcanvas = document.getElementById('FFTCanvas');
-    ftx = fcanvas.getContext('2d');
-
-    if( otx.canvas.width != ocanvas.clientWidth )   otx.canvas.width = ocanvas.clientWidth;
-    if( otx.canvas.height != ocanvas.clientHeight ) otx.canvas.height = ocanvas.clientHeight;
-
-    if( ftx.canvas.width != fcanvas.clientWidth )   ftx.canvas.width = fcanvas.clientWidth;
-    if( ftx.canvas.height != fcanvas.clientHeight ) ftx.canvas.height = fcanvas.clientHeight;
-
-    var secs = data.split( "\\" );
-
-    var channels = Number( secs[1] );
-    var samps = Number( secs[2] );
-    var fftsamps = secs[3];
-    var iratio = ocanvas.clientHeight / ( secs[4]*4096 ) * 10;
-    var data = secs[5];
-    var fftdata = secs[6];
-    var channeltype = secs[7];
-
-    otx.clearRect(0, 0, ocanvas.width, ocanvas.height);
-
-    var colors = [
-        '#FF5733', '#3498DB', '#2ECC71', '#F39C12',  // Canal 1: Corriente, Tensión, Potencia, Potencia Reactiva
-        '#C0392B', '#2980B9', '#27AE60', '#E67E22',  // Canal 2: Corriente, Tensión, Potencia, Potencia Reactiva
-        '#E74C3C', '#5DADE2', '#58D68D', '#F7B731',  // Canal 3: Corriente, Tensión, Potencia, Potencia Reactiva
-        '#F1948A', '#85C1E9', '#82E0AA', '#F9E79F'   // Canal 4: Corriente, Tensión, Potencia, Potencia Reactiva
-    ];
-
-
-for (var round = 0; round < channels; round++) {
-otx.beginPath();
-
-// Asignar color basado en el índice del canal (canal 0-3 -> #ff6961, 4-7 -> #77dd77, 8-11 -> #fdfd96)
-otx.strokeStyle = colors[round]; // Asignar color según el canal
-otx.lineWidth = 2;  // Ajustar el grosor de las líneas
-
-var lastsamp = parseInt(data.substr(samps * round, 3), 16);
-
-for (var i = samps * round; i < samps * round + samps; i++) {
-var x2 = ((i - (samps * round))) * ocanvas.clientWidth / (samps - 1);
-var samp = parseInt(data.substr(i * 3, 3), 16);
-var y2 = (1. - mult * samp / 4096) * ocanvas.clientHeight;
-
-if (i == 0) {
-  var x1 = i * ocanvas.clientWidth / samps;
-  var y1 = (1. - mult * lastsamp / 4096) * ocanvas.clientHeight;
-  otx.moveTo(x1, y1 + ((mult * ocanvas.clientHeight) / 2) - (ocanvas.clientHeight / 2));
+    updateCanvasColors();
 }
 
-otx.lineTo(x2, y2 + ((mult * ocanvas.clientHeight) / 2) - (ocanvas.clientHeight / 2));
+const charts = {};
 
-lastsamp = samp;
-}
-otx.stroke();
-}
+const channelNames = [
+    'L1 Corriente', 'L1 Tensión', 'L1 Potencia', 'L1 Potencia Reactiva',
+    'L2 Corriente', 'L2 Tensión', 'L2 Potencia', 'L2 Potencia Reactiva',
+    'L3 Corriente', 'L3 Tensión', 'L3 Potencia', 'L3 Potencia Reactiva', 'Todas las potencias'
+];
 
-    ftx.clearRect(0, 0, fcanvas.width, fcanvas.height);
-
-    for( var round=0 ; round < channels ; round++ ) {
-        ftx.beginPath();
-        
-        ftx.strokeStyle = colors[round % colors.length]; // Asignar color basado en el índice del canal
-
-        var lastsamp = parseInt( fftdata.substr( fftsamps * round ,3),16 ) * mult;
-        var x1 = 0;
-        var y1 = 0;
-
-        for (var i = fftsamps * round ; i < fftsamps * round + fftsamps ; i++) {
-            var x2 = ((i-(fftsamps * round)) ) * fcanvas.clientWidth / ( fftsamps - 1 );
-            var samp = parseInt(fftdata.substr(i * 3, 3), 16) * mult;
-            var y2 = ( 1.-samp / 1024 ) * fcanvas.clientHeight - 1;
-
-            ftx.moveTo( x1, y1 );
-            ftx.bezierCurveTo( x2, y1, x1, y2, x2, y2 );
-            x1 = x2;
-            y1 = y2;
-            lastsamp = samp;
-        }
-        ftx.stroke();
+// Funciones de inicialización y actualización de gráficos
+function createOrUpdateChart(chartId, datasets, numSamples, title, yLabel) {
+    const canvas = document.getElementById(chartId);
+    if (!canvas) {
+        console.error(`Canvas con ID '${chartId}' no encontrado.`);
+        return;
     }
-	
-	ftx.beginPath();
-	ftx.strokeStyle = "#525252";
-    ftx.font = "30px Arial";
-    ftx.fillText("FFT",12,30);
-    ftx.stroke();
 
-	ftx.beginPath();
-	ftx.strokeStyle = "#c0c0c0";
-	for (i = 1; (iratio * mult * i) < ( fcanvas.clientHeight ); i++) {
-		ftx.moveTo(0, fcanvas.clientHeight - (iratio * mult * i) );
-		ftx.lineTo( ftx.canvas.width, fcanvas.clientHeight - (iratio * mult * i) );
-	}
-	ftx.stroke();
-	ftx.beginPath();
-	
-	ftx.strokeStyle = "#000000";
-	ftx.strokeRect( 0,  0, fcanvas.clientWidth, fcanvas.clientHeight );
-	ftx.stroke();
-	
-	 // Dibujar los ejes con niveles
-     otx.beginPath();
-     otx.strokeStyle = document.body.classList.contains('dark-mode') ? "#FFFFFF" : "#000000";
-     
-     for (let i = 1; (iratio * mult * i) < (ocanvas.clientHeight / 2); i++) {
-         otx.moveTo(0, ocanvas.clientHeight / 2 + (iratio * mult * i));
-         otx.lineTo(otx.canvas.width, ocanvas.clientHeight / 2 + (iratio * mult * i));
-         otx.moveTo(0, ocanvas.clientHeight / 2 - (iratio * mult * i));
-         otx.lineTo(otx.canvas.width, ocanvas.clientHeight / 2 - (iratio * mult * i));
-     }
- 
-     otx.stroke();
-     otx.beginPath();
-     
-     otx.strokeStyle = document.body.classList.contains('dark-mode') ? "#FFFFFF" : "#000000";
-     otx.moveTo(0, ocanvas.clientHeight / 2);
-     otx.lineTo(ocanvas.clientWidth, ocanvas.clientHeight / 2);
- 
-     otx.moveTo(1, ocanvas.clientHeight / 2 - 20 );
-     otx.lineTo(1, ocanvas.clientHeight / 2 + 20);
+    const ctx = canvas.getContext('2d');
 
-	otx.moveTo(otx.canvas.width / 8, ocanvas.clientHeight / 2 - 10);
-	otx.lineTo(otx.canvas.width / 8 , ocanvas.clientHeight / 2 + 10);
-
-	otx.moveTo(otx.canvas.width / 8 * 2, ocanvas.clientHeight / 2 - 10 );
-	otx.lineTo(otx.canvas.width / 8 * 2, ocanvas.clientHeight / 2 + 10);
-
-	otx.moveTo(otx.canvas.width / 8 * 3, ocanvas.clientHeight / 2 - 10 );
-	otx.lineTo(otx.canvas.width / 8 * 3, ocanvas.clientHeight / 2 + 10);
-
-	otx.moveTo(otx.canvas.width / 2, ocanvas.clientHeight / 2 - 20);
-	otx.lineTo(otx.canvas.width / 2 , ocanvas.clientHeight / 2 + 20);
-
-	otx.moveTo(otx.canvas.width / 8 * 5, ocanvas.clientHeight / 2 - 10 );
-	otx.lineTo(otx.canvas.width / 8 * 5, ocanvas.clientHeight / 2 + 10);
-
-	otx.moveTo(otx.canvas.width / 8 * 6, ocanvas.clientHeight / 2 - 10);
-	otx.lineTo(otx.canvas.width / 8 * 6, ocanvas.clientHeight / 2 + 10);
-
-	otx.moveTo(otx.canvas.width / 8 * 7, ocanvas.clientHeight / 2 - 10);
-	otx.lineTo(otx.canvas.width / 8 * 7, ocanvas.clientHeight / 2 + 10);
-
-	otx.moveTo(otx.canvas.width - 1, ocanvas.clientHeight / 2 - 20 );
-	otx.lineTo(otx.canvas.width - 1, ocanvas.clientHeight / 2 + 20);
-
-	otx.strokeStyle = "#000000";
-	otx.strokeRect( 0,  0, ocanvas.clientWidth, ocanvas.clientHeight );
-
-	otx.stroke();
-
-    otx.beginPath();
-    otx.fillStyle = "#FF0000";
-    otx.fillRect(10,60, 10,10);
-    otx.font = "15px Arial";
-    otx.fillText("Corriente",30,70);
-    otx.stroke();
-
-    otx.beginPath();
-    otx.fillStyle = "#0000FF";
-    otx.fillRect(10,80, 10,10);
-    otx.font = "15px Arial";
-    otx.fillText("Tensión",30,90);
-    otx.stroke();
-
-    otx.beginPath();
-    otx.fillStyle = "#000000";
-    otx.fillRect(10,100, 10,10);
-    otx.font = "15px Arial";
-    otx.fillText("Potencia",30,110);
-    otx.stroke();
-
-    otx.beginPath();
-    otx.fillStyle = "#00B000";
-    otx.fillRect(10,120, 10,10);
-    otx.font = "15px Arial";
-    otx.fillText("Potencia Reactiva",30,130);
-    otx.stroke();
-
-    otx.beginPath();
-	otx.fillStyle = "#525252";
-    otx.font = "30px Arial";
-    otx.fillText("Osciloscopio",10,30);
-    otx.font = "15px Arial";
-    otx.fillText("div: 5 o 4.17ms",10,50);
-    otx.stroke();
-  
-	if (!pause_osc)
-		OScopeProbe();
+    if (!charts[chartId]) {
+        charts[chartId] = new Chart(ctx, {
+            type: 'line',
+            data: { datasets: datasets },
+            options: {
+                responsive: true,
+                animation: false, // Desactiva animaciones para evitar saltos
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index', // Permitir inspección en todos los puntos
+                    intersect: false,
+                },
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    title: {
+                        display: true,
+                        text: title,
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (tooltipItem) => `Valor: ${tooltipItem.raw.y.toFixed(2)}`
+                        }
+                    },
+                    zoom: {
+                        zoom: {
+                            wheel: { enabled: true },
+                            mode: 'y',
+                            limits: { y: { min: -100, max: 1000 } },
+                        },
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: { display: true, text: 'Muestras' },
+                        min: 0,
+                        max: numSamples
+                    },
+                    y: {
+                        title: { display: true, text: yLabel },
+                        beginAtZero: false,
+                        min: -1000,
+                        suggestedMin: -1000,
+                        suggestedMax: 1000,
+                        ticks: {
+                            callback: function (value) {
+                                return value.toFixed(1);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        charts[chartId].data.datasets = datasets;
+        charts[chartId].options.scales.x.min = 0;
+        charts[chartId].options.scales.x.max = numSamples;
+        charts[chartId].update();
+    }
 }
 
+function GotOScope(data) {
+    const parts = data.split('\\');
+    if (parts[0] !== 'OScopeProbe') return;
 
+    const numChannels = parseInt(parts[1]);
+    const numSamples = parseInt(parts[2]);
+    const fftSamples = parseInt(parts[3]);
+    const channelData = parts[5];
+    const fftData = parts[6];
+    const activeChannels = decodeActiveChannels(parts[7]);
+
+    const oscilloscopeDatasets = prepareOscilloscopeData(activeChannels, numSamples, channelData);
+    const fftDatasets = prepareFFTData(activeChannels, fftSamples, fftData);
+
+    // Actualizar gráficos
+    createOrUpdateChart('oscilloscopeChart', oscilloscopeDatasets, numSamples, 'Osciloscopio', 'Amplitud');
+    createOrUpdateChart('fftChart', fftDatasets, fftSamples, 'FFT', 'Magnitud');
+}
+
+function decodeActiveChannels(activeChannelsHex) {
+    const binaryString = parseInt(activeChannelsHex, 16).toString(2).padStart(13, '0');
+    const activeChannels = [];
+    for (let i = 0; i < binaryString.length; i++) {
+        if (binaryString[i] === '1') activeChannels.push(i);
+    }
+    return activeChannels;
+}
+
+function prepareOscilloscopeData(activeChannels, numSamples, data) {
+    const datasets = [];
+
+
+    activeChannels.forEach((channelIndex, activeIndex) => {
+        const values = [];
+
+                // Determinar el factor de ajuste basado en el channelIndex
+                switch (true) {
+                    case [0, 4, 8].includes(channelIndex):
+                        factor = 1.5;
+                        break;
+                    case [1, 5, 9].includes(channelIndex):
+                        factor = 0.89;
+                        break;
+                    case [2, 6, 10].includes(channelIndex):
+                        factor = 3;
+                        break;
+                    case [3, 7, 11].includes(channelIndex):
+                        factor = 4;
+                        break;
+                    default:
+                        console.warn(`Canal ${channelIndex} no tiene un factor definido. Usando 1.`);
+                }
+
+        for (let i = 0; i < numSamples; i++) {
+            const offsetPos = (numSamples * activeIndex + i) * 3;
+            const hexValue = data.substr(offsetPos, 3);
+            const adcValue = parseInt(hexValue, 16);
+            const adjustedValue = (adcValue - 2048) * factor;
+
+            values.push({ x: i, y: adjustedValue });
+        }
+
+        datasets.push({
+            label: `${channelNames[channelIndex]}`,
+            data: values,
+            borderColor: getColor(channelIndex),
+            fill: false,
+            pointRadius: 2,
+            tension: 0.1
+        });
+    });
+
+    //console.log('Datasets preparados:', datasets);
+    return datasets;
+}
+
+function prepareFFTData(activeChannels, fftSamples, data) {
+    const datasets = [];
+    activeChannels.forEach((channelIndex, activeIndex) => {
+        const values = [];
+        // Determinar el factor de ajuste basado en el channelIndex
+        switch (true) {
+            case [0, 4, 8].includes(channelIndex):
+                factor = 1.5;
+                break;
+            case [1, 5, 9].includes(channelIndex):
+                factor = 1;
+                break;
+            case [2, 6, 10].includes(channelIndex):
+                factor = 3;
+                break;
+            case [3, 7, 11].includes(channelIndex):
+                factor = 4;
+                break;
+            default:
+                console.warn(`Canal ${channelIndex} no tiene un factor definido. Usando 1.`);
+        }
+
+        for (let i = 0; i < fftSamples; i++) {
+            const offset = (fftSamples * activeIndex + i) * 3;
+            const hexValue = data.substr(offset, 3);
+            //const value = parseInt(hexValue, 16) / 1024 * 100;
+            const value = (parseInt(hexValue, 16) / 1024 )* 1000 * factor;
+            values.push({ x: i, y: value });
+        }
+        datasets.push({
+            label: `${channelNames[channelIndex]} FFT`,
+            data: values,
+            borderColor: getColor(channelIndex),
+            fill: false,
+            pointRadius: 2,
+            tension: 0.1
+        });
+    });
+    console.log('Datasets FFT preparados:', datasets);
+
+    return datasets;
+}
+
+function getColor(index) {
+    const colors = ['#FF5733', '#3498DB', '#2ECC71', '#F39C12', '#C0392B', '#2980B9', '#27AE60'];
+    return colors[index % colors.length];
+}
+
+// Función para pausar/reanudar el osciloscopio
 function ToggleOScopePause() {
-	pause_osc = !pause_osc;
+    pause_osc = !pause_osc;
+    if (!pause_osc) OScopeProbe();
 }
 
 function PhaseshiftPlus() {

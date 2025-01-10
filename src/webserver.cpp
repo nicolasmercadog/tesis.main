@@ -236,6 +236,7 @@ static void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, Aw
         else if ( !strcmp("OSC", cmd ) ) {
             char request[ numbersOfSamples * VIRTUAL_CHANNELS + numbersOfFFTSamples * VIRTUAL_CHANNELS + 96 ]="";
             char tmp[64]="";
+            //char tmp[128]="";
             uint16_t * mybuffer;
             char * active_channels = value;
             int active_channel_count = 0;
@@ -250,9 +251,9 @@ static void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, Aw
                     active_channel_count++;
                 active_channels++;
             }
-            if( active_channel_count < 8 )
+           if( active_channel_count < 8 )
                 SampleScale = 2;
-            if( active_channel_count < 5 )
+           if( active_channel_count < 5 )
                 SampleScale = 1;
             /**
              * send first info data
@@ -262,15 +263,22 @@ static void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, Aw
             /**
              * get sample buffers and build first data block
              */
+            //mybuffer = measure_get_channel_rms();
             mybuffer = measure_get_buffer();
+            //printf("%u\n", measure_get_buffer());
             for( int channel = 0 ; channel < VIRTUAL_CHANNELS ; channel++ ) {
                 if( *( value + channel ) == '0' )
                     continue;
 
-                for( int i = 0 ; i < numbersOfSamples ; i = i + SampleScale ) {                    
+                for( int i = 0 ; i < numbersOfSamples ; i = i + SampleScale ) {    
+                
+                    //snprintf(tmp, sizeof(tmp), "U=%.1f%s ", measure_get_channel_rms(channel), measure_get_channel_report_unit(channel));              
                     snprintf( tmp, sizeof( tmp ), "%03x", mybuffer[ numbersOfSamples * channel + i ] > 0x0fff ? 0x0fff : mybuffer[ numbersOfSamples * channel + i ] );
                     strncat( request, tmp, sizeof( request ) );
-                    //log_e("Temp: %s / ", mybuffer[numbersOfSamples * channel + i]);
+                    //log_e("Temp: %s \n ", mybuffer[numbersOfSamples * channel + i]);
+                    //printf("%u\n", mybuffer[numbersOfSamples * channel + i]);
+                    //printf("Temp canal %d: %s\n",channel, tmp);
+
                 }
             }
             strncat( request, "\\", sizeof( request ) );
@@ -291,13 +299,24 @@ static void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, Aw
             /**
              * get channel data types and build data data block
              */
-            for( int channel = 0 ; channel < VIRTUAL_CHANNELS ; channel++ ) {
-                if( *( value + channel ) == '0' )
-                    continue;
+char activeChannelsBinary[14]; // Almacenar los valores de los canales activos
+for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++) {
+    if (*(value + channel) == '0') {
+        activeChannelsBinary[channel] = '0';
+    } else {
+        activeChannelsBinary[channel] = '1';
+    }
+}
+activeChannelsBinary[VIRTUAL_CHANNELS] = '\0'; // Finalizar la cadena
 
-                snprintf( tmp, sizeof( tmp ), "%1x", measure_get_channel_type( channel ) );
-                strncat( request, tmp, sizeof( request ) );
-            }
+// Ahora convierte la representación binaria a hexadecimal para reducir la longitud del mensaje.
+char hexChannels[8]; // Necesitamos una representación hexadecimal de los 13 canales
+int binaryValue = strtol(activeChannelsBinary, NULL, 2); // Convertir de binario a un entero
+snprintf(hexChannels, sizeof(hexChannels), "%03X", binaryValue); // Convertir el entero en hexadecimal
+
+strncat(request, hexChannels, sizeof(request));
+
+            
             client->text( request );
         }
         /* get status-line */
@@ -343,7 +362,7 @@ static void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, Aw
 
                             // Concatenar el valor RMS del canal
                             snprintf(tmp, sizeof(tmp), "U=%.1f%s ", measure_get_channel_rms(channel), measure_get_channel_report_unit(channel));
-
+                            //printf("%f \n",measure_get_channel_rms(channel));
                             // Concatenar el valor del tercer armónico
                             strncat(tmp, "| U3=", sizeof(tmp) - strlen(tmp) - 1);
                             char thirdHarmonicStr[32];
@@ -597,6 +616,9 @@ static void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, Aw
     }
   }
 }
+
+
+
 
 /*
  * based on: https://github.com/lbernstone/asyncUpdate/blob/master/AsyncUpdate.ino

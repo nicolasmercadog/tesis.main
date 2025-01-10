@@ -1,0 +1,237 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:725] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+Guru Meditation Error: Core  1 panic'ed (LoadStoreError). Exception was unhandled.
+Core 1 register dump:
+PC      : 0x400d9ba8  PS      : 0x00060530  A0      : 0x800daa96  A1      : 0x3ffe7060  
+A2      : 0x3ffe8a70  A3      : 0x3ffe9d84  A4      : 0x0037310e  A5      : 0x3ffe71cc  
+A6      : 0x4035ce92  A7      : 0x3ffe9d80  A8      : 0x00000030  A9      : 0x3ffe7040  
+A10     : 0x3ffe724c  A11     : 0x3ffe71cc  A12     : 0x00000f00  A13     : 0x00000000  
+A14     : 0x3f401586  A15     : 0x00000030  SAR     : 0x00000001  EXCCAUSE: 0x00000003  
+EXCVADDR: 0x4035ce92  LBEG    : 0x400014fd  LEND    : 0x4000150d  LCOUNT  : 0xffffffff  
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x400d9ba8:0x3ffe7060 0x400daa93:0x3ffe8170 0x4018dd43:0x3ffe8190 0x4018e0a5:0x30303130
+  #0  0x400d9ba8:0x3ffe7060 in _ZL9onWsEventP14AsyncWebSocketP20AsyncWebSocketClient12AwsEventTypePvPhj$part$12 at src/webserver.cpp:297
+  #1  0x400daa93:0x3ffe8170 in onWsEvent(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at src/webserver.cpp:111
+  #2  0x4018dd43:0x3ffe8190 in std::_Function_handler<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int), void (*)(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::_M_invoke(std::_Any_data const&, AsyncWebSocket*&&, AsyncWebSocketClient*&&, AwsEventType&&, void*&&, unsigned char*&&, unsigned int&&) at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #3  0x4018e0a5:0x30303130 in std::function<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::operator()(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) const at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:2271
+      (inlined by) AsyncWebSocket::_handleEvent(AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:869
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:725] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+
+Stack smashing protect failure!
+
+abort() was called at PC 0x401772cf on core 1
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffe7000 0x40088bf5:0x3ffe7020 0x401772cf:0x3ffe7040 0x400daa7e:0x3ffe7060 0x400daa93:0x3ffe8170 0x4018dd43:0x3ffe8190 0x4018e0a5:0x30303030
+  #0  0x40088978:0x3ffe7000 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffe7020 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401772cf:0x3ffe7040 in __stack_chk_fail at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/stack_check.c:36
+  #3  0x400daa7e:0x3ffe7060 in _ZL9onWsEventP14AsyncWebSocketP20AsyncWebSocketClient12AwsEventTypePvPhj$part$12 at src/webserver.cpp:602
+  #4  0x400daa93:0x3ffe8170 in onWsEvent(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at src/webserver.cpp:111
+  #5  0x4018dd43:0x3ffe8190 in std::_Function_handler<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int), void (*)(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::_M_invoke(std::_Any_data const&, AsyncWebSocket*&&, AsyncWebSocketClient*&&, AwsEventType&&, void*&&, unsigned char*&&, unsigned int&&) at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #6  0x4018e0a5:0x30303030 in std::function<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::operator()(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) const at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:2271
+      (inlined by) AsyncWebSocket::_handleEvent(AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:869
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][webserver.cpp:725] asyncwebserver_Task(): Start Webserver on Core: 1
+
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+
+Stack smashing protect failure!
+
+abort() was called at PC 0x401772cf on core 1
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffe7000 0x40088bf5:0x3ffe7020 0x401772cf:0x3ffe7040 0x400daa7e:0x3ffe7060 0x400daa93:0x3ffe8170 0x4018dd43:0x3ffe8190 0x4018e0a5:0x30303030
+  #0  0x40088978:0x3ffe7000 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffe7020 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401772cf:0x3ffe7040 in __stack_chk_fail at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/stack_check.c:36
+  #3  0x400daa7e:0x3ffe7060 in _ZL9onWsEventP14AsyncWebSocketP20AsyncWebSocketClient12AwsEventTypePvPhj$part$12 at src/webserver.cpp:602
+  #4  0x400daa93:0x3ffe8170 in onWsEvent(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at src/webserver.cpp:111
+  #5  0x4018dd43:0x3ffe8190 in std::_Function_handler<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int), void (*)(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::_M_invoke(std::_Any_data const&, AsyncWebSocket*&&, AsyncWebSocketClient*&&, AwsEventType&&, void*&&, unsigned char*&&, unsigned int&&) at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #6  0x4018e0a5:0x30303030 in std::function<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::operator()(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) const at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:2271
+      (inlined by) AsyncWebSocket::_handleEvent(AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:869
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][webserver.cpp:725] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
+E (20233) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (20233) task_wdt:  - async_tcp (CPU 1)
+E (20233) task_wdt: Tasks currently running:
+E (20233) task_wdt: CPU 0: IDLE0
+E (20233) task_wdt: CPU 1: async_tcp
+E (20233) task_wdt: Aborting.
+abort() was called at PC 0x401749b0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x401749b0:0x3ffbff30 0x400870b5:0x3ffbff50 0x4019091f:0x3ffbc370 0x40176317:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401749b0:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x4019091f:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x40176317:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][webserver.cpp:725] asyncwebserver_Task(): Start Webserver on Core: 1
+
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 

@@ -5,8 +5,78 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="styles.css">
    <script src="jquery-lastest.min.js" type="text/javascript"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.1.1/dist/chartjs-plugin-zoom.min.js"></script>
+
+
+<script>
+function toggleAllChannels() {
+    const state = !document.getElementById('channel0').checked;
+    for (let i = 0; i <= 12; i++) {
+        const checkbox = document.getElementById(`channel${i}`);
+        if (checkbox) {
+            checkbox.checked = state;
+        }
+    }
+}
+</script>
+<script>
+function togglePlayPause() {
+        const button = document.getElementById('OScopeProbeButton');
+        if (button.classList.contains('paused')) {
+            button.classList.remove('paused');
+            button.classList.add('playing');
+            button.value = '⏸'; // Cambiar a ícono de pausa
+            button.style.backgroundColor = 'red'; // Color rojo para pausa
+        } else {
+            button.classList.remove('playing');
+            button.classList.add('paused');
+            button.value = '▶'; // Cambiar a ícono de play
+            button.style.backgroundColor = 'green'; // Color verde para play
+        }
+        ToggleOScopePause();
+        OScopeProbe();
+    }
+</script>
+
    <script src="alarm.js" type="text/javascript"></script>
    <script src="script.js"></script>
+   <script>
+      window.addEventListener('resize', function() {
+          resizeCanvases();
+      });
+
+      function resizeCanvases() {
+          const ocanvas = document.getElementById('OScopeCanvas');
+          const fcanvas = document.getElementById('FFTCanvas');
+          if (ocanvas && fcanvas) {
+              ocanvas.width = ocanvas.parentElement.clientWidth;
+              ocanvas.height = 400;
+
+              fcanvas.width = fcanvas.parentElement.clientWidth;
+              fcanvas.height = 400;
+
+              // Llamar a la función de redibujado
+              if (typeof GotOScope === 'function') {
+                  GotOScope('');
+              }
+          }
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+          resizeCanvases();
+      });
+
+      function zoomFFT(scale) {
+          const fcanvas = document.getElementById('FFTCanvas');
+          const ctx = fcanvas.getContext('2d');
+          const imageData = ctx.getImageData(0, 0, fcanvas.width, fcanvas.height);
+          ctx.clearRect(0, 0, fcanvas.width, fcanvas.height);
+          ctx.setTransform(scale, 0, 0, 1, 0, 0);
+          ctx.putImageData(imageData, 0, 0);
+      }
+   </script>
 </head>
 <body>
 <div id='cssmenu'>
@@ -23,38 +93,42 @@
 </div>
 <h1>Vista en vivo</h1>
 <div id=OScope class="collapsible">
+    <!--<div id="legend-container"></div>  -->
+  <div style="margin-bottom: 10px;">
+  </div>
   <table width="100%" border="0">
-     <tr>
-       <td width="80%">
-         <canvas id=OScopeCanvas width="900" height="400"></canvas>
-       </td>
+    <tr>
+       <td width="70%">
+        <canvas id="oscilloscopeChart" width="600" height="400"></canvas>
+    </td>
        <td width="20%">
-         <canvas id=FFTCanvas width="300" height="400"></canvas>
-       </td>
-       <td>
-        <input id="OSCMultIn" type="range" value="1" max="20" min="0.1" step="0.1" orient="vertical">
-      </td>
-     </tr>
-       <td>
-         <input type=button onclick="ToggleOScopePause(); OScopeProbe();" id=OScopeProbeButton value="|| / >">
+        <canvas id="fftChart" width="600" height="400"></canvas>
+    </td>
+    </tr>
+
+       
+         <input type=button onclick="togglePlayPause();" id=OScopeProbeButton class="paused" value="▶" style="background-color: green;">
          <button id="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-         zoom: <output id="OSCMultOut"></output><br></td>
+         <button id="resetZoomButton">Restablecer Zoom</button>
+         zoom: <output id="OSCMultOut"></output><br><br>
           <table width="100%" border="1">
             <tr width="100%"><div id='fixedfooter'><span id='status'>Desconectado</span></div></tr>
-            <td width="70%">
-              <input type="checkbox" id="channel0" checked><label id="channel_0_name" for="channel0">I1</label>
-              <input type="checkbox" id="channel1" checked><label id="channel_1_name" for="channel1">U1</label>
-              <input type="checkbox" id="channel2" checked><label id="channel_2_name" for="channel2">P1</label>
-              <input type="checkbox" id="channel3" checked><label id="channel_3_name" for="channel3">Q1</label><br>
-              <input type="checkbox" id="channel4" checked><label id="channel_4_name" for="channel4">I2</label>
-              <input type="checkbox" id="channel5" checked><label id="channel_5_name" for="channel5">U2</label>
-              <input type="checkbox" id="channel6" checked><label id="channel_6_name" for="channel6">P2</label>
-              <input type="checkbox" id="channel7" checked><label id="channel_7_name" for="channel7">Q2</label><br>
-              <input type="checkbox" id="channel8" checked><label id="channel_8_name" for="channel8">I3</label>
-              <input type="checkbox" id="channel9" checked><label id="channel_9_name" for="channel9">U3</label>
-              <input type="checkbox" id="channel10" checked><label id="channel_10_name" for="channel10">P3</label>
-              <input type="checkbox" id="channel11" checked><label id="channel_11_name" for="channel11">Q3</label><br>
-              <input type="checkbox" id="channel12" checked><label id="channel_12_name" for="channel12">TP</label>
+            
+              <button onclick="toggleAllChannels();">Activar/Desactivar todos los canales</button><br>
+                  <input type="checkbox" id="channel0" checked title="Corriente del L1"><label id="channel_0_name" for="channel0">L1 Corriente (I1)</label>
+                  <input type="checkbox" id="channel1" checked title="Tensión del L1"><label id="channel_1_name" for="channel1">L1 Tensión (U1)</label>
+                  <input type="checkbox" id="channel2" checked title="Potencia del L1"><label id="channel_2_name" for="channel2">L1 Potencia (P1)</label>
+                  <input type="checkbox" id="channel3" checked title="Potencia Reactiva del L1"><label id="channel_3_name" for="channel3">L1 Potencia Reactiva (Q1)</label><br>
+                  <input type="checkbox" id="channel4" checked title="Corriente del L2"><label id="channel_4_name" for="channel4">L2 Corriente (I2)</label>
+                  <input type="checkbox" id="channel5" checked title="Tensión del L2"><label id="channel_5_name" for="channel5">L2 Tensión (U2)</label>
+                  <input type="checkbox" id="channel6" checked title="Potencia del L2"><label id="channel_6_name" for="channel6">L2 Potencia (P2)</label>
+                  <input type="checkbox" id="channel7" checked title="Potencia Reactiva del L2"><label id="channel_7_name" for="channel7">L2 Potencia Reactiva (Q2)</label><br>
+                  <input type="checkbox" id="channel8" checked title="Corriente del L3"><label id="channel_8_name" for="channel8">L3 Corriente (I3)</label>
+                  <input type="checkbox" id="channel9" checked title="Tensión del L3"><label id="channel_9_name" for="channel9">L3 Tensión (U3)</label>
+                  <input type="checkbox" id="channel10" checked title="Potencia del L3"><label id="channel_10_name" for="channel10">L3 Potencia (P3)</label>
+                  <input type="checkbox" id="channel11" checked title="Potencia Reactiva del L3"><label id="channel_11_name" for="channel11">L3 Potencia Reactiva (Q3)</label><br>
+                  <input type="checkbox" id="channel12" checked title="Todas las Potencias (TP)"><label id="channel_12_name" for="channel12">Todas las Potencias (TP)</label>
+              
               </td>
               <td width="30%">
                 Tasa de muestreo:<br><input type=button onclick="SampleratePlus(); " id=SampleratePlusButton value="+">
@@ -82,11 +156,13 @@
             </td>
         </table>
    </table>
-</div>  
+</div> 
+<div id="cursor-tooltip" style="position: absolute; display: none; background-color: white; border: 1px solid black; padding: 5px; font-size: 12px;"></div>
 </body>
 </html>
+
 <style>
   #status {
       white-space: pre-wrap;  /* Esto asegura que los saltos de línea \n sean respetados */
   }
-  </style>
+</style>

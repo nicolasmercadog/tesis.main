@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <Arduino.h>
 #include <FS.h>
 #include <SPIFFS.h>
 #include "config.h"
@@ -32,7 +33,6 @@ void setup( void ) {
     measure_StartTask();
     mqtt_client_StartTask();
     asyncwebserver_StartTask();
-    measure_get_fft();
     ntp_StartTask();
         sendDataToMongoDB("test_topic", "Test message desde ESP32");
 
@@ -42,6 +42,8 @@ void setup( void ) {
  * @brief arduino main loop
  */
 void loop() {
+        measure_get_fft();
+
 
 
 /*for (int i = 0; i < 3; i++) {

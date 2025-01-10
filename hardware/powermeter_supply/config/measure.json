@@ -31,7 +31,7 @@
       {
         "name": "L1 current",
         "type": 0,
-        "true_rms": true,
+        "true_rms": false,
         "report_exp": 0,
         "offset": 0,
         "ratio": 0.023696,
@@ -42,10 +42,10 @@
       {
         "name": "L1 voltage",
         "type": 1,
-        "true_rms": true,
+        "true_rms": false,
         "report_exp": 0,
         "offset": 0,
-        "ratio": 0.412,
+        "ratio": 1.25,
         "phaseshift": 16,
         "group_id": 0,
         "mircocode": "51750000000000000000"
@@ -75,7 +75,7 @@
       {
         "name": "L2 current",
         "type": 0,
-        "true_rms": true,
+        "true_rms": false,
         "report_exp": 0,
         "offset": 0,
         "ratio": 0.025989,
@@ -86,7 +86,7 @@
       {
         "name": "L2 voltage",
         "type": 1,
-        "true_rms": true,
+        "true_rms": false,
         "report_exp": 0,
         "offset": 0,
         "ratio": 0.324,
@@ -119,7 +119,7 @@
       {
         "name": "L3 current",
         "type": 0,
-        "true_rms": true,
+        "true_rms": false,
         "report_exp": 0,
         "offset": 0,
         "ratio": 0.025989,
@@ -130,7 +130,7 @@
       {
         "name": "L3 voltage",
         "type": 1,
-        "true_rms": true,
+        "true_rms": false,
         "report_exp": 0,
         "offset": 0,
         "ratio": 0.324,

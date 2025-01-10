@@ -59,16 +59,16 @@ struct groupconfig groupconfig[MAX_GROUPS] = {
  */
 
 struct channelconfig channelconfig[VIRTUAL_CHANNELS] = {
-    {"L1 Corriente", AC_CURRENT, 0, 0.084, 0.0, 0.0, true, 0.0, 0, 0, 0.0, GET_ADC | CHANNEL_0, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
-    {"L1 Tensión", AC_VOLTAGE, 30, 0.63, 0.0, 0.0, true, 0.0, 0, 0, 0.0, GET_ADC | CHANNEL_1, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
+    {"L1 Corriente", AC_CURRENT, 0, 0.084, 0.0, 0.0, false, 0.0, 0, 0, 0.0, GET_ADC | CHANNEL_0, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
+    {"L1 Tensión", AC_VOLTAGE, 30, 1.3, 0.0, 0.0, false, 0.0, 0, 0, 0.0, GET_ADC | CHANNEL_1, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
     {"L1 Potencia", AC_POWER, 0, 1.0, 0.0, 0.0, false, 0.0, 3, 0, 0.0, SET_TO | 1, MUL | CHANNEL_0, MUL | CHANNEL_1, MUL_RATIO | CHANNEL_0, MUL_RATIO | CHANNEL_1, ABS, BRK, BRK, BRK, BRK},
     {"L1 Potencia Reactiva", AC_REACTIVE_POWER, 0, 1.0, 0.0, 0.0, false, 0.0, 3, 0, 0.0, SET_TO | 1, MUL | CHANNEL_0, MUL | CHANNEL_1, MUL_RATIO | CHANNEL_0, MUL_RATIO | CHANNEL_1, PASS_NEGATIVE, MUL_REACTIVE | CHANNEL_1, ABS, NEG, BRK},
-    {"L2 Corriente", AC_CURRENT, 0, 0.115, 0.0, 0.0, true, 0.0, 0, 1, 0.0, GET_ADC | CHANNEL_5, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
-    {"L2 Tensión", AC_VOLTAGE, 30, 0.63, 0.0, 0.0, true, 0.0, 0, 1, 0.0, GET_ADC | CHANNEL_4, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
+    {"L2 Corriente", AC_CURRENT, 0, 0.115, 0.0, 0.0, false, 0.0, 0, 1, 0.0, GET_ADC | CHANNEL_5, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
+    {"L2 Tensión", AC_VOLTAGE, 30, 0.63, 0.0, 0.0, false, 0.0, 0, 1, 0.0, GET_ADC | CHANNEL_4, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
     {"L2 Potencia", AC_POWER, 0, 1.0, 0.0, 0.0, false, 0.0, 3, 1, 0.0, SET_TO | 1, MUL | CHANNEL_5, MUL | CHANNEL_4, MUL_RATIO | CHANNEL_5, MUL_RATIO | CHANNEL_4, ABS, BRK, BRK, BRK, BRK},
     {"L2 Potencia Reactiva", AC_REACTIVE_POWER, 0, 1.0, 0.0, 0.0, false, 0.0, 3, 1, 0.0, SET_TO | 1, MUL | CHANNEL_5, MUL | CHANNEL_4, MUL_RATIO | CHANNEL_5, MUL_RATIO | CHANNEL_4, PASS_NEGATIVE, MUL_REACTIVE | CHANNEL_4, ABS, NEG, BRK},
-    {"L3 Corriente", AC_CURRENT, 0, 0.082, 0.0, 0.0, true, 0.0, 0, 2, 0.0, GET_ADC | CHANNEL_2, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
-    {"L3 Tensión", AC_VOLTAGE, 30, 0.63, 0.0, 0.0, true, 0.0, 0, 2, 0.0, GET_ADC | CHANNEL_3, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
+    {"L3 Corriente", AC_CURRENT, 0, 0.082, 0.0, 0.0, false, 0.0, 0, 2, 0.0, GET_ADC | CHANNEL_2, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
+    {"L3 Tensión", AC_VOLTAGE, 30, 0.63, 0.0, 0.0, false, 0.0, 0, 2, 0.0, GET_ADC | CHANNEL_3, FILTER | 0, BRK, BRK, BRK, BRK, BRK, BRK, BRK, BRK},
     {"L3 Potencia", AC_POWER, 0, 1.0, 0.0, 0.0, false, 0.0, 3, 2, 0.0, SET_TO | 1, MUL | CHANNEL_2, MUL | CHANNEL_3, MUL_RATIO | CHANNEL_2, MUL_RATIO | CHANNEL_3, ABS, BRK, BRK, BRK, BRK},
     {"L3 Potencia Reactiva", AC_REACTIVE_POWER, 0, 1.0, 0.0, 0.0, false, 0.0, 3, 2, 0.0, SET_TO | 1, MUL | CHANNEL_2, MUL | CHANNEL_3, MUL_RATIO | CHANNEL_2, MUL_RATIO | CHANNEL_3, PASS_NEGATIVE, MUL_REACTIVE | CHANNEL_3, ABS, NEG, BRK},
     {"Todas las Potencias", AC_POWER, 0, 1.0, 0.0, 0.0, false, 0.0, 3, 3, 0.0, SET_TO | 0, ADD | CHANNEL_0, ADD | CHANNEL_4, ADD | CHANNEL_2, BRK, BRK, BRK, BRK, BRK, BRK}
@@ -97,6 +97,9 @@ double vImag[numbersOfSamples]; // Buffer para los valores imaginarios (en FFT s
 arduinoFFT FFT2 = arduinoFFT();
 static int measurement_valid = 3; /** empieza a contar en 3 para evitar basura */
 
+const float high_pass_coef = 0.9989;  // Coeficiente de filtro de paso alto, ajustado para reducir el DC residual
+ const int low_pass_window_size = 12;  // Tamaño de la ventana del filtro de media móvil (pasa bajo)
+
 void measure_Task(void *pvParameters)
 {
     log_i("Se empieza a medir en nucleo: %d", xPortGetCoreID()); // log para ver cuando empieza la tarea de medición
@@ -112,7 +115,7 @@ void measure_StartTask(void)
         10000,                      /* Tamaño de la pila en palabras */
         NULL,                       /* Parámetro de entrada, no se asigna nada (NULL) */
         2,                          /* Prioridad de la tarea (mientras más altas, mayor prioridad) */
-        &_MEASURE_Task,             /* Puntero al manejador de la tarea. */
+        &_MEASURE_Task,             /* Puntero al manejador                           de la tarea. */
         _MEASURE_TASKCORE);         /* Núcleo donde la tarea correrá (1 en este caso) */
 }
 
@@ -297,8 +300,7 @@ void measure_mes(void)
                 /**
                  * Obtengo la muestra justa
                  */
-                for (int operation = 0; operation < MAX_MICROCODE_OPS; operation++)
-                {
+                for (int operation = 0; operation < MAX_MICROCODE_OPS; operation++){
                     /**
                      * precalc the phaseshift from 360 degree to number of samples
                      * and prevent a channel clipping issue
@@ -376,7 +378,8 @@ void measure_mes(void)
                         break;
                     case GET_ADC:
                         if (op_channel >= 0 && op_channel < VIRTUAL_ADC_CHANNELS) // verifico si el canal está activo y dentro del rango
-                            {adc_sample[i] = adc_samples[op_channel][phaseshift_0_degree] + channelconfig[i].offset;
+                            {//adc_sample[i] = adc_samples[op_channel][phaseshift_0_degree] + channelconfig[i].offset;
+                            adc_sample[i] = adc_samples[op_channel][phaseshift_0_degree];
                             }
                         // tomo la muestra del canal seleccionado con su desfasaje y le sumo el desplazamiento en vertical (generalmente es cero)
                         else
@@ -392,33 +395,31 @@ void measure_mes(void)
                         case AC_VOLTAGE:
                         case AC_POWER:
                         case AC_REACTIVE_POWER:
-                            /**
-                             * primero filtro la señal dc
-                             */
-                            ac_filtered[i] = (0.9989) * (last_ac_filtered[i] + adc_sample[i] - last_adc_sample[i]);
-                            last_ac_filtered[i] = ac_filtered[i];
-                            last_adc_sample[i] = adc_sample[i];
-                            adc_sample[i] = ac_filtered[i];
-                            /**
-                             * luego se filtra el valor medio con un filtro pasa bajo
-                             */
-                            if (op_channel)
-                            {
-                                int mul = 1;
-                                if (op_channel <= 6)
-                                    mul = 1 << op_channel;
-                                else
-                                    mul = 1 << 6;
-                                dc_filtered[i][n % mul] = adc_sample[i];
-                                adc_sample[i] = 0.0;
-                                for (int a = 0; a < mul; a++)
-                                    adc_sample[i] += dc_filtered[i][a];
-                                adc_sample[i] /= mul;
-                            }
-                            else
-                            {
-                                adc_sample[i] = adc_sample[i];
-                            }
+                           // Ajusta este valor de acuerdo a la frecuencia de la señal para optimizar el filtrado
+      
+
+            // Filtro de paso alto para eliminar componentes de baja frecuencia/DC
+            ac_filtered[i] = high_pass_coef * (last_ac_filtered[i] + adc_sample[i] - last_adc_sample[i]);
+            last_ac_filtered[i] = ac_filtered[i];
+            last_adc_sample[i] = adc_sample[i];
+            adc_sample[i] = ac_filtered[i];  // Guardar resultado del filtro de paso alto
+
+            // Filtro de media móvil (pasa bajo)
+            if (op_channel) {
+                int mul = (op_channel <= 6) ? (1 << op_channel) : low_pass_window_size;  // Ventana adaptativa de filtro FIR
+                dc_filtered[i][n % mul] = adc_sample[i];  // Almacenar nueva muestra en el buffer circular
+
+                // Calcular media móvil para el filtro pasa bajo
+                float sum = 0.0;
+                for (int j = 0; j < mul; j++) {
+                    sum += dc_filtered[i][j];
+                }
+                adc_sample[i] = sum / mul;  // Asignar el promedio como resultado de la señal suavizada
+            }
+            else {
+                adc_sample[i] = ac_filtered[i];  // Para canales sin filtro, usar el resultado de paso alto directo
+            }
+
                             break;
                         case DC_CURRENT:
                         case DC_VOLTAGE: // en este caso sólo se deja la señal en dc, filtrando la ac con un pasa bajos
@@ -460,16 +461,21 @@ void measure_mes(void)
                     buffer[i][n] = 2048;                                                     // si es TRUE le asigno 2048
                 else
                     // si no se cumple entonces veo el valor de la muestra es menor a 0 en esa posición, si es mayor entonces le asigno el valor de la muestra + 2048
-                    buffer[i][n] = (adc_sample[i] + 2048) < 0.0 ? 0 : adc_sample[i] + 2048;
+                    {buffer[i][n] = (adc_sample[i] + 2048) < 0.0 ? 0 : (adc_sample[i]*measure_get_channel_ratio(i)) + 2048;}
 
                 switch (channelconfig[i].type)
                 {
                 case AC_CURRENT:
                 case AC_VOLTAGE: // Si true_rms es verdadero, se añade el cuadrado del valor de la muestra del ADC (adc_sample[i]) a channelconfig[i].sum.
-                    if (channelconfig[i].true_rms)
+                    if (channelconfig[i].true_rms){
                         channelconfig[i].sum += adc_sample[i] * adc_sample[i];
+                        }
                     else
-                        channelconfig[i].sum += fabs(adc_sample[i]); // si no está seleccionado solo se obtiene el módulo
+                        //channelconfig[i].sum = 0;
+                        //adc_sample[i] = 0;
+                        if(channelconfig[i].sum += fabs(adc_sample[i])>100){
+                        channelconfig[i].sum += fabs(adc_sample[i]);} // si no está seleccionado solo se obtiene el módulo
+                        else channelconfig[i].sum = 0;
                     break;
                 case AC_POWER:
                 case AC_REACTIVE_POWER:
@@ -576,45 +582,47 @@ void measure_mes(void)
         /*
          *
          */
-            log_i("Channel %d, measure %f",i,measure_get_channel_rms(i));
+           // log_i("Channel %d, measure %f",i,measure_get_channel_rms(i));
         switch (channelconfig[i].type)
         {
         case DC_CURRENT:
             if (channelconfig[i].ratio > 5)
             {
-                channelconfig[i].rms = channelconfig[i].ratio;
+                channelconfig[i].rms = channelconfig[i].ratio + channelconfig[i].offset;
             }
             else
             { // si es mayor a 5 el ratio obtengo el valor rms por el ratio y ala raiz cuadrada de la suma configurada y el n° de muestras
                 if (channelconfig[i].true_rms)
-                    channelconfig[i].rms = channelconfig[i].ratio * sqrt(channelconfig[i].sum / (numbersOfSamples * round));
+                    channelconfig[i].rms = (channelconfig[i].ratio * sqrt(channelconfig[i].sum / (numbersOfSamples * round))) + channelconfig[i].offset;
                 else
-                    channelconfig[i].rms = channelconfig[i].ratio * (channelconfig[i].sum / (numbersOfSamples * round));
+                    channelconfig[i].rms = (channelconfig[i].ratio * (channelconfig[i].sum / (numbersOfSamples * round))) + channelconfig[i].offset;
             }
             break;
-        case AC_CURRENT:
-        case DC_POWER:
-        case AC_POWER:
-        case AC_REACTIVE_POWER: // para todos los casos veo si el ratio es menor a 5 y le asigno a cada valor rms el valor del ratio
-            if (channelconfig[i].ratio > 5)
-            {
-                channelconfig[i].rms = channelconfig[i].ratio;
+    case AC_CURRENT:
+    case DC_POWER:
+    case AC_POWER:
+    case AC_REACTIVE_POWER:
+        if (channelconfig[i].ratio > 5) {
+            // Si el ratio es mayor a 5, simplemente asigna el ratio más el offset
+            channelconfig[i].rms = channelconfig[i].ratio + channelconfig[i].offset;
+        } else {
+            // Si el ratio es menor o igual a 5
+            if (channelconfig[i].true_rms) {
+                // Cálculo RMS utilizando la raíz cuadrada
+                channelconfig[i].rms = (channelconfig[i].ratio * sqrt(channelconfig[i].sum / (numbersOfSamples * round))) + channelconfig[i].offset;
+            } else {
+                // Cálculo RMS sin la raíz cuadrada
+                channelconfig[i].rms = (channelconfig[i].ratio * (channelconfig[i].sum / (numbersOfSamples * round))) + channelconfig[i].offset;
             }
-            else
-            { // si es mayor a 5 el ratio obtengo el valor rms por el ratio y ala raiz cuadrada de la suma configurada y el n° de muestras
-                if (channelconfig[i].true_rms)
-                    channelconfig[i].rms = channelconfig[i].ratio * sqrt(channelconfig[i].sum / (numbersOfSamples * round));
-                else
-                    channelconfig[i].rms = channelconfig[i].ratio * (channelconfig[i].sum / (numbersOfSamples * round));
-            }
-            break;
+        }
+        break;
         case AC_VOLTAGE:
         case DC_VOLTAGE:
             if (channelconfig[i].ratio > 5)
             {
-                channelconfig[i].rms = channelconfig[i].ratio;
-                log_i("Ratio mayor 5V en %d : %f", i, channelconfig[i].rms);
-                vTaskDelay(200);
+                channelconfig[i].rms = channelconfig[i].ratio + channelconfig[i].offset;
+                //log_i("Ratio mayor 5V en %d : %f", i, channelconfig[i].rms);
+
             }
             else
             { // si es mayor a 5 el ratio obtengo el valor rms por el ratio y ala raiz cuadrada de la suma configurada y el n° de muestras
@@ -623,7 +631,7 @@ void measure_mes(void)
 
                     if ((channelconfig[i].rms = channelconfig[i].ratio * sqrt(channelconfig[i].sum / (numbersOfSamples * round))) > 0)
                     {
-                        channelconfig[i].rms = channelconfig[i].ratio * sqrt(channelconfig[i].sum / (numbersOfSamples * round));
+                        channelconfig[i].rms = (channelconfig[i].ratio * sqrt(channelconfig[i].sum / (numbersOfSamples * round))) + channelconfig[i].offset;
                         // log_i("Ratio menor 5 y truerms V en %d : %f",i,channelconfig[i].rms);
                     }
                     else
@@ -636,7 +644,7 @@ void measure_mes(void)
                 {
                     if ((channelconfig[i].rms = channelconfig[i].ratio * (channelconfig[i].sum / (numbersOfSamples * round))) > 40)
                     {
-                        channelconfig[i].rms = channelconfig[i].ratio * (channelconfig[i].sum / (numbersOfSamples * round));
+                        channelconfig[i].rms = (channelconfig[i].ratio * (channelconfig[i].sum / (numbersOfSamples * round))) + channelconfig[i].offset;
                         //    log_i("Ratio menor 5 y rms V en %d : %f",i,channelconfig[i].rms);
                         // vTaskDelay(200);
                     }
@@ -652,91 +660,14 @@ void measure_mes(void)
         case NO_CHANNEL_TYPE:
             break;
         }
+            //log_i("Channel %d , valor %f ",i,channelconfig[i].rms);
 
         if (measurement_valid > 0)
             channelconfig[i].rms = 0.0; // si la medición no es valida entonces asigno al rms 0
 
         if (measurement_valid > 0)
             measurement_valid--;
-
-
-    
-    /* for (int j = 0; j < numbersOfSamples; j++) {
-                vReal[j] = buffer[i][j]; // Copia las muestras para realizar la FFT
-                vImag[j] = 0.0; // Inicia el buffer de valores imaginarios en cero
-            }
-
-            // Realizar la FFT
-            FFT2.Windowing(vReal, numbersOfSamples, FFT_WIN_TYP_HAMMING, FFT_FORWARD);
-            FFT2.Compute(vReal, vImag, numbersOfSamples, FFT_FORWARD);
-            FFT2.ComplexToMagnitude(vReal, vImag, numbersOfSamples);
-
-            // Calcular la THD
-            double fundamental = vReal[1]; // Bin 1 es la frecuencia fundamental
-            double harmonic_sum = 0.0;
-            //Serial.println("Canal: ");
-            //Serial.println(i);
-            //Serial.println("Fundamental 50Hz: ");
-            //Serial.println(vReal[1]);
-            //Serial.println("3er armónico 150Hz: ");
-            //Serial.println(vReal[3]);
-            //Serial.println("5to armónico 300Hz: ");
-            //Serial.println(vReal[5]);
-            vTaskDelay(500);
-            for (int k = 2; k < (numbersOfSamples / 2); k++) {
-                harmonic_sum += vReal[k] * vReal[k];
-            }
-            harmonic_sum = sqrt(harmonic_sum);
-            double thd = harmonic_sum / fundamental;
-            //Serial.print("THD del Canal ");
-            //Serial.print(i);
-            //Serial.print(": ");
-            //Serial.println(thd);
-            */
-    
     }
-
-
-     // FFT y THD por canal
-           
-
-     /*double vReal[numbersOfFFTSamples * 2];
-    double vImag[numbersOfFFTSamples * 2];
-    arduinoFFT FFT = arduinoFFT(vReal, vImag, numbersOfFFTSamples * 2, samplingFrequency * measure_get_network_frequency() / 4);
-    log_i("Bandera 1");
-    for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++)
-    {
-        for (int i = 0; i < numbersOfFFTSamples * 2; i++)
-        {
-            vReal[i] = buffer_probe[channel][(i * 6) % numbersOfSamples];
-            vImag[i] = 0;
-        }
-        
-        FFT.Windowing(FFT_WIN_TYP_RECTANGLE, FFT_REVERSE);
-        FFT.Compute(FFT_REVERSE);
-        FFT.ComplexToMagnitude();
-
-       // log_i("Canal %d:", channel);
-
-        for (int i = 1; i < numbersOfFFTSamples; i++)
-        {
-            double frequency = (i * measure_get_network_frequency());
-            
-            // Identificar los armónicos de la frecuencia fundamental de 50Hz (50Hz, 150Hz, 250Hz, etc.)
-            if (frequency == 50.0 || frequency == 150.0 || frequency == 250.0 ||
-                frequency == 350.0 || frequency == 450.0)
-            {
-                buffer_fft[channel][i] = static_cast<uint16_t>(vReal[i]);
-                
-                // Mostrar el valor del armónico y su frecuencia
-             //   log_i("Armónico %d: Frecuencia: %f Hz, Magnitud: %f", i, frequency, vReal[i]);
-                vTaskDelay(200);
-            }
-        }
-
-        //log_i("");  // Línea en blanco para separación entre canales
-    }*/
-
 }
 
 
@@ -800,11 +731,11 @@ uint16_t *measure_get_fft(void)
     double temp = 0;
     arduinoFFT FFT = arduinoFFT(vReal, vImag, numbersOfFFTSamples * 2, samplingFrequency * measure_get_network_frequency() / 4);
 
-    for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++)
-    {
+    for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++){
+    
         for (int i = 0; i < numbersOfFFTSamples * 2; i++)
         {
-            vReal[i] = buffer_probe[channel][(i * 6) % numbersOfSamples];
+            vReal[i] = measure_get_channel_ratio(channel)*buffer_probe[channel][(i * 6) % numbersOfSamples];
             vImag[i] = 0;
         }
         FFT.Windowing(FFT_WIN_TYP_RECTANGLE, FFT_REVERSE);
@@ -814,6 +745,7 @@ uint16_t *measure_get_fft(void)
         for (int i = 1; i < numbersOfFFTSamples; i++)
         {
             buffer_fft[channel][i] = vReal[i];
+        
 
                    
         //Calcular y almacenar los valores de los armónicos
@@ -844,9 +776,9 @@ uint16_t *measure_get_fft(void)
             temp=0;
             // log_i("V [%d][%d] : %2x",channel,i,buffer_fft[channel][i]);
             // vTaskDelay(50);
-        }
+        }}
         return (&buffer_fft[0][0]);
-    }
+    
 }
 
 

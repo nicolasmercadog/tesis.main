@@ -1,0 +1,41 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:743] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+[I][ntp.cpp:64] ntp_Task(): NTP-client: renew time
+NTP-client: Thursday, December 12 2024 19:08:07
+Canal 1: 117.013741Canal 5: 9.006808Canal 9: 8.959839Canal 1: 117.013741Canal 5: 9.006808Canal 9: 8.959839Canal 1: 116.701401Canal 5: 12.017398Canal 9: 11.613589Canal 1: 116.701401Canal 5: 12.017398Canal 9: 11.613589Canal 1: 116.701401Canal 5: 12.017398Canal 9: 11.613589Canal 1: 116.223618Canal 5: 11.649179Canal 9: 11.496994Canal 1: 116.223618Canal 5: 11.649179Canal 9: 11.496994Canal 1: 116.226822Canal 5: 12.058681Canal 9: 11.851052Canal 1: 116.226822Canal 5: 12.058681Canal 9: 11.851052Canal 1: 118.213623Canal 5: 12.071138Canal 9: 11.915117Canal 1: 118.213623Canal 5: 12.071138Canal 9: 11.915117Canal 1: 118.213623Canal 5: 12.071138Canal 9: 11.915117Canal 1: 118.213623Canal 5: 12.071138Canal 9: 11.915117Canal 1: 115.966034Canal 5: 11.533795Canal 9: 11.249228Canal 1: 115.966034Canal 5: 11.533795Canal 9: 11.249228Canal 1: 115.966034Canal 5: 11.533795Canal 9: 11.249228Canal 1: 118.358765Canal 5: 11.021101Canal 9: 11.124444Canal 1: 118.358765Canal 5: 11.021101Canal 9: 11.124444Canal 1: 118.358765Canal 5: 11.021101Canal 9: 11.124444Canal 1: 116.103584Canal 5: 10.562235Canal 9: 10.653732Canal 1: 116.103584Canal 5: 10.562235Canal 9: 10.653732Canal 1: 116.103584Canal 5: 10.562235Canal 9: 10.653732Canal 1: 117.584084Canal 5: 12.088686Canal 9: 11.842145Canal 1: 117.584084Canal 5: 12.088686Canal 9: 11.842145Canal 1: 117.584084Canal 5: 12.088686Canal 9: 11.842145Canal 1: 117.333824Canal 5: 11.819540Canal 9: 11.739999Canal 1: 117.333824Canal 5: 11.819540Canal 9: 11.739999Canal 1: 117.333824Canal 5: 11.819540Canal 9: 11.739999Canal 1: 117.257332Canal 5: 12.366634Canal 9: 12.069400Canal 1: 117.257332Canal 5: 12.366634Canal 9: 12.069400Canal 1: 117.257332Canal 5: 12.366634Canal 9: 12.069400Canal 1: 117.808784Canal 5: 11.777201Canal 9: 11.857562Canal 1: 117.808784Canal 5: 11.777201Canal 9: 11.857562Canal 1: 117.808784Canal 5: 11.777201Canal 9: 11.857562Canal 1: 116.693947Canal 5: 12.917368Canal 9: 12.684581Canal 1: 116.693947Canal 5: 12.917368Canal 9: 12.684581Canal 1: 116.693947Canal 5: 12.917368Canal 9: 12.684581Canal 1: 116.798782Canal 5: 12.438019Canal 9: 12.205211Canal 1: 116.798782Canal 5: 12.438019Canal 9: 12.205211Canal 1: 116.798782Canal 5: 12.438019Canal 9: 12.205211Canal 1: 115.916840Canal 5: 11.681730Canal 9: 11.442437Canal 1: 115.916840Canal 5: 11.681730Canal 9: 11.442437Canal 1: 115.916840Canal 5: 11.681730Canal 9: 11.442437Canal 1: 116.898918Canal 5: 13.193404Canal 9: 13.303953Canal 1: 116.898918Canal 5: 13.193404Canal 9: 13.303953Canal 1: 116.898918Canal 5: 13.193404Canal 9: 13.303953Canal 1: 116.898918Canal 5: 13.193404Canal 9: 13.303953Canal 1: 116.799889Canal 5: 11.930867Canal 9: 11.820093Canal 1: 116.799889Canal 5: 11.930867Canal 9: 11.820093Canal 1: 116.799889Canal 5: 11.930867Canal 9: 11.820093Canal 1: 116.741539Canal 5: 12.250058Canal 9: 11.796612Canal 1: 116.741539Canal 5: 12.250058Canal 9: 11.796612Canal 1: 116.741539Canal 5: 12.250058Canal 9: 11.796612Canal 1: 116.438675Canal 5: 11.917675Canal 9: 11.570041Canal 1: 116.438675Canal 5: 11.917675Canal 9: 11.570041Canal 1: 116.438675Canal 5: 11.917675Canal 9: 11.570041Canal 1: 116.544518Canal 5: 11.886407Canal 9: 11.699106Canal 1: 116.544518Canal 5: 11.886407Canal 9: 11.699106Canal 1: 116.544518Canal 5: 11.886407Canal 9: 11.699106Canal 1: 116.251312Canal 5: 10.834859Canal 9: 10.550250Canal 1: 116.251312Canal 5: 10.834859Canal 9: 10.550250Canal 1: 116.251312Canal 5: 10.834859Canal 9: 10.550250Canal 1: 115.938118Canal 5: 10.939106Canal 9: 10.975326Canal 1: 115.938118Canal 5: 10.939106Canal 9: 10.975326Canal 1: 115.938118Canal 5: 10.939106Canal 9: 10.975326Canal 1: 116.470642Canal 5: 11.375746Canal 9: 11.168901Canal 1: 116.470642Canal 5: 11.375746Canal 9: 11.168901Canal 1: 116.470642Canal 5: 11.375746Canal 9: 11.168901Canal 1: 116.470642Canal 5: 11.375746Canal 9: 11.168901Canal 1: 115.001205Canal 5: 10.282544Canal 9: 10.039329Canal 1: 115.001205Canal 5: 10.282544Canal 9: 10.039329Canal 1: 115.001205Canal 5: 10.282544Canal 9: 10.039329Canal 1: 116.532555Canal 5: 11.888773Canal 9: 11.638672Canal 1: 116.532555Canal 5: 11.888773Canal 9: 11.638672Canal 1: 116.532555Canal 5: 11.888773Canal 9: 11.638672Canal 1: 115.640823Canal 5: 11.656184Canal 9: 11.503316Canal 1: 115.640823Canal 5: 11.656184Canal 9: 11.503316Canal 1: 115.640823Canal 5: 11.656184Canal 9: 11.503316Canal 1: 115.359535Canal 5: 11.309518Canal 9: 11.021517Canal 1: 115.359535Canal 5: 11.309518Canal 9: 11.021517Canal 1: 115.359535Canal 5: 11.309518Canal 9: 11.021517Canal 1: 115.359535Canal 5: 11.309518Canal 9: 11.021517Canal 1: 115.893044Canal 5: 11.435087Canal 9: 11.585661Canal 1: 115.893044Canal 5: 11.435087Canal 9: 1

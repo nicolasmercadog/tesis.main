@@ -84,6 +84,19 @@ body {
   background-color: #FFF;
 }
 
+.vertical-label {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  display: flex;
+  text-align: center;
+  height: 0px; /* ajusta según sea necesario */
+}
+.horizontal-label {
+  display: center;
+  width: 10px;
+  margin-left: auto;
+  height: 10px;
+}
 /* Asegura que los checkboxes y sus etiquetas sean visibles en modo oscuro */
 .dark-mode input[type="checkbox"] + label {
   color: #FFF; /* Color de las etiquetas de los checkboxes */
