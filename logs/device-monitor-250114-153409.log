@@ -1,0 +1,1001 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB
+[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 0: 1827.986938
+ADC en 1: 830.085876
+ADC en 4: 1837.975952
+ADC en 5: 823.093567
+ADC en 8: 1828.985840
+ADC en 9: 817.100220
+ADC en 0: 1826.974976
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 835.166260
+ADC en 4: 1836.953247
+ADC en 5: 817.193604
+ADC en 8: 1820.980591
+ADC en 9: 818.199219
+ADC en 0: 1824.965454
+ADC en 1: 834.247559
+ADC en 4: 1833.933594
+ADC en 5: 820.290283
+ADC en 8: 1819.976318
+ADC en 9: 815.301392
+ADC en 0: 1822.957886
+ADC en 1: 826.337585
+ADC en 4: 1831.916260
+ADC en 5: 815.392334
+ADC en 8: 1819.972168
+ADC en 9: 812.406738
+ADC en 0: 1818.954956
+ADC en 1: 822.431946
+ADC en 4: 1829.901123
+ADC en 5: 812.497620
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 8: 1818.969116
+ADC en 9: 801.524109
+ADC en 0: 1817.953125
+ADC en 1: 823.525024
+ADC en 4: 1827.888184
+ADC en 5: 817.597229
+ADC en 8: 1812.972778
+ADC en 9: 810.631470
+ADC en 0: 1816.952271
+ADC en 1: 812.630127
+ADC en 4: 1826.876343
+ADC en 5: 809.705505
+ADC en 8: 1811.977295
+ADC en 9: 818.729858
+ADC en 0: 1814.953491
+ADC en 1: 837.707642
+ADC en 4: 1823.868042
+ADC en 5: 808.814880
+ADC en 8: 1810.983032
+ADC en 9: 795.853455
+ADC en 0: 1812.957153
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 823.800476
+ADC en 4: 1821.861938
+ADC en 5: 807.925232
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 8: 1805.994141
+ADC en 9: 824.945068
+ADC en 0: 1810.962769
+ADC en 1: 819.897644
+ADC en 4: 1819.857788
+ADC en 5: 820.022278
+ADC en 8: 1809.002075
+ADC en 9: 799.065125
+ADC en 0: 1810.968628
+ADC en 1: 836.976013
+ADC en 4: 1818.854980
+ADC en 5: 829.109192
+ADC en 8: 1811.007690
+ADC en 9: 817.165283
+ADC en 0: 1809.975586
+ADC en 1: 826.066406
+ADC en 4: 1815.855347
+ADC en 5: 809.218018
+ADC en 8: 1805.020142
+ADC en 9: 806.277405
+ADC en 0: 1803.989014
+ADC en 1: 820.163208
+ADC en 4: 1813.858032
+ADC en 5: 816.319092
+ADC en 8: 1798.040039
+ADC en 9: 806.389343
+ADC en 0: 1803.003540
+ADC en 1: 822.257751
+ADC en 4: 1811.862671
+ADC en 5: 803.434326
+ADC en 8: 1797.061035
+ADC en 9: 800.507874
+ADC en 0: 1801.020142
+ADC en 1: 817.357727
+ADC en 4: 1809.869751
+ADC en 5: 812.539551
+ADC en 8: 1797.082031
+ADC en 9: 813.611877
+ADC en 0: 1800.037842
+ADC en 1: 830.443176
+ADC en 4: 1807.878784
+ADC en 5: 801.656738
+ADC en 8: 1793.107422
+ADC en 9: 801.728943
+ADC en 0: 1796.059937
+ADC en 1: 815.545044
+ADC en 4: 1805.890259
+ADC en 5: 804.770508
+ADC en 8: 1790.136108
+ADC en 9: 807.839417
+ADC en 0: 1796.082153
+ADC en 1: 818.643555
+ADC en 4: 1802.904785
+ADC en 5: 797.891846
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+ADC en 8: 1789.166016
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 9: 806.950745
+ADC en 0: 1793.107422
+ADC en 1: 817.743042
+ADC en 4: 1801.920532
+ADC en 5: 813.995483
+ADC en 8: 1789.195679
+ADC en 9: 801.068542
+ADC en 0: 1795.130615
+ADC en 1: 808.852295
+ADC en 4: 1799.938232
+ADC en 5: 799.115479
+ADC en 8: 1785.229858
+ADC en 9: 816.169800
+ADC en 0: 1791.158203
+ADC en 1: 811.958130
+ADC en 4: 1797.958252
+ADC en 5: 804.229858
+ADC en 8: 1789.259644
+ADC en 9: 790.299500
+ADC en 0: 1785.192383
+ADC en 1: 812.063843
+ADC en 4: 1795.980469
+ADC en 5: 811.336426
+ADC en 8: 1787.291626
+ADC en 9: 791.428040
+ADC en 0: 1789.222046
+ADC en 1: 816.165039
+ADC en 4: 1794.004883
+ADC en 5: 795.460449
+ADC en 8: 1784.326538
+ADC en 9: 786.561829
+ADC en 0: 1782.259521
+ADC en 1: 799.284851
+ADC en 4: 1792.031494
+ADC en 5: 809.568970
+ADC en 8: 1777.369385
+ADC en 9: 794.686646
+ADC en 0: 1783.295776
+ADC en 1: 820.381470
+ADC en 4: 1790.060303
+[I][ntp.cpp:64] ntp_Task(): NTP-client: renew time
+ADC en 5: 791.697144
+NTP-client: Tuesday, January 14 2025 15:34:23
+ADC en 8: 1782.406616
+ADC en 9: 786.820190
+ADC en 0: 1779.336426
+ADC en 1: 799.501038
+ADC en 4: 1788.091187
+ADC en 5: 805.809753
+ADC en 8: 1773.453735
+ADC en 9: 776.964600
+ADC en 0: 1777.379150
+ADC en 1: 807.611633
+ADC en 4: 1786.124390
+ADC en 5: 802.925598
+ADC en 8: 1771.502808
+ADC en 9: 795.089050
+ADC en 0: 1775.424072
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+ADC en 1: 806.723206
+ADC en 4: 1784.159790
+ADC en 5: 792.053345
+ADC en 8: 1766.557617
+ADC en 9: 791.217834
+ADC en 0: 1773.471069
+ADC en 1: 796.845642
+ADC en 4: 1782.197144
+ADC en 5: 787.186462
+ADC en 8: 1771.606689
+ADC en 9: 779.359558
+ADC en 0: 1771.520386
+ADC en 1: 810.952698
+ADC en 4: 1780.236816
+ADC en 5: 793.312927
+ADC en 8: 1767.660156
+ADC en 9: 794.484741
+ADC en 0: 1772.568481
+ADC en 1: 817.052856
+ADC en 4: 1778.278564
+ADC en 5: 795.437012
+ADC en 8: 1764.716797
+ADC en 9: 787.617432
+ADC en 0: 1768.620728
+ADC en 1: 817.153015
+ADC en 4: 1776.322510
+ADC en 5: 798.557617
+ADC en 8: 1762.775635
+ADC en 9: 787.749939
+ADC en 0: 1765.676270
+ADC en 1: 809.261902
+ADC en 4: 1776.366333
+ADC en 5: 786.691284
+ADC en 8: 1761.835449
+ADC en 9: 783.886780
+ADC en 0: 1765.731812
+ADC en 1: 801.379456
+ADC en 4: 1772.414429
+ADC en 5: 803.806091
+ADC en 8: 1761.895264
+ADC en 9: 786.021118
+ADC en 0: 1763.789673
+ADC en 1: 816.480286
+ADC en 4: 1770.464844
+ADC en 5: 775.951660
+ADC en 8: 1759.957153
+ADC en 9: 792.148804
+ADC en 0: 1761.849365
+ADC en 1: 789.610718
+ADC en 4: 1768.517334
+ADC en 5: 784.088196
+ADC en 8: 1755.024414
+ADC en 9: 784.285156
+ADC en 0: 1759.911377
+ADC en 1: 810.717957
+ADC en 4: 1766.571899
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+ADC en 5: 783.225647
+ADC en 8: 1751.096069
+ADC en 9: 797.407043
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 0: 1757.975464
+ADC en 1: 796.840515
+ADC en 4: 1764.628540
+ADC en 5: 793.351929
+ADC en 8: 1753.165527
+ADC en 9: 782.545227
+ADC en 0: 1753.045166
+ADC en 1: 796.962952
+ADC en 4: 1762.687378
+ADC en 5: 779.493530
+ADC en 8: 1749.239258
+ADC en 9: 792.672241
+ADC en 0: 1756.111328
+ADC en 1: 804.077454
+ADC en 4: 1761.747437
+ADC en 5: 786.627258
+ADC en 8: 1745.317261
+ADC en 9: 769.824524
+ADC en 0: 1751.182861
+ADC en 1: 801.195129
+ADC en 4: 1758.810669
+ADC en 5: 779.768494
+ADC en 8: 1750.389771
+ADC en 9: 782.962280
+ADC en 0: 1747.258789
+ADC en 1: 808.304932
+ADC en 4: 1756.875854
+ADC en 5: 774.915222
+ADC en 8: 1744.468628
+ADC en 9: 779.104309
+ADC en 0: 1750.331299
+ADC en 1: 791.433411
+ADC en 4: 1755.942261
+ADC en 5: 788.047485
+ADC en 8: 1741.550903
+ADC en 9: 775.250549
+ADC en 0: 1743.411377
+ADC en 1: 801.550659
+ADC en 4: 1760.004272
+ADC en 5: 783.185059
+ADC en 8: 1739.635010
+ADC en 9: 779.392212
+ADC en 0: 1742.492554
+ADC en 1: 808.660156
+ADC en 4: 1751.076050
+ADC en 5: 777.329041
+ADC en 8: 1740.718140
+ADC en 9: 789.522766
+ADC en 0: 1740.575928
+ADC en 1: 795.783813
+ADC en 4: 1749.150024
+ADC en 5: 794.454224
+ADC en 8: 1734.807861
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+ADC en 9: 775.668518
+ADC en 0: 1738.661255
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 1: 796.906250
+ADC en 4: 1747.225830
+ADC en 5: 774.601196
+ADC en 8: 1734.897339
+ADC en 9: 774.815247
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+ADC en 0: 1738.746460
+ADC en 1: 804.020874
+ADC en 4: 1746.302734
+ADC en 5: 779.742554
+ADC en 8: 1732.989014
+ADC en 9: 767.969482
+ADC en 0: 1734.836182
+ADC en 1: 787.154053
+ADC en 4: 1742.384033
+ADC en 5: 765.899109
+ADC en 8: 1729.084961
+ADC en 9: 773.118103
+ADC en 0: 1733.926758
+ADC en 1: 790.283752
+ADC en 4: 1741.466309
+ADC en 5: 778.042358
+ADC en 8: 1731.178589
+ADC en 9: 770.269958
+ADC en 0: 1730.021606
+ADC en 1: 787.416565
+ADC en 4: 1739.550659
+ADC en 5: 792.169983
+ADC en 8: 1727.276611
+ADC en 9: 784.406250
+ADC en 0: 1726.120605
+ADC en 1: 776.561340
+ADC en 4: 1737.637329
+ADC en 5: 782.308411
+ADC en 8: 1724.377686
+ADC en 9: 773.554382
+ADC en 0: 1726.219727
+ADC en 1: 790.690552
+ADC en 4: 1735.725830
+ADC en 5: 768.462097
+ADC en 8: 1721.481934
+ADC en 9: 769.706848
+ADC en 0: 1725.319824
+ADC en 1: 783.827393
+ADC en 4: 1733.816528
+ADC en 5: 784.598145
+ADC en 8: 1721.586060
+ADC en 9: 780.846924
+ADC en 0: 1727.417603
+ADC en 1: 782.965210
+ADC en 4: 1733.906982
+ADC en 5: 773.746094
+ADC en 8: 1719.692139
+ADC en 9: 765.004517
+ADC en 0: 1720.522827
+ADC en 1: 799.085266
+ADC en 4: 1730.001831
+ADC en 5: 770.897156
+ADC en 8: 1716.801514
+ADC en 9: 764.163025
+ADC en 0: 1721.627075
+ADC en 1: 786.219421
+ADC en 4: 1728.098999
+ADC en 5: 761.059143
+ADC en 8: 1717.909668
+ADC en 9: 767.318115
+ADC en 0: 1720.732056
+ADC en 1: 795.343628
+ADC en 4: 1727.197144
+ADC en 5: 763.218628
+ADC en 8: 1715.021118
+ADC en 9: 764.476257
+ADC en 0: 1714.843506
+ADC en 1: 773.491821
+ADC en 4: 1725.297363
+ADC en 5: 755.386780
+ADC en 8: 1712.135620
+ADC en 9: 769.628784
+ADC en 0: 1713.956055
+ADC en 1: 769.644287
+ADC en 4: 1722.400635
+ADC en 5: 766.542603
+ADC en 8: 1707.255737
+ADC en 9: 775.774475
+ADC en 0: 1713.069580
+ADC en 1: 789.774597
+ADC en 4: 1720.505981
+ADC en 5: 766.698303
+ADC en 8: 1715.366821
+ADC en 9: 762.934265
+ADC en 0: 1713.182983
+ADC en 1: 792.901489
+ADC en 4: 1718.613281
+ADC en 5: 762.858154
+ADC en 8: 1706.487549
+ADC en 9: 757.100586
+ADC en 0: 1710.299683
+ADC en 1: 788.033691
+ADC en 4: 1716.722778
+ADC en 5: 776.003601
+ADC en 8: 1701.613647
+ADC en 9: 777.244690
+ADC en 0: 1708.418457
+ADC en 1: 772.183350
+ADC en 4: 1714.834229
+ADC en 5: 769.156677
+ADC en 8: 1704.736450
+ADC en 9: 771.395142
+ADC en 0: 1706.539185
+ADC en 1: 774.330627
+ADC en 4: 1712.947876
+ADC en 5: 760.319458
+ADC en 8: 1700.863281
+ADC en 9: 759.558716
+ADC en 0: 1704.661865
+ADC en 1: 775.476624
+ADC en 4: 1712.062378
+ADC en 5: 763.478699
+ADC en 8: 1698.992310
+ADC en 9: 756.725403
+ADC en 0: 1700.788940
+ADC en 1: 773.624634
+ADC en 4: 1712.177002
+ADC en 5: 756.645508
+ADC en 8: 1695.125488
+ADC en 9: 747.901733
+ADC en 0: 1698.918213
+ADC en 1: 767.779114
+ADC en 4: 1708.295776
+ADC en 5: 771.795593
+ADC en 8: 1694.259766
+ADC en 9: 757.068054
+ADC en 0: 1696.050537
+ADC en 1: 779.920166
+ADC en 4: 1706.416748
+ADC en 5: 750.968689
+ADC en 8: 1690.398315
+ADC en 9: 749.243042
+ADC en 0: 1695.183716
+ADC en 1: 786.054565
+ADC en 4: 1704.539673
+ADC en 5: 755.137207
+ADC en 8: 1693.533447
+ADC en 9: 755.411194
+ADC en 0: 1693.318848
+ADC en 1: 770.206421
+ADC en 4: 1701.665649
+ADC en 5: 756.304382
+ADC en 8: 1691.670532
+ADC en 9: 770.562561
+ADC en 0: 1695.451782
+ADC en 1: 763.365784
+ADC en 4: 1699.793701
+ADC en 5: 767.459290
+ADC en 8: 1684.815063
+ADC en 9: 768.716003
+ADC en 0: 1689.591064
+ADC en 1: 770.517212
+ADC en 4: 1697.923950
+ADC en 5: 776.604004
+ADC en 8: 1687.956177
+ADC en 9: 752.886963
+ADC en 0: 1689.730347
+ADC en 1: 763.676270
+ADC en 4: 1696.056152
+ADC en 5: 752.775024
+ADC en 8: 1682.103638
+ADC en 9: 735.077515
+ADC en 0: 1685.873901
+ADC en 1: 768.829651
+ADC en 4: 1694.190430
+ADC en 5: 755.942566
+ADC en 8: 1680.253174
+ADC en 9: 760.240356
+ADC en 0: 1682.021729
+ADC en 1: 776.973999
+ADC en 4: 1693.325684
+ADC en 5: 765.100098
+ADC en 8: 1680.402710
+ADC en 9: 741.423889
+ADC en 0: 1685.166016
+ADC en 1: 758.139099
+ADC en 4: 1690.464111
+ADC en 5: 761.261780
+ADC en 8: 1677.555542
+ADC en 9: 749.598389
+ADC en 0: 1680.315674
+ADC en 1: 763.298584
+ADC en 4: 1688.604614
+ADC en 5: 753.432007
+ADC en 8: 1677.708130
+ADC en 9: 737.785950
+ADC en 0: 1681.463989
+ADC en 1: 760.461182
+ADC en 4: 1687.745972
+ADC en 5: 761.593323
+ADC en 8: 1670.868042
+ADC en 9: 750.958923
+ADC en 0: 1676.617554
+ADC en 1: 769.613647
+ADC en 4: 1684.890625
+ADC en 5: 756.759888
+ADC en 8: 1671.027954
+ADC en 9: 737.147217
+ADC en 0: 1675.772339
+ADC en 1: 759.776978
+ADC en 4: 1683.037231
+ADC en 5: 767.914246
+ADC en 8: 1673.185303
+ADC en 9: 747.324280
+ADC en 0: 1674.927979
+ADC en 1: 769.929138
+ADC en 4: 1681.185791
+ADC en 5: 761.076172
+ADC en 8: 1667.349243
+ADC en 9: 748.499939
+ADC en 0: 1673.085571
+ADC en 1: 759.093262
+ADC en 4: 1680.335327
+ADC en 5: 738.263184
+ADC en 8: 1666.513916
+ADC en 9: 743.681030
+ADC en 0: 1672.243896
+ADC en 1: 758.258240
+ADC en 4: 1679.485962
+ADC en 5: 743.444519
+ADC en 8: 1665.679688
+ADC en 9: 744.860779
+ADC en 0: 1669.405518
+ADC en 1: 761.419800
+ADC en 4: 1676.639526
+ADC en 5: 736.633362
+ADC en 8: 1661.849609
+ADC en 9: 740.045898
+ADC en 0: 1665.571411
+ADC en 1: 759.583313
+ADC en 4: 1673.796387
+ADC en 5: 740.817505
+ADC en 8: 1666.015015
+ADC en 9: 744.226318
+ADC en 0: 1664.738037
+ADC en 1: 769.735596
+ADC en 4: 1672.954102
+ADC en 5: 740.002625
+ADC en 8: 1657.190186
+ADC en 9: 730.421997
+ADC en 0: 1661.907959
+ADC en 1: 744.915283
+ADC en 4: 1670.114990
+ADC en 5: 745.182068
+ADC en 8: 1657.365112
+ADC en 9: 734.613037
+ADC en 0: 1662.077637
+ADC en 1: 770.067261
+ADC en 4: 1668.277832
+ADC en 5: 747.359131
+ADC en 8: 1651.546509
+ADC en 9: 746.790649
+ADC en 0: 1657.252686
+ADC en 1: 771.217957
+ADC en 4: 1667.441650
+ADC en 5: 745.538147
+ADC en 8: 1653.725220
+ADC en 9: 727.988953
+ADC en 0: 1659.425293
+ADC en 1: 765.375183
+ADC en 4: 1664.608521
+ADC en 5: 750.711365
+ADC en 8: 1656.900513
+ADC en 9: 736.178345
+ADC en 0: 1654.603271
+ADC en 1: 750.548706
+ADC en 4: 1662.777344
+ADC en 5: 742.893311
+ADC en 8: 1654.078857
+ADC en 9: 748.354248
+ADC en 0: 1652.783203
+ADC en 1: 752.719788
+ADC en 4: 1660.948242
+ADC en 5: 755.061829
+ADC en 8: 1645.267090
+ADC en 9: 746.532166
+ADC en 0: 1650.965088
+ADC en 1: 751.891724
+ADC en 4: 1659.121216
+ADC en 5: 748.237793
+ADC en 8: 1651.448486
+ADC en 9: 735.722046
+ADC en 0: 1649.149048
+ADC en 1: 745.071228
+ADC en 4: 1657.296021
+ADC en 5: 750.411438
+ADC en 8: 1643.638428
+ADC en 9: 734.912720
+ADC en 0: 1647.334839
+ADC en 1: 746.249512
+ADC en 4: 1656.471802
+ADC en 5: 736.600220
+ADC en 8: 1640.831543
+ADC en 9: 728.110901
+ADC en 0: 1644.523926
+ADC en 1: 745.428650
+ADC en 4: 1653.650635
+ADC en 5: 733.792175
+ADC en 8: 1643.022217
+ADC en 9: 733.303345
+ADC en 0: 1643.713867
+ADC en 1: 760.591125
+ADC en 4: 1651.831665
+ADC en 5: 728.989441
+ADC en 8: 1644.211548
+ADC en 9: 736.492310
+ADC en 0: 1640.906860
+ADC en 1: 758.755493
+ADC en 4: 1650.014526
+ADC en 5: 731.184326
+ADC en 8: 1640.405029
+ADC en 9: 718.700867
+ADC en 0: 1639.101685
+ADC en 1: 751.927429
+ADC en 4: 1647.200684
+ADC en 5: 733.376709
+ADC en 8: 1634.604980
+ADC en 9: 736.889465
+ADC en 0: 1633.302979
+ADC en 1: 745.106995
+ADC en 4: 1647.386597
+ADC en 5: 740.561218
+ADC en 8: 1633.805786
+ADC en 9: 729.086548
+ADC en 0: 1636.500854
+ADC en 1: 742.289490
+ADC en 4: 1644.575684
+ADC en 5: 741.744446
+ADC en 8: 1636.004028
+ADC en 9: 738.273560
+ADC en 0: 1634.700806
+ADC en 1: 743.470825
+ADC en 4: 1642.766602
+ADC en 5: 728.941650
+ADC en 8: 1630.208740
+ADC en 9: 729.470276
+ADC en 0: 1631.903564
+ADC en 1: 744.650818
+ADC en 4: 1641.958496
+ADC en 5: 720.148621
+ADC en 8: 1636.406738
+ADC en 9: 730.665588
+ADC en 0: 1630.108521
+ADC en 1: 739.836182
+ADC en 4: 1639.153442
+ADC en 5: 721.354309
+ADC en 8: 1628.613281
+ADC en 9: 738.851868
+ADC en 0: 1627.316406
+ADC en 1: 758.001465
+ADC en 4: 1637.350220
+ADC en 5: 734.545349
+ADC en 8: 1625.822876
+ADC en 9: 726.052246
+ADC en 0: 1626.525269
+ADC en 1: 739.187439
+ADC en 4: 1635.548950
+ADC en 5: 741.728638
+ADC en 8: 1626.032104
+ADC en 9: 728.250305
+ADC en 0: 1624.736206
+ADC en 1: 752.359009
+ADC en 4: 1633.749756
+ADC en 5: 739.913818
+ADC en 8: 1622.245728
+ADC en 9: 740.434875
+ADC en 0: 1622.949097
+ADC en 1: 746.536926
+ADC en 4: 1631.952637
+ADC en 5: 734.105408
+ADC en 8: 1620.461182
+ADC en 9: 729.631348
+ADC en 0: 1619.166138
+ADC en 1: 750.710144
+ADC en 4: 1630.157471
+ADC en 5: 725.306763
+ADC en 8: 1617.679810
+ADC en 9: 736.819946
+ADC en 0: 1618.383789
+ADC en 1: 731.904236
+ADC en 4: 1628.364258
+E (67381) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (67381) task_wdt:  - async_tcp (CPU 1)
+E (67381) task_wdt: Tasks currently running:
+E (67381) task_wdt: CPU 0: IDLE0
+E (67381) task_wdt: CPU 1: async_tcp
+E (67381) task_wdt: Aborting.
+abort() was called at PC 0x40174b3c on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x40174b3c:0x3ffbff30 0x400870b5:0x3ffbff50 0x401909ef:0x3ffbc370 0x401764a3:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x40174b3c:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x401909ef:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x401764a3:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB
+[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 0: 1834.979248
+ADC en 1: 826.090271
+ADC en 4: 1837.975952
+ADC en 5: 826.090271
+ADC en 8: 1828.985840
+ADC en 9: 814.103516
+ADC en 0: 1829.964111
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 830.176147
+ADC en 4: 1840.948853
+ADC en 5: 824.182739
+ADC en 8: 1826.973999
+ADC en 9: 808.213501
+ADC en 0: 1827.951172
+ADC en 1: 839.251953
+ADC en 4: 1835.927002
+ADC en 5: 802.299255
+ADC en 8: 1821.967773
+ADC en 9: 810.321167
+ADC en 0: 1826.939331
+ADC en 1: 828.339783
+ADC en 4: 1831.909668
+ADC en 5: 798.420105
+ADC en 8: 1824.958130
+ADC en 9: 802.437500
+ADC en 0: 1823.930908
+ADC en 1: 830.425354
+ADC en 4: 1830.893433
+ADC en 5: 822.514404
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 8: 1826.946167
+ADC en 9: 811.543823
+ADC en 0: 1821.924561
+ADC en 1: 830.510742
+ADC en 4: 1829.878418
+ADC en 5: 810.621765
+ADC en 8: 1819.942139
+ADC en 9: 814.646729
+ADC en 0: 1821.918213
+ADC en 1: 841.583984
+ADC en 4: 1828.864502
+ADC en 5: 823.714722
+ADC en 8: 1816.941284
+ADC en 9: 796.769287
+ADC en 0: 1817.916260
+ADC en 1: 819.681335
+ADC en 4: 1826.852783
+ADC en 5: 822.808655
+ADC en 8: 1817.939453
+ADC en 9: 812.874146
+ADC en 0: 1816.915405
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 837.758850
+ADC en 4: 1823.844360
+ADC en 5: 814.911194
+ADC en 8: 1815.939697
+ADC en 9: 807.984375
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 0: 1816.914673
+ADC en 1: 838.835022
+ADC en 4: 1820.839111
+ADC en 5: 810.019104
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+ADC en 8: 1810.945435
+ADC en 9: 822.079102
+ADC en 0: 1814.915894
+ADC en 1: 833.916626
+ADC en 4: 1818.836182
+ADC en 5: 793.145630
+ADC en 8: 1808.953247
+ADC en 9: 801.196838
+ADC en 0: 1810.921753
+ADC en 1: 823.010315
+ADC en 4: 1816.835449
+ADC en 5: 793.272095
+ADC en 8: 1810.958862
+ADC en 9: 824.289062
+ADC en 0: 1810.927612
+ADC en 1: 804.124756
+ADC en 4: 1817.833618
+ADC en 5: 820.368713
+ADC en 8: 1804.971313
+ADC en 9: 803.404358
+ADC en 0: 1806.937866
+ADC en 1: 819.222595
+ADC en 4: 1816.832764
+ADC en 5: 824.460754
+ADC en 8: 1802.985718
+ADC en 9: 806.516174
+ADC en 0: 1806.948120
+ADC en 1: 833.304993
+ADC en 4: 1810.838623
+ADC en 5: 821.555969
+ADC en 8: 1801.002563
+ADC en 9: 805.628967
+ADC en 0: 1804.960571
+ADC en 1: 820.401489
+ADC en 4: 1808.846680
+ADC en 5: 798.676392
+ADC en 8: 1793.027954
+ADC en 9: 792.755920
+ADC en 0: 1799.978271
+ADC en 1: 807.512268
+ADC en 4: 1808.854736
+ADC en 5: 825.767029
+ADC en 8: 1793.053345
+ADC en 9: 817.855225
+ADC en 0: 1797.998291
+ADC en 1: 829.598633
+ADC en 4: 1805.866089
+ADC en 5: 799.886230
+ADC en 8: 1798.073120
+ADC en 9: 797.976501
+ADC en 0: 1797.019409
+ADC en 1: 825.689392
+ADC en 4: 1804.878662
+ADC en 5: 797.008545
+ADC en 8: 1796.095337
+ADC en 9: 800.095459
+ADC en 0: 1797.040649
+ADC en 1: 812.794373
+ADC en 4: 1800.895508
+ADC en 5: 813.113159
+E (12817) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (12817) task_wdt:  - async_tcp (CPU 1)
+E (12817) task_wdt: Tasks currently running:
+E (12817) task_wdt: CPU 0: IDLE0
+E (12817) task_wdt: CPU 1: async_tcp
+E (12817) task_wdt: Aborting.
+abort() was called at PC 0x40174b3c on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x40174b3c:0x3ffbff30 0x400870b5:0x3ffbff50 0x401909ef:0x3ffbc370 0x401764a3:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x40174b3c:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x401909ef:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x401764a3:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 0: 1834.979248
+ADC en 1: 847.067200
+ADC en 4: 1840.972656
+ADC en 5: 816.101318
+ADC en 8: 1824.990234
+ADC en 9: 834.081482
+ADC en 0: 1833.959717
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 832.150757
+ADC en 4: 1837.948730
+ADC en 5: 841.174988
+ADC en 8: 1829.975098
+ADC en 9: 822.176147
+ADC en 0: 1828.945679
+ADC en 1: 845.219971
+ADC en 4: 1836.925903
+ADC en 5: 819.272827
+ADC en 8: 1819.970947
+ADC en 9: 812.281677
+ADC en 0: 1826.933960
+ADC en 1: 823.313354
+ADC en 4: 1834.905151
+ADC en 5: 810.380432
+ADC en 8: 1824.961304
+ADC en 9: 807.392639
+ADC en 0: 1825.923340
+ADC en 1: 844.383484
+ADC en 4: 1832.886841
+ADC en 5: 809.488953
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 8: 1824.951782
+ADC en 9: 814.495667
+ADC en 0: 1822.915894
+ADC en 1: 832.466797
+ADC en 4: 1832.868286
+ADC en 5: 811.595276
+ADC en 8: 1824.942017
+ADC en 9: 809.604065
+ADC en 0: 1822.908569
+ADC en 1: 826.556580
+ADC en 4: 1828.854248
+ADC en 5: 819.692566
+ADC en 8: 1815.942139
+ADC en 9: 814.706848
+ADC en 0: 1820.903442
+ADC en 1: 823.649597
+ADC en 4: 1824.844727
+ADC en 5: 825.783264
+ADC en 8: 1818.939087
+ADC en 9: 799.825989
+ADC en 0: 1818.900269
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 834.730469
+ADC en 4: 1828.830811
+ADC en 5: 807.893555
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 8: 1810.944702
+ADC en 9: 813.929626
+ADC en 0: 1816.899536
+ADC en 1: 828.817749
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+ADC en 4: 1825.820190
+ADC en 5: 807.004883
+ADC en 8: 1808.952759
+ADC en 9: 798.050842

@@ -1,0 +1,302 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 1: 0.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 974.926392
+ADC en 1: 974.926392
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 1: 974.926392
+ADC en 1: 974.926392
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 974.926392
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 1: 974.926392
+ADC en 1: 996.828674
+ADC en 1: 996.828674
+ADC en 1: 996.828674
+ADC en 1: 996.828674
+E (11479) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (11479) task_wdt:  - async_tcp (CPU 1)
+E (11479) task_wdt: Tasks currently running:
+E (11479) task_wdt: CPU 0: IDLE0
+E (11479) task_wdt: CPU 1: async_tcp
+E (11479) task_wdt: Aborting.
+abort() was called at PC 0x40174b44 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x40174b44:0x3ffbff30 0x400870b5:0x3ffbff50 0x401909f7:0x3ffbc370 0x401764ab:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x40174b44:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x401909f7:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x401764ab:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 1: 0.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 590.349915
+ADC en 1: 590.349915
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 203 - ASSOC_FAIL
+ADC en 1: 590.349915
+ADC en 1: 590.349915
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 590.349915
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+ADC en 1: 590.349915
+ADC en 1: 615.671875
+ADC en 1: 615.671875
+ADC en 1: 615.671875
+ADC en 1: 615.671875
+ADC en 1: 615.671875
+E (12472) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (12472) task_wdt:  - async_tcp (CPU 1)
+E (12472) task_wdt: Tasks currently running:
+E (12472) task_wdt: CPU 0: IDLE0
+E (12472) task_wdt: CPU 1: async_tcp
+E (12472) task_wdt: Aborting.
+abort() was called at PC 0x40174b44 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x40174b44:0x3ffbff30 0x400870b5:0x3ffbff50 0x401909f7:0x3ffbc370 0x401764ab:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x40174b44:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x401909f7:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x401764ab:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 1: 0.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 1005.892273
+ADC en 1: 1005.892273
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 203 - ASSOC_FAIL
+ADC en 1: 1005.892273
+ADC en 1: 1005.892273
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 1005.892273
+ADC en 1: 1005.892273
+ADC en 1: 1000.790222
+ADC en 1: 1000.790222
+ADC en 1: 1000.790222
+ADC en 1: 1000.790222
+ADC en 1: 1000.790222
+ADC en 1: 1000.790222
+ADC en 1: 997.691589
+ADC en 1: 997.691589
+E (15541) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (15541) task_wdt:  - async_tcp (CPU 1)
+E (15541) task_wdt: Tasks currently running:
+E (15541) task_wdt: CPU 0: IDLE0
+E (15541) task_wdt: CPU 1: async_tcp
+E (15541) task_wdt: Aborting.
+abort() was called at PC 0x40174b44 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x40174b44:0x3ffbff30 0x400870b5:0x3ffbff50 0x401909f7:0x3ffbc370 0x401764ab:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x40174b44:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x401909f7:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x401764ab:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 1: 0.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 1050.842773
+ADC en 1: 1050.842773
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 1: 1050.842773
+ADC en 1: 1050.842773
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+ADC en 1: 1050.842773
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 1050.842773
+ADC en 1: 1052.683594
+ADC en 1: 1052.683594
+ADC en 1: 1052.683594
+ADC en 1: 1052.683594
+ADC en 1: 1052.683594
+E (12636) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (12636) task_wdt:  - async_tcp (CPU 1)
+E (12636) task_wdt: Tasks currently running:
+E (12636) task_wdt: CPU 0: IDLE0
+E (12636) task_wdt: CPU 1: async_tcp
+E (12636) task_wdt: Aborting.
+abort() was called at PC 0x40174b44 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x40174b44:0x3ffbff30 0x400870b5:0x3ffbff50 0x401909f7:0x3ffbc370 0x401764ab:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x40174b44:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x401909f7:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x401764ab:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 1: 0.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 620.316895
+ADC en 1: 620.316895
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 1: 620.316895
+ADC en 1: 620.316895

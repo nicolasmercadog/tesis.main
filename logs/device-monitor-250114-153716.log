@@ -1,0 +1,863 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 1: 0.000000
+ADC en 1: 844.070496
+ADC en 1: 844.070496
+ADC en 1: 844.070496
+ADC en 1: 844.070496
+ADC en 1: 844.070496
+ADC en 1: 844.070496
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 831.155273
+ADC en 1: 831.155273
+ADC en 1: 831.155273
+ADC en 1: 831.155273
+ADC en 1: 831.155273
+ADC en 1: 831.155273
+ADC en 1: 836.234375
+ADC en 1: 836.234375
+ADC en 1: 836.234375
+ADC en 1: 836.234375
+ADC en 1: 836.234375
+ADC en 1: 836.234375
+ADC en 1: 828.322205
+ADC en 1: 828.322205
+ADC en 1: 828.322205
+ADC en 1: 828.322205
+ADC en 1: 828.322205
+ADC en 1: 828.322205
+ADC en 1: 848.388000
+ADC en 1: 848.388000
+ADC en 1: 848.388000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 1: 848.388000
+ADC en 1: 848.388000
+ADC en 1: 848.388000
+ADC en 1: 823.481140
+ADC en 1: 823.481140
+ADC en 1: 823.481140
+ADC en 1: 823.481140
+ADC en 1: 823.481140
+ADC en 1: 823.481140
+ADC en 1: 814.584167
+ADC en 1: 814.584167
+ADC en 1: 814.584167
+ADC en 1: 814.584167
+ADC en 1: 814.584167
+ADC en 1: 814.584167
+ADC en 1: 834.665100
+ADC en 1: 834.665100
+ADC en 1: 834.665100
+ADC en 1: 834.665100
+ADC en 1: 834.665100
+ADC en 1: 834.665100
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 836.743591
+ADC en 1: 836.743591
+ADC en 1: 836.743591
+ADC en 1: 836.743591
+ADC en 1: 836.743591
+ADC en 1: 836.743591
+ADC en 1: 838.819946
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 1: 838.819946
+ADC en 1: 838.819946
+ADC en 1: 838.819946
+ADC en 1: 838.819946
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+ADC en 1: 838.819946
+ADC en 1: 831.903870
+ADC en 1: 831.903870
+ADC en 1: 831.903870
+ADC en 1: 831.903870
+ADC en 1: 831.903870
+ADC en 1: 831.903870
+ADC en 1: 823.996399
+ADC en 1: 823.996399
+ADC en 1: 823.996399
+ADC en 1: 823.996399
+ADC en 1: 823.996399
+ADC en 1: 823.996399
+ADC en 1: 826.086609
+ADC en 1: 826.086609
+ADC en 1: 826.086609
+ADC en 1: 826.086609
+ADC en 1: 826.086609
+ADC en 1: 826.086609
+ADC en 1: 829.173584
+ADC en 1: 829.173584
+ADC en 1: 829.173584
+ADC en 1: 829.173584
+ADC en 1: 829.173584
+ADC en 1: 829.173584
+ADC en 1: 828.261475
+ADC en 1: 828.261475
+ADC en 1: 828.261475
+ADC en 1: 828.261475
+ADC en 1: 828.261475
+ADC en 1: 828.261475
+ADC en 1: 831.346008
+ADC en 1: 831.346008
+ADC en 1: 831.346008
+ADC en 1: 831.346008
+ADC en 1: 831.346008
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 1: 831.346008
+ADC en 1: 832.429260
+ADC en 1: 832.429260
+ADC en 1: 832.429260
+ADC en 1: 832.429260
+ADC en 1: 832.429260
+ADC en 1: 832.429260
+ADC en 1: 815.531128
+ADC en 1: 815.531128
+ADC en 1: 815.531128
+ADC en 1: 815.531128
+ADC en 1: 815.531128
+ADC en 1: 815.531128
+ADC en 1: 830.616455
+ADC en 1: 830.616455
+ADC en 1: 830.616455
+ADC en 1: 830.616455
+ADC en 1: 830.616455
+ADC en 1: 830.616455
+ADC en 1: 823.709351
+ADC en 1: 823.709351
+ADC en 1: 823.709351
+ADC en 1: 823.709351
+ADC en 1: 823.709351
+ADC en 1: 823.709351
+ADC en 1: 819.806580
+ADC en 1: 819.806580
+ADC en 1: 819.806580
+ADC en 1: 819.806580
+ADC en 1: 819.806580
+ADC en 1: 819.806580
+ADC en 1: 814.909241
+ADC en 1: 814.909241
+ADC en 1: 814.909241
+ADC en 1: 814.909241
+ADC en 1: 814.909241
+ADC en 1: 814.909241
+ADC en 1: 820.006165
+ADC en 1: 820.006165
+ADC en 1: 820.006165
+ADC en 1: 820.006165
+ADC en 1: 820.006165
+ADC en 1: 820.006165
+ADC en 1: 811.112915
+ADC en 1: 811.112915
+ADC en 1: 811.112915
+ADC en 1: 811.112915
+ADC en 1: 811.112915
+ADC en 1: 811.112915
+ADC en 1: 809.221802
+[I][ntp.cpp:64] ntp_Task(): NTP-client: renew time
+ADC en 1: 809.221802
+NTP-client: Tuesday, January 14 2025 15:37:30
+ADC en 1: 809.221802
+ADC en 1: 809.221802
+ADC en 1: 809.221802
+ADC en 1: 809.221802
+ADC en 1: 824.314026
+ADC en 1: 824.314026
+ADC en 1: 824.314026
+ADC en 1: 824.314026
+ADC en 1: 824.314026
+ADC en 1: 824.314026
+ADC en 1: 821.409424
+ADC en 1: 821.409424
+ADC en 1: 821.409424
+ADC en 1: 821.409424
+ADC en 1: 821.409424
+ADC en 1: 821.409424
+ADC en 1: 806.521240
+ADC en 1: 806.521240
+ADC en 1: 806.521240
+ADC en 1: 806.521240
+ADC en 1: 806.521240
+ADC en 1: 806.521240
+ADC en 1: 822.615356
+ADC en 1: 822.615356
+ADC en 1: 822.615356
+ADC en 1: 822.615356
+ADC en 1: 822.615356
+ADC en 1: 822.615356
+ADC en 1: 792.742371
+ADC en 1: 792.742371
+ADC en 1: 792.742371
+ADC en 1: 792.742371
+ADC en 1: 792.742371
+ADC en 1: 792.742371
+ADC en 1: 819.839600
+ADC en 1: 819.839600
+ADC en 1: 819.839600
+ADC en 1: 819.839600
+ADC en 1: 819.839600
+ADC en 1: 819.839600
+ADC en 1: 813.943298
+ADC en 1: 813.943298
+ADC en 1: 813.943298
+ADC en 1: 813.943298
+ADC en 1: 813.943298
+ADC en 1: 813.943298
+ADC en 1: 821.039246
+ADC en 1: 821.039246
+ADC en 1: 821.039246
+ADC en 1: 821.039246
+ADC en 1: 821.039246
+ADC en 1: 821.039246
+ADC en 1: 795.163635
+ADC en 1: 795.163635
+ADC en 1: 795.163635
+ADC en 1: 795.163635
+ADC en 1: 795.163635
+ADC en 1: 795.163635
+ADC en 1: 794.288879
+ADC en 1: 794.288879
+ADC en 1: 794.288879
+ADC en 1: 794.288879
+ADC en 1: 794.288879
+ADC en 1: 794.288879
+ADC en 1: 796.411804
+ADC en 1: 796.411804
+ADC en 1: 796.411804
+ADC en 1: 796.411804
+ADC en 1: 796.411804
+ADC en 1: 796.411804
+ADC en 1: 782.550110
+ADC en 1: 782.550110
+ADC en 1: 782.550110
+ADC en 1: 782.550110
+ADC en 1: 782.550110
+ADC en 1: 782.550110
+ADC en 1: 813.654053
+ADC en 1: 813.654053
+ADC en 1: 813.654053
+ADC en 1: 813.654053
+ADC en 1: 813.654053
+ADC en 1: 813.654053
+ADC en 1: 810.761230
+ADC en 1: 810.761230
+ADC en 1: 810.761230
+ADC en 1: 810.761230
+ADC en 1: 810.761230
+ADC en 1: 810.761230
+ADC en 1: 795.884766
+ADC en 1: 795.884766
+ADC en 1: 795.884766
+ADC en 1: 795.884766
+ADC en 1: 795.884766
+ADC en 1: 795.884766
+ADC en 1: 810.991699
+ADC en 1: 810.991699
+ADC en 1: 810.991699
+ADC en 1: 810.991699
+ADC en 1: 810.991699
+ADC en 1: 810.991699
+ADC en 1: 801.109497
+ADC en 1: 801.109497
+ADC en 1: 801.109497
+ADC en 1: 801.109497
+ADC en 1: 801.109497
+ADC en 1: 801.109497
+ADC en 1: 808.219482
+ADC en 1: 808.219482
+ADC en 1: 808.219482
+ADC en 1: 808.219482
+ADC en 1: 808.219482
+ADC en 1: 808.219482
+ADC en 1: 801.337036
+ADC en 1: 801.337036
+ADC en 1: 801.337036
+ADC en 1: 801.337036
+ADC en 1: 801.337036
+ADC en 1: 801.337036
+ADC en 1: 801.454468
+ADC en 1: 801.454468
+ADC en 1: 801.454468
+ADC en 1: 801.454468
+ADC en 1: 801.454468
+ADC en 1: 801.454468
+ADC en 1: 787.587158
+ADC en 1: 787.587158
+ADC en 1: 787.587158
+ADC en 1: 787.587158
+ADC en 1: 787.587158
+ADC en 1: 787.587158
+ADC en 1: 788.718628
+ADC en 1: 788.718628
+ADC en 1: 788.718628
+ADC en 1: 788.718628
+ADC en 1: 788.718628
+ADC en 1: 788.718628
+ADC en 1: 786.852112
+ADC en 1: 786.852112
+ADC en 1: 786.852112
+ADC en 1: 786.852112
+ADC en 1: 786.852112
+ADC en 1: 786.852112
+ADC en 1: 777.995300
+ADC en 1: 777.995300
+ADC en 1: 777.995300
+ADC en 1: 777.995300
+ADC en 1: 777.995300
+ADC en 1: 777.995300
+ADC en 1: 801.113159
+ADC en 1: 801.113159
+ADC en 1: 801.113159
+ADC en 1: 801.113159
+ADC en 1: 801.113159
+ADC en 1: 801.113159
+ADC en 1: 790.242920
+ADC en 1: 790.242920
+ADC en 1: 790.242920
+ADC en 1: 790.242920
+ADC en 1: 790.242920
+ADC en 1: 790.242920
+ADC en 1: 802.359375
+ADC en 1: 802.359375
+ADC en 1: 802.359375
+ADC en 1: 802.359375
+ADC en 1: 802.359375
+ADC en 1: 802.359375
+ADC en 1: 774.506470
+ADC en 1: 774.506470
+ADC en 1: 774.506470
+ADC en 1: 774.506470
+ADC en 1: 774.506470
+ADC en 1: 774.506470
+ADC en 1: 799.625916
+ADC en 1: 799.625916
+ADC en 1: 799.625916
+ADC en 1: 799.625916
+ADC en 1: 799.625916
+ADC en 1: 799.625916
+ADC en 1: 782.763977
+ADC en 1: 782.763977
+ADC en 1: 782.763977
+ADC en 1: 782.763977
+ADC en 1: 782.763977
+ADC en 1: 782.763977
+ADC en 1: 796.886353
+ADC en 1: 796.886353
+ADC en 1: 796.886353
+ADC en 1: 796.886353
+ADC en 1: 796.886353
+ADC en 1: 796.886353
+ADC en 1: 774.033997
+ADC en 1: 774.033997
+ADC en 1: 774.033997
+ADC en 1: 774.033997
+ADC en 1: 774.033997
+ADC en 1: 774.033997
+ADC en 1: 787.167114
+ADC en 1: 787.167114
+ADC en 1: 787.167114
+ADC en 1: 787.167114
+ADC en 1: 787.167114
+ADC en 1: 787.167114
+ADC en 1: 779.308899
+ADC en 1: 779.308899
+ADC en 1: 779.308899
+ADC en 1: 779.308899
+ADC en 1: 779.308899
+ADC en 1: 779.308899
+ADC en 1: 791.437317
+ADC en 1: 791.437317
+ADC en 1: 791.437317
+ADC en 1: 791.437317
+ADC en 1: 791.437317
+ADC en 1: 791.437317
+ADC en 1: 793.563354
+ADC en 1: 793.563354
+ADC en 1: 793.563354
+ADC en 1: 793.563354
+ADC en 1: 793.563354
+ADC en 1: 793.563354
+ADC en 1: 784.699219
+ADC en 1: 784.699219
+ADC en 1: 784.699219
+ADC en 1: 784.699219
+ADC en 1: 784.699219
+ADC en 1: 784.699219
+ADC en 1: 791.827271
+ADC en 1: 791.827271
+ADC en 1: 791.827271
+ADC en 1: 791.827271
+ADC en 1: 791.827271
+ADC en 1: 791.827271
+ADC en 1: 785.961731
+ADC en 1: 785.961731
+ADC en 1: 785.961731
+ADC en 1: 785.961731
+ADC en 1: 785.961731
+ADC en 1: 785.961731
+ADC en 1: 777.105896
+ADC en 1: 777.105896
+ADC en 1: 777.105896
+ADC en 1: 777.105896
+ADC en 1: 777.105896
+ADC en 1: 777.105896
+ADC en 1: 776.251160
+ADC en 1: 776.251160
+ADC en 1: 776.251160
+ADC en 1: 776.251160
+ADC en 1: 776.251160
+ADC en 1: 776.251160
+ADC en 1: 771.401733
+ADC en 1: 771.401733
+ADC en 1: 771.401733
+ADC en 1: 771.401733
+ADC en 1: 771.401733
+ADC en 1: 771.401733
+ADC en 1: 782.539978
+ADC en 1: 782.539978
+ADC en 1: 782.539978
+ADC en 1: 782.539978
+ADC en 1: 782.539978
+ADC en 1: 782.539978
+ADC en 1: 779.681458
+ADC en 1: 779.681458
+ADC en 1: 779.681458
+ADC en 1: 779.681458
+ADC en 1: 779.681458
+ADC en 1: 779.681458
+ADC en 1: 781.820435
+ADC en 1: 781.820435
+ADC en 1: 781.820435
+ADC en 1: 781.820435
+ADC en 1: 781.820435
+E (43145) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (43145) task_wdt:  - async_tcp (CPU 1)
+E (43145) task_wdt: Tasks currently running:
+E (43145) task_wdt: CPU 0: IDLE0
+E (43145) task_wdt: CPU 1: async_tcp
+E (43145) task_wdt: Aborting.
+abort() was called at PC 0x40174b44 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088978:0x3ffbfef0 0x40088bf5:0x3ffbff10 0x40174b44:0x3ffbff30 0x400870b5:0x3ffbff50 0x401909f7:0x3ffbc370 0x401764ab:0x3ffbc390 0x4008b3f5:0x3ffbc3b0 0x40089c46:0x3ffbc3d0
+  #0  0x40088978:0x3ffbfef0 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bf5:0x3ffbff10 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x40174b44:0x3ffbff30 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x400870b5:0x3ffbff50 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x401909f7:0x3ffbc370 in esp_pm_impl_waiti at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/pm_esp32.c:492
+  #5  0x401764ab:0x3ffbc390 in esp_vApplicationIdleHook at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/freertos_hooks.c:108
+  #6  0x4008b3f5:0x3ffbc3b0 in prvIdleTask at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/tasks.c:3507
+  #7  0x40089c46:0x3ffbc3d0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:23] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+Error: WiFi no está conectado, no se pueden enviar datos a MongoDB[I][measure.cpp:105] measure_Task(): Se empieza a medir en nucleo: 0
+
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:189] measure_init(): Measurement: I2S driver ready
+ADC en 1: 0.000000
+ADC en 1: 880.030884
+ADC en 1: 880.030884
+ADC en 1: 880.030884
+ADC en 1: 880.030884
+ADC en 1: 880.030884
+ADC en 1: 880.030884
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+ADC en 1: 864.079346
+ADC en 1: 864.079346
+ADC en 1: 864.079346
+ADC en 1: 864.079346
+ADC en 1: 864.079346
+ADC en 1: 864.079346
+ADC en 1: 852.140930
+ADC en 1: 852.140930
+ADC en 1: 852.140930
+ADC en 1: 852.140930
+ADC en 1: 852.140930
+ADC en 1: 852.140930
+ADC en 1: 837.218933
+ADC en 1: 837.218933
+ADC en 1: 837.218933
+ADC en 1: 837.218933
+ADC en 1: 837.218933
+ADC en 1: 837.218933
+ADC en 1: 825.310181
+ADC en 1: 825.310181
+ADC en 1: 825.310181
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+ADC en 1: 825.310181
+ADC en 1: 825.310181
+ADC en 1: 825.310181
+ADC en 1: 808.419922
+ADC en 1: 808.419922
+ADC en 1: 808.419922
+ADC en 1: 808.419922
+ADC en 1: 808.419922
+ADC en 1: 808.419922
+ADC en 1: 783.557068
+ADC en 1: 783.557068
+ADC en 1: 783.557068
+ADC en 1: 783.557068
+ADC en 1: 783.557068
+ADC en 1: 783.557068
+ADC en 1: 770.708435
+ADC en 1: 770.708435
+ADC en 1: 770.708435
+ADC en 1: 770.708435
+ADC en 1: 770.708435
+ADC en 1: 770.708435
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+ADC en 1: 775.854126
+ADC en 1: 775.854126
+ADC en 1: 775.854126
+ADC en 1: 775.854126
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+ADC en 1: 775.854126
+ADC en 1: 775.854126
+ADC en 1: 758.019409
+ADC en 1: 758.019409
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+ADC en 1: 758.019409
+ADC en 1: 758.019409
+ADC en 1: 758.019409
+ADC en 1: 758.019409
+ADC en 1: 745.198792
+ADC en 1: 745.198792
+ADC en 1: 745.198792
+ADC en 1: 745.198792
+ADC en 1: 745.198792
+ADC en 1: 745.198792
+ADC en 1: 739.384521
+ADC en 1: 739.384521
+ADC en 1: 739.384521
+ADC en 1: 739.384521
+ADC en 1: 739.384521
+ADC en 1: 739.384521
+ADC en 1: 715.596497
+ADC en 1: 715.596497
+ADC en 1: 715.596497
+ADC en 1: 715.596497
+ADC en 1: 715.596497
+ADC en 1: 715.596497
+ADC en 1: 689.836792
+ADC en 1: 689.836792
+ADC en 1: 689.836792
+ADC en 1: 689.836792
+ADC en 1: 689.836792
+ADC en 1: 689.836792
+ADC en 1: 676.092285
+ADC en 1: 676.092285
+ADC en 1: 676.092285
+ADC en 1: 676.092285
+ADC en 1: 676.092285
+ADC en 1: 676.092285
+ADC en 1: 669.355164
+ADC en 1: 669.355164
+ADC en 1: 669.355164
+ADC en 1: 669.355164
+ADC en 1: 669.355164
+ADC en 1: 669.355164
+ADC en 1: 662.625549
+ADC en 1: 662.625549
+ADC en 1: 662.625549
+ADC en 1: 662.625549
+ADC en 1: 662.625549
+ADC en 1: 662.625549
+ADC en 1: 657.901001
+ADC en 1: 657.901001
+ADC en 1: 657.901001
+ADC en 1: 657.901001
+ADC en 1: 657.901001
+ADC en 1: 657.901001
+ADC en 1: 640.195984
+ADC en 1: 640.195984
+ADC en 1: 640.195984
+ADC en 1: 640.195984
+ADC en 1: 640.195984
+ADC en 1: 640.195984
+ADC en 1: 638.492920
+ADC en 1: 638.492920
+ADC en 1: 638.492920
+ADC en 1: 638.492920
+ADC en 1: 638.492920
+ADC en 1: 638.492920
+ADC en 1: 612.818054
+ADC en 1: 612.818054
+ADC en 1: 612.818054
+ADC en 1: 612.818054
+ADC en 1: 612.818054
+ADC en 1: 612.818054
+ADC en 1: 606.150635
+ADC en 1: 606.150635
+ADC en 1: 606.150635
+ADC en 1: 606.150635
+ADC en 1: 606.150635
+ADC en 1: 606.150635
+ADC en 1: 592.498169
+ADC en 1: 592.498169
+ADC en 1: 592.498169
+ADC en 1: 592.498169
+ADC en 1: 592.498169
+ADC en 1: 592.498169
+ADC en 1: 595.842041
+ADC en 1: 595.842041
+ADC en 1: 595.842041
+ADC en 1: 595.842041
+ADC en 1: 595.842041
+ADC en 1: 595.842041
+ADC en 1: 578.205322
+ADC en 1: 578.205322
+[I][ntp.cpp:64] ntp_Task(): NTP-client: renew time
+NTP-client: Tuesday, January 14 2025 15:38:13
+ADC en 1: 578.205322
+ADC en 1: 578.205322
+ADC en 1: 578.205322
+ADC en 1: 578.205322
+ADC en 1: 585.560486
+ADC en 1: 585.560486
+ADC en 1: 585.560486
+ADC en 1: 585.560486
+ADC en 1: 585.560486
+ADC en 1: 585.560486
+ADC en 1: 572.929626
+ADC en 1: 572.929626
+ADC en 1: 572.929626
+ADC en 1: 572.929626
+ADC en 1: 572.929626
+ADC en 1: 572.929626
+ADC en 1: 571.300537
+ADC en 1: 571.300537
+ADC en 1: 571.300537
+ADC en 1: 571.300537
+ADC en 1: 571.300537
+ADC en 1: 571.300537
+ADC en 1: 554.689697
+ADC en 1: 554.689697
+ADC en 1: 554.689697
+ADC en 1: 554.689697
+ADC en 1: 554.689697
+ADC en 1: 554.689697
+ADC en 1: 562.070740
+ADC en 1: 562.070740
+ADC en 1: 562.070740
+ADC en 1: 562.070740
+ADC en 1: 562.070740
+ADC en 1: 562.070740
+ADC en 1: 552.462402
+ADC en 1: 552.462402
+ADC en 1: 552.462402
+ADC en 1: 552.462402
+ADC en 1: 552.462402
+ADC en 1: 552.462402
+ADC en 1: 551.854675
+ADC en 1: 551.854675
+ADC en 1: 551.854675
+ADC en 1: 551.854675
+ADC en 1: 551.854675
+ADC en 1: 551.854675
+ADC en 1: 549.249878
+ADC en 1: 549.249878
+ADC en 1: 549.249878
+ADC en 1: 549.249878
+ADC en 1: 549.249878
+ADC en 1: 549.249878
+ADC en 1: 545.648987
+ADC en 1: 545.648987
+ADC en 1: 545.648987
+ADC en 1: 545.648987
+ADC en 1: 545.648987
+ADC en 1: 545.648987
+ADC en 1: 540.054199
+ADC en 1: 540.054199
+ADC en 1: 540.054199
+ADC en 1: 540.054199
+ADC en 1: 540.054199
+ADC en 1: 540.054199
+ADC en 1: 546.452454
+ADC en 1: 546.452454
+ADC en 1: 546.452454
+ADC en 1: 546.452454
+ADC en 1: 546.452454
+ADC en 1: 546.452454
+ADC en 1: 555.840271
+ADC en 1: 555.840271
+ADC en 1: 555.840271
+ADC en 1: 555.840271
+ADC en 1: 555.840271
+ADC en 1: 555.840271
+ADC en 1: 552.232178
+ADC en 1: 552.232178
+ADC en 1: 552.232178
+ADC en 1: 552.232178
+ADC en 1: 552.232178
+ADC en 1: 552.232178
+ADC en 1: 556.619202
+ADC en 1: 556.619202
+ADC en 1: 556.619202
+ADC en 1: 556.619202
+ADC en 1: 556.619202
+ADC en 1: 556.619202
+ADC en 1: 569.991455
+ADC en 1: 569.991455
+ADC en 1: 569.991455
+ADC en 1: 569.991455
+ADC en 1: 569.991455
+ADC en 1: 569.991455
+ADC en 1: 567.366638
+ADC en 1: 567.366638
+ADC en 1: 567.366638
+ADC en 1: 567.366638
+ADC en 1: 567.366638
+ADC en 1: 567.366638
+ADC en 1: 596.709595
+ADC en 1: 596.709595
+ADC en 1: 596.709595
+ADC en 1: 596.709595
+ADC en 1: 596.709595
+ADC en 1: 596.709595
+ADC en 1: 592.057617
+ADC en 1: 592.057617
+ADC en 1: 592.057617
+ADC en 1: 592.057617
+ADC en 1: 592.057617
+ADC en 1: 592.057617
+ADC en 1: 599.397522
+ADC en 1: 599.397522
+ADC en 1: 599.397522
+ADC en 1: 599.397522
+ADC en 1: 599.397522
+ADC en 1: 599.397522
+ADC en 1: 575.763428
+ADC en 1: 575.763428
+ADC en 1: 575.763428
+ADC en 1: 575.763428
+ADC en 1: 575.763428
+ADC en 1: 575.763428
+ADC en 1: 581.123474
+ADC en 1: 581.123474
+ADC en 1: 581.123474
+ADC en 1: 581.123474
+ADC en 1: 581.123474
+ADC en 1: 581.123474
+ADC en 1: 582.482117
+ADC en 1: 582.482117
+ADC en 1: 582.482117
+ADC en 1: 582.482117
+ADC en 1: 582.482117
+ADC en 1: 582.482117
+ADC en 1: 587.834839
+ADC en 1: 587.834839
+ADC en 1: 587.834839
+ADC en 1: 587.834839
+ADC en 1: 587.834839
+ADC en 1: 587.834839
+ADC en 1: 591.183838
+ADC en 1: 591.183838
+ADC en 1: 591.183838
+ADC en 1: 591.183838
+ADC en 1: 591.183838
+ADC en 1: 591.183838
+ADC en 1: 610.511536
+ADC en 1: 610.511536
+ADC en 1: 610.511536
+ADC en 1: 610.511536
+ADC en 1: 610.511536
+ADC en 1: 610.511536
+ADC en 1: 614.834412
+ADC en 1: 614.834412
+ADC en 1: 614.834412
+ADC en 1: 614.834412
+ADC en 1: 614.834412
+ADC en 1: 614.834412
+ADC en 1: 612.160339
+ADC en 1: 612.160339
+ADC en 1: 612.160339
+ADC en 1: 612.160339
+ADC en 1: 612.160339
+ADC en 1: 612.160339
+ADC en 1: 618.479309
+ADC en 1: 618.479309
+ADC en 1: 618.479309
+ADC en 1: 618.479309
+ADC en 1: 618.479309
+ADC en 1: 618.479309
+ADC en 1: 614.802246
+ADC en 1: 614.802246
+ADC en 1: 614.802246
+ADC en 1: 614.802246
+ADC en 1: 614.802246
+ADC en 1: 614.802246
+ADC en 1: 636.101746
+ADC en 1: 636.101746
+ADC en 1: 636.101746
+ADC en 1: 636.101746
+ADC en 1: 636.101746
+ADC en 1: 636.101746
+ADC en 1: 658.376770
+ADC en 1: 658.376770
+ADC en 1: 658.376770
+ADC en 1: 658.376770
+ADC en 1: 658.376770
+ADC en 1: 658.376770
+ADC en 1: 650.660217
+ADC en 1: 650.660217
+ADC en 1: 650.660217
+ADC en 1: 650.660217
+ADC en 1: 650.660217
+ADC en 1: 650.660217
+ADC en 1: 667.924622
+ADC en 1: 667.924622
+ADC en 1: 667.924622
+ADC en 1: 667.924622

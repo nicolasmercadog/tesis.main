@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 OScopeProbe();
             }
         }
-    }, 1000);
+    }, 500);
 
     // Código para agregar el evento al botón de restablecer zoom
     const resetZoomButton = document.getElementById('resetZoomButton');
@@ -76,7 +76,9 @@ function getconnect() {
         partsarry = e.data.split('\\');
     
         if (partsarry[0] == 'OScopeProbe') {
+            console.time("GotOScope Execution");
             window.GotOScope(e.data);
+            console.timeEnd("GotOScope Execution");
             return;
         }    
         // Procesar otros tipos de mensajes como antes
@@ -516,6 +518,8 @@ function createOrUpdateChart(chartId, datasets, numSamples, title, yLabel) {
     }
 }
 
+let updateOscChart = true; // Variable global para alternar gráficos
+
 function GotOScope(data) {
     const parts = data.split('\\');
     if (parts[0] !== 'OScopeProbe') return;
@@ -527,47 +531,59 @@ function GotOScope(data) {
     const fftData = parts[6];
     const activeChannels = decodeActiveChannels(parts[7]);
 
+    console.time("prepareOscilloscopeData");
     const oscilloscopeDatasets = prepareOscilloscopeData(activeChannels, numSamples, channelData);
+    console.timeEnd("prepareOscilloscopeData");
+    console.time("prepareFFTData");
     const fftDatasets = prepareFFTData(activeChannels, fftSamples, fftData);
+    console.timeEnd("prepareFFTData");
 
-    // Actualizar gráficos
-    createOrUpdateChart('oscilloscopeChart', oscilloscopeDatasets, numSamples, 'Osciloscopio', 'Amplitud');
-    createOrUpdateChart('fftChart', fftDatasets, fftSamples, 'FFT', 'Magnitud');
+
+    if (updateOscChart) {
+        console.time("CreateOrUpdateChartOSC");
+        createOrUpdateChart('oscilloscopeChart', oscilloscopeDatasets, numSamples, 'Osciloscopio', 'Amplitud');
+        console.timeEnd("CreateOrUpdateChartOSC");
+    } else {
+        console.time("CreateOrUpdateChartFFT");
+        createOrUpdateChart('fftChart', fftDatasets, fftSamples, 'FFT', 'Magnitud');
+        console.timeEnd("CreateOrUpdateChartFFT");
+    }
+
+    updateOscChart = !updateOscChart; // Alternar en cada ciclo
 }
 
 function decodeActiveChannels(activeChannelsHex) {
-    const binaryString = parseInt(activeChannelsHex, 16).toString(2).padStart(13, '0');
-    const activeChannels = [];
-    for (let i = 0; i < binaryString.length; i++) {
-        if (binaryString[i] === '1') activeChannels.push(i);
-    }
-    return activeChannels;
+    return [...parseInt(activeChannelsHex, 16).toString(2).padStart(13, '0')]
+        .map((bit, index) => (bit === '1' ? index : null))
+        .filter(index => index !== null);
 }
+
 
 function prepareOscilloscopeData(activeChannels, numSamples, data) {
     const datasets = [];
-
+    const channelDataLength = numSamples * activeChannels.length;
 
     activeChannels.forEach((channelIndex, activeIndex) => {
         const values = [];
+        let factor = 1;
 
-                // Determinar el factor de ajuste basado en el channelIndex
-                switch (true) {
-                    case [0, 4, 8].includes(channelIndex):
-                        factor = 1.5;
-                        break;
-                    case [1, 5, 9].includes(channelIndex):
-                        factor = 0.89;
-                        break;
-                    case [2, 6, 10].includes(channelIndex):
-                        factor = 3;
-                        break;
-                    case [3, 7, 11].includes(channelIndex):
-                        factor = 4;
-                        break;
-                    default:
-                        console.warn(`Canal ${channelIndex} no tiene un factor definido. Usando 1.`);
-                }
+        // Determinar el factor de ajuste
+        switch (true) {
+            case [0, 4, 8].includes(channelIndex):
+                factor = 1.5;
+                break;
+            case [1, 5, 9].includes(channelIndex):
+                factor = 0.89;
+                break;
+            case [2, 6, 10].includes(channelIndex):
+                factor = 3;
+                break;
+            case [3, 7, 11].includes(channelIndex):
+                factor = 4;
+                break;
+            default:
+                console.warn(`Canal ${channelIndex} no tiene un factor definido. Usando 1.`);
+        }
 
         for (let i = 0; i < numSamples; i++) {
             const offsetPos = (numSamples * activeIndex + i) * 3;
@@ -584,13 +600,13 @@ function prepareOscilloscopeData(activeChannels, numSamples, data) {
             borderColor: getColor(channelIndex),
             fill: false,
             pointRadius: 2,
-            tension: 0.1
+            tension: 0.1,
         });
     });
 
-    //console.log('Datasets preparados:', datasets);
     return datasets;
 }
+
 
 function prepareFFTData(activeChannels, fftSamples, data) {
     const datasets = [];
@@ -646,7 +662,7 @@ function ToggleOScopePause() {
     if (!pause_osc) OScopeProbe();
 }
 
-function PhaseshiftPlus() {
+/*function PhaseshiftPlus() {
     sendCMD("PS+");
 }
 
@@ -661,3 +677,4 @@ function SampleratePlus() {
 function SamplerateMinus() {
     sendCMD( "FQ-" );		
 }
+*/

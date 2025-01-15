@@ -68,14 +68,14 @@ function togglePlayPause() {
           resizeCanvases();
       });
 
-      function zoomFFT(scale) {
+      /*function zoomFFT(scale) {
           const fcanvas = document.getElementById('FFTCanvas');
           const ctx = fcanvas.getContext('2d');
           const imageData = ctx.getImageData(0, 0, fcanvas.width, fcanvas.height);
           ctx.clearRect(0, 0, fcanvas.width, fcanvas.height);
           ctx.setTransform(scale, 0, 0, 1, 0, 0);
           ctx.putImageData(imageData, 0, 0);
-      }
+      }*/
    </script>
 </head>
 <body>
@@ -115,22 +115,22 @@ function togglePlayPause() {
             <tr width="100%"><div id='fixedfooter'><span id='status'>Desconectado</span></div></tr>
             
               <button onclick="toggleAllChannels();">Activar/Desactivar todos los canales</button><br>
-                  <input type="checkbox" id="channel0" checked title="Corriente del L1"><label id="channel_0_name" for="channel0">L1 Corriente (I1)</label>
-                  <input type="checkbox" id="channel1" checked title="Tensión del L1"><label id="channel_1_name" for="channel1">L1 Tensión (U1)</label>
-                  <input type="checkbox" id="channel2" checked title="Potencia del L1"><label id="channel_2_name" for="channel2">L1 Potencia (P1)</label>
-                  <input type="checkbox" id="channel3" checked title="Potencia Reactiva del L1"><label id="channel_3_name" for="channel3">L1 Potencia Reactiva (Q1)</label><br>
-                  <input type="checkbox" id="channel4" checked title="Corriente del L2"><label id="channel_4_name" for="channel4">L2 Corriente (I2)</label>
-                  <input type="checkbox" id="channel5" checked title="Tensión del L2"><label id="channel_5_name" for="channel5">L2 Tensión (U2)</label>
-                  <input type="checkbox" id="channel6" checked title="Potencia del L2"><label id="channel_6_name" for="channel6">L2 Potencia (P2)</label>
-                  <input type="checkbox" id="channel7" checked title="Potencia Reactiva del L2"><label id="channel_7_name" for="channel7">L2 Potencia Reactiva (Q2)</label><br>
-                  <input type="checkbox" id="channel8" checked title="Corriente del L3"><label id="channel_8_name" for="channel8">L3 Corriente (I3)</label>
-                  <input type="checkbox" id="channel9" checked title="Tensión del L3"><label id="channel_9_name" for="channel9">L3 Tensión (U3)</label>
-                  <input type="checkbox" id="channel10" checked title="Potencia del L3"><label id="channel_10_name" for="channel10">L3 Potencia (P3)</label>
-                  <input type="checkbox" id="channel11" checked title="Potencia Reactiva del L3"><label id="channel_11_name" for="channel11">L3 Potencia Reactiva (Q3)</label><br>
-                  <input type="checkbox" id="channel12" checked title="Todas las Potencias (TP)"><label id="channel_12_name" for="channel12">Todas las Potencias (TP)</label>
+                  <input type="checkbox" id="channel0" checked title="Corriente L1"><label id="channel_0_name" for="channel0">L1 Corriente (I1)</label>
+                  <input type="checkbox" id="channel1" checked title="Tensión L1"><label id="channel_1_name" for="channel1">L1 Tensión (U1)</label>
+                  <input type="checkbox" id="channel2" checked title="Potencia L1"><label id="channel_2_name" for="channel2">L1 Potencia (P1)</label>
+                  <input type="checkbox" id="channel3" checked title="Potencia Reactiva L1"><label id="channel_3_name" for="channel3">L1 Potencia Reactiva (Q1)</label><br>
+                  <input type="checkbox" id="channel4" checked title="Corriente L2"><label id="channel_4_name" for="channel4">L2 Corriente (I2)</label>
+                  <input type="checkbox" id="channel5" checked title="Tensión L2"><label id="channel_5_name" for="channel5">L2 Tensión (U2)</label>
+                  <input type="checkbox" id="channel6" checked title="Potencia L2"><label id="channel_6_name" for="channel6">L2 Potencia (P2)</label>
+                  <input type="checkbox" id="channel7" checked title="Potencia Reactiva L2"><label id="channel_7_name" for="channel7">L2 Potencia Reactiva (Q2)</label><br>
+                  <input type="checkbox" id="channel8" checked title="Corriente L3"><label id="channel_8_name" for="channel8">L3 Corriente (I3)</label>
+                  <input type="checkbox" id="channel9" checked title="Tensión L3"><label id="channel_9_name" for="channel9">L3 Tensión (U3)</label>
+                  <input type="checkbox" id="channel10" checked title="Potencia L3"><label id="channel_10_name" for="channel10">L3 Potencia (P3)</label>
+                  <input type="checkbox" id="channel11" checked title="Potencia Reactiva L3"><label id="channel_11_name" for="channel11">L3 Potencia Reactiva (Q3)</label><br>
+                  <input type="checkbox" id="channel12" checked title="Total Potencias (TP)"><label id="channel_12_name" for="channel12">Todas las Potencias (TP)</label>
               
               </td>
-              <td width="30%">
+              <!--<td width="30%">
                 Tasa de muestreo:<br><input type=button onclick="SampleratePlus(); " id=SampleratePlusButton value="+">
                 <input type=button onclick="SamplerateMinus(); " id=SamplerateMinusButton value="-">
                 <input type=button onclick="SaveSettings(); " id=SaveButton value="guardar"><br>
@@ -153,7 +153,7 @@ function togglePlayPause() {
                 <input type=button onclick="PhaseshiftPlus(); " id=PlusButton value="<">
                 <input type=button onclick="PhaseshiftMinus(); " id=MinusButton value=">">
                 <input type=button onclick="SaveSettings(); " id=SaveButton value="guardar">
-            </td>
+            </td>-->
         </table>
    </table>
 </div> 

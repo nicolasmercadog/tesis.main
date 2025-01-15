@@ -13,6 +13,9 @@
     #define samplingFrequency       numbersOfSamples*VIRTUAL_ADC_CHANNELS //número de muestras (256*6)
     #define DELAY                   1000
     #define I2S_PORT                I2S_NUM_0
+    // Macros relacionados con el módulo de medición
+    #define HIGH_PASS_FILTER(current, last, sample) (high_pass_coef * ((last) + (sample) - (current)))
+
 
 
     #define OPMASK 0xf0
@@ -124,6 +127,9 @@ extern HarmonicData harmonic_values[VIRTUAL_CHANNELS];  // Declaración como ext
         float           sign;                               /** @brief channel reactive power sign */
         uint8_t         operation[ MAX_MICROCODE_OPS ];     /** @brief opcode sequence */
     };
+
+    // Declara la función en measure.h
+    int calculate_phaseshift(int base_shift, int n, int samples);
     /**
      * @brief measurement init function
      */

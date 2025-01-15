@@ -107,13 +107,13 @@ body {
 }
 
 /* Ajustes para el input range para que sea vertical */
-input[type=range][orient=vertical] {
-  writing-mode: bt-lr; /* Hace que la barra se oriente de abajo hacia arriba (bottom to left right) */
-  -webkit-appearance: slider-vertical; /* Apariencia vertical en navegadores webkit */
-  width: 8px; /* Ancho del slider (se vuelve el "alto" en vertical) */
-  height: 200px; /* Altura del slider */
+/*input[type=range][orient=vertical] {
+  writing-mode: bt-lr; // Hace que la barra se oriente de abajo hacia arriba (bottom to left right) 
+  -webkit-appearance: slider-vertical; // Apariencia vertical en navegadores webkit 
+  width: 8px; // Ancho del slider (se vuelve el "alto" en vertical) 
+  height: 200px; // Altura del slider 
   padding: 0;
-}
+} */
 
 input[type=range][orient=vertical]::-webkit-slider-thumb {
   -webkit-appearance: none;

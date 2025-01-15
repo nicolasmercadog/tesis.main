@@ -1,0 +1,554 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+Potencia: 21.821205
+Potencia: 30.044670
+Potencia: 21.216822
+Potencia: 0.137143
+Potencia: 0.161011
+Potencia: 0.283070
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+Potencia: 0.154317
+Potencia: 0.106897
+Potencia: 0.261638
+Potencia: 0.108773
+Potencia: 0.198427
+Potencia: 0.289567
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+Potencia: 0.194090
+Potencia: 0.228091
+Potencia: 0.321197
+Potencia: 0.126681
+Potencia: 0.307157
+Potencia: 0.309019
+Potencia: 0.124112
+Potencia: 0.302305
+Potencia: 0.341900
+Potencia: 0.094108
+Potencia: 0.267588
+Potencia: 0.284556
+Potencia: 0.107523
+Potencia: 0.310838
+Potencia: 0.289632
+Potencia: 0.090712
+Potencia: 0.260933
+Potencia: 0.281101
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+Potencia: 0.081038
+Potencia: 0.301262
+Potencia: 0.304979
+Potencia: 0.160000
+Potencia: 0.279703
+Potencia: 0.332256
+Potencia: 0.119581
+Potencia: 0.259537
+Potencia: 0.311155
+Potencia: 0.109937
+Potencia: 0.317008
+Potencia: 0.343251
+[I][ntp.cpp:64] ntp_Task(): NTP-client: renew time
+NTP-client: Wednesday, January 15 2025 18:13:37
+Potencia: 0.222301
+Potencia: 0.214275
+Potencia: 0.299237
+Potencia: 0.185000
+Potencia: 0.264607
+Potencia: 0.303297
+Potencia: 0.084193
+Potencia: 0.289322
+Potencia: 0.342317
+Potencia: 0.089559
+Potencia: 0.323141
+Potencia: 0.296783
+Potencia: 0.078050
+Potencia: 0.268748
+Potencia: 0.334802
+Potencia: 0.079140
+Potencia: 0.265826
+Potencia: 0.307492
+Potencia: 0.132498
+Potencia: 0.335932
+Potencia: 0.321820
+Potencia: 0.067087
+Potencia: 0.268594
+Potencia: 0.342831
+Potencia: 0.125998
+Potencia: 0.320548
+Potencia: 0.305929
+Potencia: 0.062672
+Potencia: 0.252214
+Potencia: 0.335694
+Potencia: 0.060574
+Potencia: 0.251389
+Potencia: 0.314474
+Potencia: 0.070806
+Potencia: 0.297828
+Potencia: 0.310662
+Potencia: 0.060586
+Potencia: 0.254265
+Potencia: 0.344480
+Potencia: 0.071235
+Potencia: 0.304587
+Potencia: 0.320883
+Potencia: 0.080934
+Potencia: 0.257444
+Potencia: 0.340891
+Potencia: 0.076097
+Potencia: 0.269648
+Potencia: 0.323534
+Potencia: 0.093628
+Potencia: 0.310055
+Potencia: 0.349016
+Potencia: 0.060831
+Potencia: 0.260683
+Potencia: 0.324578
+Potencia: 0.055478
+Potencia: 0.296524
+Potencia: 0.321727
+Potencia: 0.247335
+Potencia: 0.344076
+Potencia: 0.083571
+Potencia: 0.269674
+Potencia: 0.320111
+Potencia: 0.063265
+Potencia: 0.292755
+Potencia: 0.352684
+Potencia: 0.092867
+Potencia: 0.268999
+Potencia: 0.319810
+Potencia: 0.119270
+Potencia: 0.311225
+Potencia: 0.315539
+Potencia: 0.059878
+Potencia: 0.254270
+Potencia: 0.339494
+Potencia: 0.065644
+Potencia: 0.293263
+Potencia: 0.315784
+Potencia: 0.134445
+Potencia: 0.288051
+Potencia: 0.351758
+Potencia: 0.151101
+Potencia: 0.279230
+Potencia: 0.323528
+Potencia: 0.096869
+Potencia: 0.314450
+Potencia: 0.327474
+Potencia: 0.083121
+Potencia: 0.268542
+Potencia: 0.356822
+Potencia: 0.073328
+Potencia: 0.290859
+Potencia: 0.324020
+Potencia: 0.060243
+Potencia: 0.253428
+Potencia: 0.354597
+Potencia: 0.057176
+Potencia: 0.255743
+Potencia: 0.325544
+Potencia: 0.055530
+Potencia: 0.293503
+Potencia: 0.328711
+Potencia: 0.091340
+Potencia: 0.269987
+Potencia: 0.355057
+Potencia: 0.065282
+Potencia: 0.296319
+Potencia: 0.323433
+Potencia: 0.073953
+Potencia: 0.251009
+Potencia: 0.348257
+Potencia: 0.063790
+Potencia: 0.243885
+Potencia: 0.317833
+Potencia: 0.064539
+Potencia: 0.287145
+Potencia: 0.344052
+Potencia: 0.052756
+Potencia: 0.248428
+Potencia: 0.327989
+Potencia: 0.065434
+Potencia: 0.293040
+Potencia: 0.326173
+Potencia: 0.064622
+Potencia: 0.247405
+Potencia: 0.345523
+Potencia: 0.097654
+Potencia: 0.310760
+Potencia: 0.324837
+Potencia: 0.356928
+Potencia: 0.314016
+Potencia: 0.346975
+Potencia: 0.114330
+Potencia: 0.256238
+Potencia: 0.324272
+Potencia: 0.068082
+Potencia: 0.300003
+Potencia: 0.321432
+Potencia: 0.058192
+Potencia: 0.254083
+Potencia: 0.356874
+Potencia: 0.067059
+Potencia: 0.301180
+Potencia: 0.329525
+Potencia: 0.065749
+Potencia: 0.259706
+Potencia: 0.351314
+Potencia: 0.070451
+Potencia: 0.252674
+Potencia: 0.320934
+Potencia: 0.303331
+Potencia: 0.387178
+Potencia: 0.323486
+Potencia: 0.125328
+Potencia: 0.257869
+Potencia: 0.347125
+Potencia: 0.076996
+Potencia: 0.306806
+Potencia: 0.331004
+Potencia: 0.057408
+Potencia: 0.261268
+Potencia: 0.351824
+Potencia: 0.052867
+Potencia: 0.255285
+Potencia: 0.325295
+Potencia: 0.151074
+Potencia: 0.300938
+Potencia: 0.330619
+Potencia: 0.104924
+Potencia: 0.273934
+Potencia: 0.350642
+Potencia: 0.083382
+Potencia: 0.309797
+Potencia: 0.324162
+Potencia: 0.112172
+Potencia: 0.277181
+Potencia: 0.353559
+Potencia: 0.059317
+Potencia: 0.255013
+Potencia: 0.327229
+Potencia: 0.064636
+Potencia: 0.310686
+Potencia: 0.354118
+Potencia: 0.060542
+Potencia: 0.265829
+Potencia: 0.336471
+Potencia: 0.062453
+Potencia: 0.299866
+Potencia: 0.323745
+Potencia: 0.073346
+Potencia: 0.269856
+Potencia: 0.350652
+Potencia: 0.094374
+Potencia: 0.305274
+Potencia: 0.305941
+Potencia: 0.074754
+Potencia: 0.272197
+Potencia: 0.342102
+Potencia: 0.072060
+Potencia: 0.249030
+Potencia: 0.304631
+Potencia: 0.052934
+Potencia: 0.284969
+Potencia: 0.308812
+Potencia: 0.056976
+Potencia: 0.246769
+Potencia: 0.340792
+Potencia: 0.066288
+Potencia: 0.288276
+Potencia: 0.326371
+Potencia: 0.071090
+Potencia: 0.258369
+Potencia: 0.364426
+Potencia: 0.066779
+Potencia: 0.264715
+Potencia: 0.335340
+Potencia: 0.074527
+Potencia: 0.311314
+Potencia: 0.345561
+Potencia: 0.060487
+Potencia: 0.258472
+Potencia: 0.369624
+Potencia: 0.071160
+Potencia: 0.305300
+Potencia: 0.332298
+Potencia: 0.054227
+Potencia: 0.265939
+Potencia: 0.363003
+Potencia: 0.058606
+Potencia: 0.265251
+Potencia: 0.335475
+Potencia: 0.069579
+Potencia: 0.302759
+Potencia: 0.368761
+Potencia: 0.065005
+Potencia: 0.265314
+Potencia: 0.353254
+Potencia: 0.063074
+Potencia: 0.305389
+Potencia: 0.346028
+Potencia: 0.066098
+Potencia: 0.274544
+Potencia: 0.367596
+Potencia: 0.062423
+Potencia: 0.275864
+Potencia: 0.320617
+Potencia: 0.086343
+Potencia: 0.326161
+Potencia: 0.331175
+Potencia: 0.057814
+Potencia: 0.272507
+Potencia: 0.256515
+Potencia: 0.062363
+Potencia: 0.276509
+Potencia: 0.249988
+Potencia: 0.059837
+Potencia: 0.236612
+Potencia: 0.280567
+Potencia: 0.065295
+Potencia: 0.276294
+Potencia: 0.259961
+Potencia: 0.070657
+Potencia: 0.225595
+Potencia: 0.278560
+Potencia: 0.080010
+Potencia: 0.235096
+Potencia: 0.257971
+Potencia: 0.060605
+Potencia: 0.279017
+Potencia: 0.247495
+Potencia: 0.117227
+Potencia: 0.259992
+Potencia: 0.281910
+Potencia: 0.093121
+Potencia: 0.274084
+Potencia: 0.256122
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+Potencia: 0.152118
+Potencia: 0.273324
+Potencia: 0.296164
+Potencia: 0.402239
+Potencia: 0.242334
+Potencia: 0.253450
+Potencia: 0.198893
+Potencia: 0.228160
+Potencia: 0.254117
+Potencia: 0.105940
+Potencia: 0.254800
+Potencia: 0.261481
+Potencia: 0.106362
+Potencia: 0.294418
+Potencia: 0.244703
+Potencia: 0.098464
+Potencia: 0.254273
+Potencia: 0.277133
+Potencia: 0.084131
+Potencia: 0.252724
+Potencia: 0.260102
+[D][basejsonconfig.cpp:181] save(): json config serializeJson() success: /measure.json
+[D][basejsonconfig.cpp:181] save(): json config serializeJson() success: /mqtt.json
+[D][basejsonconfig.cpp:181] save(): json config serializeJson() success: /wifi.json
+ERROR: Too many messages queued
+ERROR: Too many messages queued
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+Potencia: 0.073548
+Potencia: 0.318057
+Potencia: 0.268113
+Potencia: 0.081741
+Potencia: 0.248930
+Potencia: 0.264042
+Potencia: 0.101278
+Potencia: 0.242266
+Potencia: 0.251228
+Potencia: 0.065682
+Potencia: 0.273081
+Potencia: 0.248532
+Potencia: 0.069992
+Potencia: 0.247287
+Potencia: 0.270833
+Potencia: 0.073362
+Potencia: 0.262602
+Potencia: 0.253565
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+Potencia: 0.054911
+Potencia: 0.281333
+Potencia: 0.275641
+Potencia: 0.054076
+Potencia: 0.235744
+Potencia: 0.254814
+Potencia: 0.268227
+Potencia: 0.246462
+Potencia: 0.062482
+Potencia: 0.241057
+Potencia: 0.288384
+Potencia: 0.052521
+Potencia: 0.260656
+Potencia: 0.241271
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+Potencia: 0.052816
+Potencia: 0.235331
+Potencia: 0.279938
+Potencia: 0.217584
+Potencia: 0.284074
+Potencia: 0.253703
+Potencia: 0.091910
+Potencia: 0.252732
+Potencia: 0.240152
+Potencia: 0.053639
+Potencia: 0.232132
+Potencia: 0.273488
+Potencia: 0.051538
+Potencia: 0.265806
+Potencia: 0.241457
+Potencia: 0.226196
+Potencia: 0.270148
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+Potencia: 0.062031
+Potencia: 0.227060
+Potencia: 0.261667
+Potencia: 0.069429
+Potencia: 0.266552
+Potencia: 0.271582
+Potencia: 0.079324
+Potencia: 0.252032
+Potencia: 0.281011
+[D][basejsonconfig.cpp:181] save(): json config serializeJson() success: /measure.json
+[D][basejsonconfig.cpp:181] save(): json config serializeJson() success: /mqtt.json
+[D][basejsonconfig.cpp:181] save(): json config serializeJson() success: /wifi.json
+ERROR: Too many messages queued
+ERROR: Too many messages queued
+Potencia: -0.025812
+Potencia: 0.230612
+Potencia: 0.243802
+Potencia: -0.018321
+Potencia: 0.188058
+Potencia: 0.222484
+Potencia: -0.007931
+Potencia: 0.214878
+Potencia: 0.272118
+Potencia: -0.006807
+Potencia: 0.314075
+Potencia: 0.251950
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+Potencia: 0.016629
+Potencia: 0.257043
+Potencia: 0.273689
+Potencia: -0.030183
+Potencia: 0.241958
+Potencia: 0.250110
+Potencia: -0.006542
+Potencia: 0.307497
+Potencia: 0.277216
+Potencia: 0.075348
+Potencia: 0.287348
+Potencia: 0.264456
+Potencia: -0.003351
+Potencia: 0.314127
+Potencia: 0.257343
+[I][mqttclient.cpp:109] mqtt_client_on_disconnect(): MQTT-Client: Disconnected from MQTT
+
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+Potencia: -0.001146
+Potencia: 0.257105
+Potencia: 0.281165
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+Potencia: -0.021959
+Potencia: 0.233957
+Potencia: 0.247173
+Potencia: -0.014034
+Potencia: 0.282948
+Potencia: 0.277918
+Potencia: 0.019475
+Potencia: 0.251868
+Potencia: 0.249816
+Potencia: 0.035899
+Potencia: 0.317060
+Potencia: 0.256496
+Potencia: -0.004978
+Potencia: 0.265774
+Potencia: 0.286439
+Potencia: 0.381759
+Potencia: 0.428994
+Potencia: 0.270021
+Potencia: 0.022078
+Potencia: 0.289055
+Potencia: 0.285805
+Potencia: -0.018293
+Potencia: 0.262245
+Potencia: 0.253280
+Potencia: -0.014558
+Potencia: 0.282135
+Potencia: 0.255988
+Potencia: -0.000413
+Potencia: 0.257515
+Potencia: 0.276514
+Potencia: -0.022758
+Potencia: 0.284732
+Potencia: 0.253437
+Potencia: -0.027491
+Potencia: 0.268445
+Potencia: 0.286252
+Potencia: 0.088602
+Potencia: 0.289139
+Potencia: 0.257874
+Potencia: -0.007338
+Potencia: 0.287545
+Potencia: 0.250693
+Potencia: 0.033781
+Potencia: 0.284324
+Potencia: 0.291435
+Potencia: -0.038790
+Potencia: 0.287937
+Potencia: 0.246708
+Potencia: -0.035682
+Potencia: 0.248978
+Potencia: 0.275602
+Potencia: 0.004074
+Potencia: 0.261473
+Potencia: 0.258006
+Potencia: 0.018708
+Potencia: 0.291713
+Potencia: 0.279602
+Potencia: -0.000476
+Potencia: 0.247909
+Potencia: 0.243625
