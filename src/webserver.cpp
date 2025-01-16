@@ -337,7 +337,8 @@ strncat(request, hexChannels, sizeof(request));
 
                 if( !measure_get_channel_group_id_entrys( group_id ) )
                     continue;
-
+                        
+                strncat( tmp, "\r\n", sizeof( tmp ) - strlen( tmp ) - 1 );  // Salto de línea
                 snprintf( tmp, sizeof( tmp ), " %s:[ ", measure_get_group_name( group_id ) );
                 strncat( request, tmp, sizeof( request ) );
 
@@ -369,10 +370,10 @@ strncat(request, hexChannels, sizeof(request));
                             snprintf(thirdHarmonicStr, sizeof(thirdHarmonicStr), "%.1f%s ", harmonic_values[channel].thirdHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, thirdHarmonicStr, sizeof(tmp) - strlen(tmp) - 1);
                                                         
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
-                            char cf3[32];
-                            snprintf(cf3, sizeof(cf3), "%.1f%s ", harmonic_values[channel].fthird, harmonic_values[channel].uF);
-                            strncat(tmp, cf3, sizeof(tmp) - strlen(tmp) - 1);
+                            // strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                            // char cf3[32];
+                            // snprintf(cf3, sizeof(cf3), "%.1f%s ", harmonic_values[channel].fthird, harmonic_values[channel].uF);
+                            // strncat(tmp, cf3, sizeof(tmp) - strlen(tmp) - 1);
 
                             // Concatenar el valor del quinto armónico
                             strncat(tmp, "| U5=", sizeof(tmp) - strlen(tmp) - 1);
@@ -380,36 +381,35 @@ strncat(request, hexChannels, sizeof(request));
                             snprintf(fifthHarmonicStr, sizeof(fifthHarmonicStr), "%.1f%s ", harmonic_values[channel].fifthHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, fifthHarmonicStr, sizeof(tmp) - strlen(tmp) - 1);
                             
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
-                            char cf5[32];
-                            snprintf(cf5, sizeof(cf5), "%.1f%s ", harmonic_values[channel].ffifth, harmonic_values[channel].uF);
-                            strncat(tmp, cf5, sizeof(tmp) - strlen(tmp) - 1);
+                            // strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                            // char cf5[32];
+                            // snprintf(cf5, sizeof(cf5), "%.1f%s ", harmonic_values[channel].ffifth, harmonic_values[channel].uF);
+                            // strncat(tmp, cf5, sizeof(tmp) - strlen(tmp) - 1);
 
                             strncat(tmp, "| U7=", sizeof(tmp) - strlen(tmp) - 1);
                             char seventhHarmonicStr[32];
                             snprintf(seventhHarmonicStr, sizeof(seventhHarmonicStr), "%.1f%s ", harmonic_values[channel].seventhHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, seventhHarmonicStr, sizeof(tmp) - strlen(tmp) - 1);
 
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
-                            char cf7[32];
-                            snprintf(cf7, sizeof(cf7), "%.1f%s ", harmonic_values[channel].fsevent, harmonic_values[channel].uF);
-                            strncat(tmp, cf7, sizeof(tmp) - strlen(tmp) - 1);
+                            // strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                            // char cf7[32];
+                            // snprintf(cf7, sizeof(cf7), "%.1f%s ", harmonic_values[channel].fsevent, harmonic_values[channel].uF);
+                            // strncat(tmp, cf7, sizeof(tmp) - strlen(tmp) - 1);
 
                             strncat(tmp, "| U9=", sizeof(tmp) - strlen(tmp) - 1);
                             char ninethHarmonicStr[32];
                             snprintf(ninethHarmonicStr, sizeof(ninethHarmonicStr), "%.1f%s ", harmonic_values[channel].ninthHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, ninethHarmonicStr, sizeof(tmp) - strlen(tmp) - 1);
 
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                           /* strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
                             char cf9[32];
                             snprintf(cf9, sizeof(cf9), "%.2f%s ", harmonic_values[channel].fninth, harmonic_values[channel].uF);
-                            strncat(tmp, cf9, sizeof(tmp) - strlen(tmp) - 1);
+                            strncat(tmp, cf9, sizeof(tmp) - strlen(tmp) - 1);*/
 
                             strncat(tmp, "| THDV=", sizeof(tmp) - strlen(tmp) - 1);
                             char tdhv[32];
                             snprintf(tdhv, sizeof(tdhv), "%.1f%s ", harmonic_values[channel].thd, harmonic_values[channel].porcentaje);
                             strncat(tmp, tdhv, sizeof(tmp) - strlen(tmp) - 1);
-                            strncat( tmp, "\r\n", sizeof( tmp ) - strlen( tmp ) - 1 );  // Salto de línea
 
 
                             break;
@@ -423,10 +423,10 @@ strncat(request, hexChannels, sizeof(request));
                             snprintf(thirdHarmonicStr2, sizeof(thirdHarmonicStr2), "%.2f%s ", harmonic_values[channel].thirdHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, thirdHarmonicStr2, sizeof(tmp) - strlen(tmp) - 1);
                                                         
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
-                            char cf32[32];
-                            snprintf(cf32, sizeof(cf32), "%.1f%s ", harmonic_values[channel].fthird, harmonic_values[channel].uF);
-                            strncat(tmp, cf32, sizeof(tmp) - strlen(tmp) - 1);
+                            // strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                            // char cf32[32];
+                            // snprintf(cf32, sizeof(cf32), "%.1f%s ", harmonic_values[channel].fthird, harmonic_values[channel].uF);
+                            // strncat(tmp, cf32, sizeof(tmp) - strlen(tmp) - 1);
 
                             // Concatenar el valor del quinto armónico
                             strncat(tmp, "| I5=", sizeof(tmp) - strlen(tmp) - 1);
@@ -434,30 +434,30 @@ strncat(request, hexChannels, sizeof(request));
                             snprintf(fifthHarmonicStr2, sizeof(fifthHarmonicStr2), "%.2f%s ", harmonic_values[channel].fifthHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, fifthHarmonicStr2, sizeof(tmp) - strlen(tmp) - 1);
                             
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
-                            char cf52[32];
-                            snprintf(cf52, sizeof(cf52), "%.1f%s ", harmonic_values[channel].ffifth, harmonic_values[channel].uF);
-                            strncat(tmp, cf52, sizeof(tmp) - strlen(tmp) - 1);
+                            // strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                            // char cf52[32];
+                            // snprintf(cf52, sizeof(cf52), "%.1f%s ", harmonic_values[channel].ffifth, harmonic_values[channel].uF);
+                            // strncat(tmp, cf52, sizeof(tmp) - strlen(tmp) - 1);
 
                             strncat(tmp, "| I7=", sizeof(tmp) - strlen(tmp) - 1);
                             char seventhHarmonicStr2[32];
                             snprintf(seventhHarmonicStr2, sizeof(seventhHarmonicStr2), "%.2f%s ", harmonic_values[channel].seventhHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, seventhHarmonicStr2, sizeof(tmp) - strlen(tmp) - 1);
 
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
-                            char cf72[32];
-                            snprintf(cf72, sizeof(cf72), "%.1f%s ", harmonic_values[channel].fsevent, harmonic_values[channel].uF);
-                            strncat(tmp, cf72, sizeof(tmp) - strlen(tmp) - 1);
+                            // strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                            // char cf72[32];
+                            // snprintf(cf72, sizeof(cf72), "%.1f%s ", harmonic_values[channel].fsevent, harmonic_values[channel].uF);
+                            // strncat(tmp, cf72, sizeof(tmp) - strlen(tmp) - 1);
 
                             strncat(tmp, "| I9=", sizeof(tmp) - strlen(tmp) - 1);
                             char ninethHarmonicStr2[32];
                             snprintf(ninethHarmonicStr2, sizeof(ninethHarmonicStr2), "%.2f%s ", harmonic_values[channel].ninthHarmonic, measure_get_channel_report_unit(channel));
                             strncat(tmp, ninethHarmonicStr2, sizeof(tmp) - strlen(tmp) - 1);
 
-                            strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
-                            char cf92[32];
-                            snprintf(cf92, sizeof(cf92), "%.1f%s ", harmonic_values[channel].fninth, harmonic_values[channel].uF);
-                            strncat(tmp, cf92, sizeof(tmp) - strlen(tmp) - 1);
+                            // strncat(tmp, " - ", sizeof(tmp) - strlen(tmp) - 1);
+                            // char cf92[32];
+                            // snprintf(cf92, sizeof(cf92), "%.1f%s ", harmonic_values[channel].fninth, harmonic_values[channel].uF);
+                            // strncat(tmp, cf92, sizeof(tmp) - strlen(tmp) - 1);
 
                             strncat(tmp, "| THDI=", sizeof(tmp) - strlen(tmp) - 1);
                             char tdhi[32];

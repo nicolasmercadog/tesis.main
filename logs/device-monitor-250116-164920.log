@@ -1,0 +1,585 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 11: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 7: 1.000000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 8: 1.000001
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 2: 1.300000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6027) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6027) task_wdt:  - IDLE0 (CPU 0)
+E (6027) task_wdt: Tasks currently running:
+E (6027) task_wdt: CPU 0: measure measure
+E (6027) task_wdt: CPU 1: loopTask
+E (6027) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x400029ac:0x3ffd8ab0 0x400d4199:0x3ffd8ac0 0x400d437a:0x3ffd8ae0 0x400d4d29:0x3ffd9950 0x40089c26:0x3ffd9970
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x400029ac:0x3ffd8ab0 in ?? ??:0
+  #5  0x400d4199:0x3ffd8ac0 in calculate_phaseshift(int, int, int) at src/measure.cpp:1151
+  #6  0x400d437a:0x3ffd8ae0 in measure_mes() at src/measure.cpp:1151
+  #7  0x400d4d29:0x3ffd9950 in measure_Task(void*) at src/measure.cpp:1151
+  #8  0x40089c26:0x3ffd9970 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 5: 0.115000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 3: 1.000000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 3: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 11: 1.000000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6026) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6026) task_wdt:  - IDLE0 (CPU 0)
+E (6026) task_wdt: Tasks currently running:
+E (6026) task_wdt: CPU 0: measure measure
+E (6026) task_wdt: CPU 1: loopTask
+E (6026) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x400029ac:0x3ffd8b40 0x400d4199:0x3ffd8b50 0x400d437a:0x3ffd8b70 0x400d4d29:0x3ffd99e0 0x40089c26:0x3ffd9a00
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x400029ac:0x3ffd8b40 in ?? ??:0
+  #5  0x400d4199:0x3ffd8b50 in calculate_phaseshift(int, int, int) at src/measure.cpp:1151
+  #6  0x400d437a:0x3ffd8b70 in measure_mes() at src/measure.cpp:1151
+  #7  0x400d4d29:0x3ffd99e0 in measure_Task(void*) at src/measure.cpp:1151
+  #8  0x40089c26:0x3ffd9a00 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 11: 1.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 7: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 10: 0.630000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+[W][AsyncTCP.cpp:930] _poll(): pcb is NULL
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 3: 1.000000
+[I][mqttclient.cpp:51] mqtt_client_on_connect(): MQTT-Client: connected to public.mqtthq.com
+
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 4: 1.000000
+E (6028) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6028) task_wdt:  - IDLE0 (CPU 0)
+E (6028) task_wdt: Tasks currently running:
+E (6028) task_wdt: CPU 0: measure measure
+E (6028) task_wdt: CPU 1: loopTask
+E (6028) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x4006358f:0x3ffd8af0 0x400d43bb:0x3ffd8b10 0x400d4d29:0x3ffd9980 0x40089c26:0x3ffd99a0
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x4006358f:0x3ffd8af0 in ?? ??:0
+  #5  0x400d43bb:0x3ffd8b10 in measure_mes() at src/measure.cpp:1151
+  #6  0x400d4d29:0x3ffd9980 in measure_Task(void*) at src/measure.cpp:1151
+  #7  0x40089c26:0x3ffd99a0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 11: 1.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 2: 1.299999
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 9: 0.082000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6028) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6028) task_wdt:  - IDLE0 (CPU 0)
+E (6028) task_wdt: Tasks currently running:
+E (6028) task_wdt: CPU 0: measure measure
+E (6028) task_wdt: CPU 1: loopTask
+E (6028) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x400842d4:0x3ffd8ab0 0x40084f27:0x3ffd8ad0 0x400811f3:0x3ffd8af0 0x400d463f:0x3ffd8b10 0x400d4d29:0x3ffd9980 0x40089c26:0x3ffd99a0
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x400842d4:0x3ffd8ab0 in esp_timer_impl_get_time at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/esp_timer_esp32.c:351
+  #5  0x40084f27:0x3ffd8ad0 in esp_timer_get_time at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/esp_timer.c:435
+  #6  0x400811f3:0x3ffd8af0 in millis at C:/Users/Nico/.platformio/packages/framework-arduinoespressif32@3.10006.210326/cores/esp32/esp32-hal-misc.c:172
+  #7  0x400d463f:0x3ffd8b10 in measure_mes() at src/measure.cpp:1151
+  #8  0x400d4d29:0x3ffd9980 in measure_Task(void*) at src/measure.cpp:1151
+  #9  0x40089c26:0x3ffd99a0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 2: 1.299999
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 11: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 10: 0.630000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 11: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 2: 1.300000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6053) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6053) task_wdt:  - IDLE0 (CPU 0)
+E (6053) task_wdt: Tasks currently running:
+E (6053) task_wdt: CPU 0: measure measure
+E (6053) task_wdt: CPU 1: loopTask
+E (6053) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x4000c94f:0x3ffd8db0 0x400d4521:0x3ffd8dc0 0x400d4d29:0x3ffd9c30 0x40089c26:0x3ffd9c50
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x4000c94f:0x3ffd8db0 in ?? ??:0
+  #5  0x400d4521:0x3ffd8dc0 in measure_mes() at src/measure.cpp:1151
+  #6  0x400d4d29:0x3ffd9c30 in measure_Task(void*) at src/measure.cpp:1151
+  #7  0x40089c26:0x3ffd9c50 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 3: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 10: 0.630000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 0: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 8: 1.000001
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6027) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6027) task_wdt:  - IDLE0 (CPU 0)
+E (6027) task_wdt: Tasks currently running:
+E (6027) task_wdt: CPU 0: measure measure
+E (6027) task_wdt: CPU 1: loopTask
+E (6027) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x400d4685:0x3ffd8b10 0x400d4d29:0x3ffd9980 0x40089c26:0x3ffd99a0
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x400d4685:0x3ffd8b10 in measure_mes() at src/measure.cpp:1151
+  #5  0x400d4d29:0x3ffd9980 in measure_Task(void*) at src/measure.cpp:1151
+  #6  0x40089c26:0x3ffd99a0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 3: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 7: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 7: 1.000000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6029) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6029) task_wdt:  - IDLE0 (CPU 0)
+E (6029) task_wdt: Tasks currently running:
+E (6029) task_wdt: CPU 0: measure measure
+E (6029) task_wdt: CPU 1: loopTask
+E (6029) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x400d4685:0x3ffd8ae0 0x400d4d29:0x3ffd9950 0x40089c26:0x3ffd9970
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x400d4685:0x3ffd8ae0 in measure_mes() at src/measure.cpp:1151
+  #5  0x400d4d29:0x3ffd9950 in measure_Task(void*) at src/measure.cpp:1151
+  #6  0x40089c26:0x3ffd9970 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 6: 0.630000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 0: 1.000000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 8: 1.000001
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 1: 0.084000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6027) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6027) task_wdt:  - IDLE0 (CPU 0)
+E (6027) task_wdt: Tasks currently running:
+E (6027) task_wdt: CPU 0: measure measure
+E (6027) task_wdt: CPU 1: loopTask
+E (6027) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x400d43a0:0x3ffd8a80 0x400d4d29:0x3ffd98f0 0x40089c26:0x3ffd9910
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x400d43a0:0x3ffd8a80 in measure_mes() at src/measure.cpp:1151
+  #5  0x400d4d29:0x3ffd98f0 in measure_Task(void*) at src/measure.cpp:1151
+  #6  0x40089c26:0x3ffd9910 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 7: 1.000000
+[I][wificlient.cpp:104] wificlient_Task(): WiFi connection lost, restart ... 
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 2: 1.299999
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 1: 0.084000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 7: 1.000000
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 9: 0.082000
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:138] wificlient_Task(): connected, IP address: 192.168.100.109
+E (6048) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (6048) task_wdt:  - IDLE0 (CPU 0)
+E (6048) task_wdt: Tasks currently running:
+E (6048) task_wdt: CPU 0: measure measure
+E (6048) task_wdt: CPU 1: loopTask
+E (6048) task_wdt: Aborting.
+abort() was called at PC 0x401564f0 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401564f0:0x3ffbfec0 0x40087095:0x3ffbfee0 0x400d463c:0x3ffd8c60 0x400d4d29:0x3ffd9ad0 0x40089c26:0x3ffd9af0
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401564f0:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x400d463c:0x3ffd8c60 in measure_mes() at src/measure.cpp:1151
+  #5  0x400d4d29:0x3ffd9ad0 in measure_Task(void*) at src/measure.cpp:1151
+  #6  0x40089c26:0x3ffd9af0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:22] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][webserver.cpp:744] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /mqtt.json
+[I][mqttclient.cpp:255] mqtt_client_Task(): Start MQTT-Client on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:193] measure_init(): Medición: Controlador I2S listo
+[I][measure.cpp:420] measure_mes(): Datos del buffer_probe:
+[I][measure.cpp:421] measure_mes(): Canal 5: 0.115000

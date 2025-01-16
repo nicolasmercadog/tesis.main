@@ -244,6 +244,9 @@ void measure_mes(void)
         int phaseshift_90_degree;
         // phaseshift_90_degree: Desfase de 90 grados, usado para determinar si una carga es capacitiva o inductiva.
 
+        static float rms_history[16] = {0}; // Buffer circular para almacenar valores RMS.
+        static int rms_index = 0;           // Índice actual del buffer.
+
         // Inicializa los punteros para cada canal virtual, apuntando al inicio del buffer correspondiente.
         for (int i = 0; i < VIRTUAL_ADC_CHANNELS; i++) 
         {
@@ -442,34 +445,49 @@ void measure_mes(void)
                 }
             }
         }
-        // Si el buffer de transmisión tiene datos listos, transfiere el contenido.
-    if (TX_buffer != -1)
-{   
-    // Validar si algún canal de tipo AC_VOLTAGE tiene señal válida.
-    bool is_valid_signal = false;
-    for (int i = 0; i < VIRTUAL_CHANNELS; i++)
-    {
-        if (channelconfig[i].type == AC_VOLTAGE && channelconfig[i].rms >= 40)
+
+        // Promedio acumulativo de RMS.
+        float rms_sum = 0;
+
+        // Actualiza el buffer circular con el RMS calculado de AC_VOLTAGE.
+        for (int i = 0; i < VIRTUAL_CHANNELS; i++)
         {
-            is_valid_signal = true;
-            break;
+            if (channelconfig[i].type == AC_VOLTAGE)
+            {
+                rms_history[rms_index] = channelconfig[i].rms; // Almacena el valor RMS en el buffer.
+                break;
+            }
         }
-    }
 
-    // Si no hay señal válida, llena el buffer de prueba con ceros.
-    if (!is_valid_signal)
-    {
-        memset(&buffer_probe[0][0], 0, sizeof(buffer_probe));
-    }
-    else
-    {
-        // Copia el buffer procesado al buffer de prueba.
-        memcpy(&buffer_probe[0][0], &buffer[0][0], sizeof(buffer));
-    }
+        // Incrementa el índice del buffer circular.
+        rms_index = (rms_index + 1) % 16;
 
-    // Restablece el estado del buffer de transmisión.
-    TX_buffer = -1;
-}
+        // Calcula el promedio RMS acumulado.
+        for (int i = 0; i < 16; i++)
+        {
+            rms_sum += rms_history[i];
+        }
+        float rms_avg = rms_sum / 16; // Promedio de los últimos 16 ciclos.
+
+        if (rms_avg >= 40)
+        {
+            // Si el promedio supera el umbral, copia y transmite los datos.
+            if (TX_buffer != -1)
+            {
+                memcpy(&buffer_probe[0][0], &buffer[0][0], sizeof(buffer));
+                TX_buffer = -1; // Marca el buffer como procesado.
+            }
+        }
+        else
+        {
+            // Si el promedio no supera el umbral, no se envía nada.
+            if (TX_buffer != -1)
+            {
+                memset(&buffer_probe[0][0], 0, sizeof(buffer_probe)); // Limpia el buffer para evitar ruido.
+                TX_buffer = -1;                                       // Marca el buffer como procesado.
+            }
+        }
+
 
 
                // Captura muestras para calcular la FFT durante las primeras 4 rondas.
@@ -745,9 +763,6 @@ uint16_t *measure_get_buffer(void)
     return (&buffer_probe[0][0]);
 }
 
-#include <arduinoFFT.h>
-#include <Arduino.h>
-
 uint16_t *measure_get_fft(void)
 {
     double vReal[numbersOfFFTSamples * 2];
@@ -769,9 +784,7 @@ uint16_t *measure_get_fft(void)
         for (int i = 1; i < numbersOfFFTSamples; i++)
         {
             buffer_fft[channel][i] = vReal[i];
-        
 
-                   
         //Calcular y almacenar los valores de los armónicos
         temp=measure_get_channel_rms(channel)/vReal[3];
 
