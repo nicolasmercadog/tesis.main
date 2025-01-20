@@ -9,7 +9,7 @@
     #define MAX_MICROCODE_OPS       10              /** @brief max channel opcodes size */
 
     #define numbersOfSamples        256             /** @brief number of samples per time domain */
-    #define numbersOfFFTSamples     32              /** @brief number of sampled for fft per time domain */
+    #define numbersOfFFTSamples     32 //32              /** @brief number of sampled for fft per time domain */
     #define samplingFrequency       numbersOfSamples*VIRTUAL_ADC_CHANNELS //número de muestras (256*6)
     #define DELAY                   1000
     #define I2S_PORT                I2S_NUM_0
