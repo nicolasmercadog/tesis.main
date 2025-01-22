@@ -1,0 +1,780 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:26] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:926] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:194] measure_init(): Medición: Controlador I2S listo
+[I][wificlient.cpp:84] wificlient_Task(): WiFi connection lost, attempting to reconnect...
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:109] wificlient_Task(): Connected to WiFi. IP address: 192.168.100.109
+[I][ntp.cpp:64] ntp_Task(): NTP-client: renew time
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 155180
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+NTP-client: Wednesday, January 22 2025 18:02:19
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 114212
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1114 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915cde7cf11ae84f6b2251'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:02:24 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 154992
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 114112
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1114 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915cf301582c6c06b04d72'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:02:43 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 154892
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113744
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1113 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d0501582c6c06b0531a'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:03:01 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 154512
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113644
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1114 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d1801582c6c06b057d7'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:03:20 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 154408
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113532
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1113 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d2a7cf11ae84f6b3a08'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:03:38 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 154308
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113440
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1113 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d3cbcff5907ceb1272d'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:03:57 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 154200
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113320
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1115 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d4fbcff5907ceb12c76'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:04:15 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 154096
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113224
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1115 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d617cf11ae84f6b4e7e'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:04:33 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153996
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113120
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1113 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d73bcff5907ceb1374b'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:04:51 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153896
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113012
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1114 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d857cf11ae84f6b5960'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:05:09 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+0[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153796
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 113024
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1115 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915d9801582c6c06b0842e'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:05:28 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112852
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1113 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915daabcff5907ceb14a89'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:05:46 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112852
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1113 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915dbc01582c6c06b08d71'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:06:04 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112860
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1115 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915dcf7cf11ae84f6b6e5c'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:06:23 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112848
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1112 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915de1ce19d45cd47aef46'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:06:41 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+ [D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 104984
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1112 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915df401582c6c06b09bd7'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:07:00 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112868
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1111 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915e06bcff5907ceb16613'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:07:18 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+:[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112848
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1114 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915e18bcff5907ceb16c69'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:07:36 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112848
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1114 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915e2ace19d45cd47b078a'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:07:55 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112864
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1112 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915e3dbcff5907ceb177f9'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:08:13 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112856
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1113 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915e4fbcff5907ceb17d92'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:08:31 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112848
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1114 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915e617cf11ae84f6b9970'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:08:49 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+Datos enviados a MongoDB, respuesta HTTP: 204
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][HTTPClient.cpp:245] beginInternal(): url: https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:293] beginInternal(): protocol: https, host: sa-east-1.aws.data.mongodb-api.com port: 443 url: /app/conecthttp-fhbjiiu/endpoint/test
+[D][HTTPClient.cpp:579] sendRequest(): request type: 'POST' redirCount: 0
+
+[V][ssl_client.cpp:59] start_ssl_client(): Free internal heap before TLS 153644
+[V][ssl_client.cpp:65] start_ssl_client(): Starting socket
+[V][ssl_client.cpp:104] start_ssl_client(): Seeding the random number generator
+[V][ssl_client.cpp:113] start_ssl_client(): Setting up the SSL/TLS structure...
+[I][ssl_client.cpp:127] start_ssl_client(): WARNING: Skipping SSL Verification. INSECURE!
+[V][ssl_client.cpp:197] start_ssl_client(): Setting hostname for TLS session...
+[V][ssl_client.cpp:212] start_ssl_client(): Performing the SSL/TLS handshake...
+[V][ssl_client.cpp:233] start_ssl_client(): Verifying peer X.509 certificate...
+[V][ssl_client.cpp:242] start_ssl_client(): Certificate verified.
+[V][ssl_client.cpp:257] start_ssl_client(): Free internal heap after TLS 112860
+[D][HTTPClient.cpp:1125] connect():  connected to sa-east-1.aws.data.mongodb-api.com:443
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 255 bytes...
+[V][ssl_client.cpp:295] send_ssl_data(): Writing HTTP request with 1115 bytes...
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'HTTP/1.1 204 No Content'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'strict-transport-security: max-age=31536000; includeSubdomains;'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'vary: Origin'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-appservices-request-id: 67915e737cf11ae84f6ba4bd'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-frame-options: DENY'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'date: Wed, 22 Jan 2025 21:09:07 GMT'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'server: mdbws'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: 'x-xgen-up-proto: HTTP/2'
+[V][HTTPClient.cpp:1216] handleHeaderResponse(): RX: ''
+[D][HTTPClient.cpp:1257] handleHeaderResponse(): code: 204
+[D][HTTPClient.cpp:603] sendRequest(): sendRequest code=204
+
+[D][HTTPClient.cpp:385] disconnect(): tcp keep open for reuse
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.
+[V][ssl_client.cpp:265] stop_ssl_socket(): Cleaning SSL connection.

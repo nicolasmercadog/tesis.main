@@ -10,36 +10,45 @@
 #include <wifi.h>
 
 /**
- * @brief arduino setup function
+ * @brief Función de configuración de Arduino
  */
 
 void setup( void ) {
+    // Establece la frecuencia del CPU a 240 MHz para mejorar el rendimiento
     setCpuFrequencyMhz( 240 );
+    
+    // Inicia la comunicación serie a 115200 baudios
     Serial.begin(115200);
-    /*
-     * hardware stuff and file system
+
+    /**
+     * Inicialización de hardware y sistema de archivos
      */
     log_i("Start Main Task on Core: %d", xPortGetCoreID() );
+    
+    // Verifica si el sistema de archivos SPIFFS se inicia correctamente
     if ( !SPIFFS.begin() ) {
         log_i("format SPIFFS ..." );
-        SPIFFS.format();
+        SPIFFS.format(); // Formatea SPIFFS en caso de error
     }
-    //ioport_init();
-    wificlient_init();
-    /*
-     * Setup Tasks
-     */
-    measure_StartTask();
-    mqtt_client_StartTask();
-    asyncwebserver_StartTask();
-    ntp_StartTask();
-        //sendDataToMongoDB("test_topic", "Test message desde ESP32");
 
+    // Inicializa la conexión Wi-Fi
+    wificlient_init();
+
+    /**
+     * Configuración de tareas
+     */
+    measure_StartTask(); // Inicia la tarea de medición
+    //startMongoDBTask(); // Inicia la tarea del cliente MQTT
+    asyncwebserver_StartTask(); // Inicia la tarea del servidor web asíncrono
+    ntp_StartTask(); // Inicia la tarea para sincronización de hora mediante NTP
+
+    //sendDataToMongoDB("test_topic", "Test message desde ESP32"); // Código comentado para enviar datos a MongoDB
 }
 
 /**
- * @brief arduino main loop
+ * @brief Bucle principal de Arduino
  */
 void loop() {
+    // Código para el bucle principal (comentado en este caso)
     //ioport_loop();
 }

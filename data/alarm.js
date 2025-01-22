@@ -457,8 +457,10 @@ let updateOscChart = false; // Variable global para alternar gráficos
 
 let lastExecution = 0;
 const interval = 200; // Ejecutar máximo una vez cada 100 ms
+
 function GotOScope(data) {
     requestAnimationFrame(() => {
+        console.debug('GotOScope:', data);
         const now = performance.now();
         if (now - lastExecution < interval) return;
 
@@ -498,24 +500,6 @@ function decodeActiveChannels(activeChannelsHex) {
         .filter(index => index !== null); // Filtrar los canales activos
 }
 
-// Función para determinar el factor de ajuste basado en el índice del canal
-function getAdjustmentFactor(channelIndex) {
-    switch (true) {
-        case [0, 4, 8].includes(channelIndex): return 1.5;
-        case [1, 5, 9].includes(channelIndex): return 0.89;
-        case [2, 6, 10].includes(channelIndex): return 3;
-        case [3, 7, 11].includes(channelIndex): return 4;
-        default:
-            console.warn(`Canal ${channelIndex} no tiene un factor definido. Usando 1.`);
-            return 1;
-    }
-}
-
-function limitDataset(data, maxPoints = 500) {
-    const step = Math.ceil(data.length / maxPoints);
-    return data.filter((_, index) => index % step === 0);
-}
-
 function prepareOscilloscopeData(activeChannels, numSamples, data) {
     const datasets = [];
     const dataLength = numSamples * activeChannels.length * 3;
@@ -545,7 +529,7 @@ datasets.push({
     data: limitedValues, // Datos limitados
     borderColor: getColor(channelIndex),
     fill: false,
-    pointRadius: 2,
+    pointRadius: 0,
     tension: 0.01,
 });
     });
@@ -555,36 +539,109 @@ datasets.push({
 
 function prepareFFTData(activeChannels, fftSamples, data) {
     const datasets = [];
-    const dataLength = fftSamples * activeChannels.length * 3;
+    const allowedChannels = [0, 1, 4, 5, 8, 9]; // Canales permitidos
+    const numRealChannels = Math.floor(data.length / (fftSamples * 3)); // Número de canales con datos reales
+    const channelOffsets = {}; // Mapeo de offsets fijos por canal
 
-    if (data.length < dataLength) {
-        console.error("Los datos FFT están incompletos.");
-        return datasets;
+    console.log("fftSamples:", fftSamples);
+    console.log("Número de canales activos:", activeChannels.length);
+    console.log("Número de canales con datos reales:", numRealChannels);
+    console.log("Tamaño recibido de datos:", data.length);
+
+    // Asignar offsets fijos para cada canal
+    allowedChannels.forEach((channel, index) => {
+        channelOffsets[channel] = index * fftSamples * 3; // Offset base por canal
+    });
+
+    console.log("Offsets por canal:", channelOffsets);
+
+    // Filtrar los canales activos que están permitidos
+    const adjustedChannels = activeChannels.filter((channel) => allowedChannels.includes(channel));
+    console.log("Canales ajustados (permitidos):", adjustedChannels);
+
+    // Verificar si hay más canales activos que datos reales
+    if (adjustedChannels.length > numRealChannels) {
+        console.warn("El número de canales activos supera los datos reales disponibles. Ajustando...");
+        adjustedChannels.splice(numRealChannels); // Limitar a los datos disponibles
     }
 
-    activeChannels.forEach((channelIndex, activeIndex) => {
-        const factor = getAdjustmentFactor(channelIndex);
-        const values = [];
+    console.log("Canales finales procesados:", adjustedChannels);
 
-        for (let i = 0; i < fftSamples; i++) {
-            const offset = (fftSamples * activeIndex + i) * 3;
-            const hexValue = data.slice(offset, offset + 3);
-            const value = (parseInt(hexValue, 16) / 1024) * 1000 * factor;
-            values.push({ x: i, y: value });
+    // Procesar los datos para cada canal permitido
+    allowedChannels.forEach((channelIndex) => {
+        const baseOffset = channelOffsets[channelIndex];
+
+        if (adjustedChannels.includes(channelIndex)) {
+            const values = [];
+
+            for (let i = 0; i < fftSamples; i++) {
+                const offset = baseOffset + i * 3;
+
+                if (offset + 3 > data.length) {
+                    console.error(
+                        `Offset fuera de rango: Canal ${channelIndex}, Offset: ${offset}`
+                    );
+                    continue;
+                }
+
+                const hexValue = data.slice(offset, offset + 3);
+                const value = (parseInt(hexValue, 16) / 1024) * 1000;
+
+                console.log(
+                    `Canal ${channelIndex}, Offset: ${offset}, Valor Hex: ${hexValue}, Valor Calculado: ${value}`
+                );
+                values.push({ x: i, y: value });
+            }
+
+            const limitedValues = limitDataset(values, 500);
+
+            datasets.push({
+                label: `Canal ${channelIndex}`,
+                data: limitedValues,
+                borderColor: getColor(channelIndex),
+                fill: false,
+                pointRadius: 2,
+                tension: 0.01,
+            });
+        } else {
+            // Canal no tiene datos reales, agregar dataset vacío
+            datasets.push({
+                label: `Canal ${channelIndex} (Inactivo)`,
+                data: [],
+                borderColor: "rgba(200, 200, 200, 0.5)", // Color gris para canales inactivos
+                fill: false,
+                pointRadius: 0,
+                tension: 0.01,
+            });
+            console.log(`Canal ${channelIndex} está inactivo.`);
         }
-
-        const limitedValues = limitDataset(values, 500);
-datasets.push({
-    label: `${channelNames[channelIndex]}`,
-    data: limitedValues, // Datos limitados
-    borderColor: getColor(channelIndex),
-    fill: false,
-    pointRadius: 2,
-    tension: 0.01,
-});
     });
 
     return datasets;
+}
+
+
+// Función auxiliar para limitar el número de puntos procesados
+function limitDataset(data, maxPoints = 2000) {
+    const step = Math.ceil(data.length / maxPoints);
+    return data.filter((_, index) => index % step === 0);
+}
+
+// Función para obtener el factor de ajuste según el canal
+function getAdjustmentFactor(channelIndex) {
+    switch (true) {
+        case [0, 4, 8].includes(channelIndex):
+            return 1.5;
+        case [1, 5, 9].includes(channelIndex):
+            return 0.89;
+        case [2, 6, 10].includes(channelIndex):
+            return 3;
+        case [3, 7, 11].includes(channelIndex):
+            return 4;
+        default:
+            console.warn(`Canal ${channelIndex} no tiene un factor definido. Usando 1.`);
+            return 1;
+    }
 }
 
 

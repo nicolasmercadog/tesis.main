@@ -820,12 +820,16 @@ uint16_t *measure_get_fft(void)
     // Inicializa el objeto FFT con los parámetros necesarios.
     arduinoFFT FFT(vReal, vImag, numbersOfFFTSamples * 2, samplingFrequency * measure_get_network_frequency() / 4);
 
-    // Recorre todos los canales virtuales.
-    for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++)
-    {
+    // Canales seleccionados a procesar
+    int selectedChannels[] = {0, 1, 4, 5, 8, 9};
+    size_t numSelectedChannels = sizeof(selectedChannels) / sizeof(selectedChannels[0]);
+
+    // Recorre solo los canales seleccionados.
+    for (size_t idx = 0; idx < numSelectedChannels; idx++) {
+        int channel = selectedChannels[idx];
+
         // Llena los buffers con datos del canal actual.
-        for (int i = 0; i < numbersOfFFTSamples * 2; i++)
-        {
+        for (int i = 0; i < numbersOfFFTSamples * 2; i++) {
             vReal[i] = measure_get_channel_ratio(channel) * buffer_probe[channel][(i * 6) % numbersOfSamples];
             vImag[i] = 0; // Parte imaginaria inicializada a 0.
         }
@@ -843,9 +847,7 @@ uint16_t *measure_get_fft(void)
         double channel_rms = measure_get_channel_rms(channel);
 
         // Si la frecuencia fundamental es 0, omitir el canal.
-        if (vReal[3] == 0)
-        {
-            //log_w("Canal %d: La frecuencia fundamental es 0. Se omiten los cálculos.", channel);
+        if (vReal[3] == 0) {
             continue;
         }
 
@@ -853,8 +855,7 @@ uint16_t *measure_get_fft(void)
         double temp = channel_rms / vReal[3];
 
         // Procesa los resultados de la FFT para cada canal.
-        for (int i = 1; i < numbersOfFFTSamples; i++)
-        {
+        for (int i = 1; i < numbersOfFFTSamples; i++) {
             buffer_fft[channel][i] = vReal[i];
         }
 
@@ -877,7 +878,7 @@ uint16_t *measure_get_fft(void)
             : 0;
 
         // Log para depuración.
-        //log_i("Canal %d: THD = %.2f%%, Fundamental = %.2f", channel, harmonic_values[channel].thd, harmonic_values[channel].fundamental);
+        // log_i("Canal %d: THD = %.2f%%, Fundamental = %.2f", channel, harmonic_values[channel].thd, harmonic_values[channel].fundamental);
     }
 
     // Devuelve un puntero al buffer FFT.
