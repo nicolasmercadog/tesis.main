@@ -1,168 +1,231 @@
+<!DOCTYPE html>
 <html>
-<head>
-   <meta charset='utf-8'>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="styles.css">
-   <script src="jquery-lastest.min.js" type="text/javascript"></script>
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.1.1/dist/chartjs-plugin-zoom.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Hoja de estilos externa -->
+    <script src="jquery-lastest.min.js" type="text/javascript"></script>
+    <!-- Librería jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Librería Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <!-- Plugin de zoom para Chart.js -->
+    <script src="alarm.js" type="text/javascript"></script>
+    <!-- Script para manejo de alarmas -->
+    <script src="script.js" type="text/javascript"></script>
+    <!-- Script principal de la aplicación -->
 
-
-<script>
-function toggleAllChannels() {
-    const state = !document.getElementById('channel0').checked;
-    for (let i = 0; i <= 12; i++) {
-        const checkbox = document.getElementById(`channel${i}`);
-        if (checkbox) {
-            checkbox.checked = state;
-        }
-    }
-}
-</script>
-<script>
-function togglePlayPause() {
-        const button = document.getElementById('OScopeProbeButton');
-        if (button.classList.contains('paused')) {
-            button.classList.remove('paused');
-            button.classList.add('playing');
-            button.value = '⏸'; // Cambiar a ícono de pausa
-            button.style.backgroundColor = 'red'; // Color rojo para pausa
-        } else {
-            button.classList.remove('playing');
-            button.classList.add('paused');
-            button.value = '▶'; // Cambiar a ícono de play
-            button.style.backgroundColor = 'green'; // Color verde para play
-        }
-        ToggleOScopePause();
-        OScopeProbe();
-    }
-</script>
-
-   <script src="alarm.js" type="text/javascript"></script>
-   <script src="script.js"></script>
-   <script>
-      window.addEventListener('resize', function() {
-          resizeCanvases();
-      });
-
-      function resizeCanvases() {
-          const ocanvas = document.getElementById('OScopeCanvas');
-          const fcanvas = document.getElementById('FFTCanvas');
-          if (ocanvas && fcanvas) {
-              ocanvas.width = ocanvas.parentElement.clientWidth;
-              ocanvas.height = 400;
-
-              fcanvas.width = fcanvas.parentElement.clientWidth;
-              fcanvas.height = 400;
-
-              // Llamar a la función de redibujado
-              if (typeof GotOScope === 'function') {
-                  GotOScope('');
-              }
+    <script>
+      // Función para alternar la selección de todos los canales
+      function toggleAllChannels() {
+        const state = !document.getElementById("channel0").checked; // Se obtiene el estado actual del primer canal
+        for (let i = 0; i <= 12; i++) {
+          // Itera sobre los canales del 0 al 12
+          const checkbox = document.getElementById(`channel${i}`);
+          if (checkbox) {
+            checkbox.checked = state; // Cambia el estado del checkbox
           }
+        }
       }
 
-      document.addEventListener('DOMContentLoaded', function() {
-          resizeCanvases();
+      // Función para alternar entre play y pausa en el osciloscopio
+      function togglePlayPause() {
+        const button = document.getElementById("OScopeProbeButton"); // Obtiene el botón de play/pausa
+        if (button.classList.contains("paused")) {
+          // Si está en pausa, cambia a reproducción
+          button.classList.remove("paused");
+          button.classList.add("playing");
+          button.value = "⏸"; // Cambia el ícono a pausa
+          button.style.backgroundColor = "red"; // Cambia el color a rojo (indicando pausa)
+        } else {
+          // Si está en reproducción, cambia a pausa
+          button.classList.remove("playing");
+          button.classList.add("paused");
+          button.value = "▶"; // Cambia el ícono a play
+          button.style.backgroundColor = "green"; // Cambia el color a verde (indicando reproducción)
+        }
+        ToggleOScopePause(); // Llama a la función que gestiona el estado del osciloscopio
+      }
+
+      // Función que cambia el estado de pausa del osciloscopio
+      function ToggleOScopePause() {
+        if (typeof pause_osc !== "undefined") {
+          // Verifica si la variable global pause_osc está definida
+          pause_osc = !pause_osc; // Invierte su estado
+          console.log(
+            `Oscilloscope is now ${pause_osc ? "paused" : "playing"}`
+          );
+        } else {
+          console.error('Variable "pause_osc" no está definida.');
+        }
+      }
+
+      // Función para redimensionar los gráficos cuando cambia el tamaño de la ventana
+      function resizeCanvases() {
+        const ocanvas = document.getElementById("Osciloscopio"); // Obtiene el canvas del osciloscopio
+        const fcanvas = document.getElementById("Armonicos"); // Obtiene el canvas de los armónicos
+
+        if (ocanvas && fcanvas) {
+          // Si los elementos existen, se asegura de que tengan un tamaño mínimo
+          if (!ocanvas.style.height) ocanvas.style.height = "400px"; // Altura predeterminada del osciloscopio
+          if (!fcanvas.style.height) fcanvas.style.height = "200px"; // Altura predeterminada del gráfico de armónicos
+        }
+      }
+
+      // Llama a la función de redimensionamiento cuando la página ha cargado completamente
+      document.addEventListener("DOMContentLoaded", function () {
+        resizeCanvases();
       });
 
-      /*function zoomFFT(scale) {
-          const fcanvas = document.getElementById('FFTCanvas');
-          const ctx = fcanvas.getContext('2d');
-          const imageData = ctx.getImageData(0, 0, fcanvas.width, fcanvas.height);
-          ctx.clearRect(0, 0, fcanvas.width, fcanvas.height);
-          ctx.setTransform(scale, 0, 0, 1, 0, 0);
-          ctx.putImageData(imageData, 0, 0);
-      }*/
-   </script>
-</head>
-<body>
-<div id='cssmenu'>
-<ul>
-    <li><a href='index.htm'>Principal</a></li>
-    <li><a href='channel.htm'>Configuración de canales</a></li>
-    <li><a href='group.htm'>Configuración de grupos</a></li>
-    <li><a href='ioport.htm'>Configuración de puertos IO</a></li>
-    <li><a href='live.htm'>Vista en vivo</a></li>
-    <li><a href='textmode.htm'>Sólo texto</a></li>
-    <li><a href='mqtt.htm'>Configuración de MQTT</a></li>
-    <li><a href='wlan.htm'>Configuración de WLAN</a></li>
-</ul>
-</div>
-<h1>Vista en vivo</h1>
-<div id=OScope class="collapsible">
-    <!--<div id="legend-container"></div>  -->
-  <div style="margin-bottom: 10px;">
-  </div>
-  <table width="100%" border="0">
-    <tr>
-       <td width="70%">
-        <canvas id="oscilloscopeChart" width="600" height="400"></canvas>
-    </td>
-       <td width="20%">
-        <canvas id="fftChart" width="600" height="400"></canvas>
-    </td>
-    </tr>
+      let oscilloscopeChart, fftChart; // Variables globales para los gráficos
 
-       
-         <input type=button onclick="togglePlayPause();" id=OScopeProbeButton class="paused" value="▶" style="background-color: green;">
-         <button id="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-         <button id="resetZoomButton">Restablecer Zoom</button>
-         zoom: <output id="OSCMultOut"></output><br><br>
-          <table width="100%" border="1">
-            <tr width="100%"><div id='fixedfooter'><span id='status'>Desconectado</span></div></tr>
-            
-              <button onclick="toggleAllChannels();">Activar/Desactivar todos los canales</button><br>
-                  <input type="checkbox" id="channel0" checked title="Corriente L1"><label id="channel_0_name" for="channel0">L1 Corriente (I1)</label>
-                  <input type="checkbox" id="channel1" checked title="Tensión L1"><label id="channel_1_name" for="channel1">L1 Tensión (U1)</label>
-                  <input type="checkbox" id="channel2" checked title="Potencia L1"><label id="channel_2_name" for="channel2">L1 Potencia (P1)</label>
-                  <input type="checkbox" id="channel3" checked title="Potencia Reactiva L1"><label id="channel_3_name" for="channel3">L1 Potencia Reactiva (Q1)</label><br>
-                  <input type="checkbox" id="channel4" checked title="Corriente L2"><label id="channel_4_name" for="channel4">L2 Corriente (I2)</label>
-                  <input type="checkbox" id="channel5" checked title="Tensión L2"><label id="channel_5_name" for="channel5">L2 Tensión (U2)</label>
-                  <input type="checkbox" id="channel6" checked title="Potencia L2"><label id="channel_6_name" for="channel6">L2 Potencia (P2)</label>
-                  <input type="checkbox" id="channel7" checked title="Potencia Reactiva L2"><label id="channel_7_name" for="channel7">L2 Potencia Reactiva (Q2)</label><br>
-                  <input type="checkbox" id="channel8" checked title="Corriente L3"><label id="channel_8_name" for="channel8">L3 Corriente (I3)</label>
-                  <input type="checkbox" id="channel9" checked title="Tensión L3"><label id="channel_9_name" for="channel9">L3 Tensión (U3)</label>
-                  <input type="checkbox" id="channel10" checked title="Potencia L3"><label id="channel_10_name" for="channel10">L3 Potencia (P3)</label>
-                  <input type="checkbox" id="channel11" checked title="Potencia Reactiva L3"><label id="channel_11_name" for="channel11">L3 Potencia Reactiva (Q3)</label><br>
-                  <input type="checkbox" id="channel12" checked title="Total Potencias (TP)"><label id="channel_12_name" for="channel12">Todas las Potencias (TP)</label>
-              
+      // Función para actualizar los gráficos con nuevos datos
+      function updateCharts(oscData, fftData) {
+        if (oscilloscopeChart) {
+          // Verifica si el gráfico del osciloscopio existe
+          oscilloscopeChart.data.datasets = oscData; // Actualiza los datos del gráfico
+          oscilloscopeChart.update(); // Redibuja el gráfico
+        }
+        if (fftChart) {
+          // Verifica si el gráfico de FFT existe
+          fftChart.data.datasets = fftData; // Actualiza los datos del gráfico
+          fftChart.update(); // Redibuja el gráfico
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button-dark id="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button-dark>
+
+    <div id="cssmenu">
+      <ul>
+        <li><a href="index.htm">Principal</a></li>
+        <li><a href="channel.htm">Configuración de canales</a></li>
+        <li><a href="group.htm">Configuración de grupos</a></li>
+        <li><a href="ioport.htm">Configuración de puertos IO</a></li>
+        <li><a href="live.htm">Vista en vivo</a></li>
+        <li><a href="textmode.htm">Sólo texto</a></li>
+        <li><a href="mqtt.htm">Configuración de MQTT</a></li>
+        <li><a href="wlan.htm">Configuración de WLAN</a></li>
+      </ul>
+    </div>
+    <center><h1>Vista en vivo</h1></center>
+    <div id="OScope" class="collapsible">
+      <table width="100%" border="0.1px" border-radius="5px">
+        <tr>
+          <td width="80%" >
+            <canvas id="Osciloscopio"></canvas>
+          </td>
+          <td width="20%" >
+            <canvas id="Armonicos"></canvas>
+          </td>
+        </tr>
+      </table>
+
+      <div style="margin-top: 10px">
+        <input
+          type="button"
+          onclick="togglePlayPause();"
+          id="OScopeProbeButton"
+          class="paused"
+          value="▶"
+          style="background-color: green"
+        />
+        <button
+          onclick="charts['Osciloscopio'].resetZoom(); charts['Armonicos'].resetZoom();"
+        >
+          Restablecer Zoom
+        </button>
+
+        <button onclick="toggleAllChannels();">
+          Activar/Desactivar todos los canales
+        </button>
+      </div>
+      <br></br>
+      <div id="fixedfooter">
+        <table>
+          <thead>
+            <tr>
+              <th>Grupo</th>
+              <th>RMS (I)</th>
+              <th>I3</th>
+              <th>I5</th>
+              <th>I7</th>
+              <th>I9</th>
+              <th>RMS (U)</th>
+              <th>U3</th>
+              <th>U5</th>
+              <th>U7</th>
+              <th>U9</th>
+              <th>THD</th>
+              <th>P</th>
+              <th>Pvar</th>
+              <th>Cos Φ</th>
+            </tr>
+          </thead>
+          <tbody id="status-table-body">
+            <!-- Fila del Estado General -->
+            <tr>
+              <td colspan="16">
+                <b>Estado General:</b>
+                <span id="general-status">Desconectado</span>
               </td>
-              <!--<td width="30%">
-                Tasa de muestreo:<br><input type=button onclick="SampleratePlus(); " id=SampleratePlusButton value="+">
-                <input type=button onclick="SamplerateMinus(); " id=SamplerateMinusButton value="-">
-                <input type=button onclick="SaveSettings(); " id=SaveButton value="guardar"><br>
-                Desfase: 
-                <select id="channel" name="channel" onchange='SendSetting("channel");'>
-                  <option value="0">Canal 0</option>
-                  <option value="1">Canal 1</option>
-                  <option value="2">Canal 2</option>
-                  <option value="3">Canal 3</option>
-                  <option value="4">Canal 4</option>
-                  <option value="5">Canal 5</option>
-                  <option value="6">Canal 6</option>
-                  <option value="7">Canal 7</option>
-                  <option value="8">Canal 8</option>
-                  <option value="9">Canal 9</option>
-                  <option value="10">Canal 10</option>
-                  <option value="11">Canal 11</option>
-                  <option value="12">Canal 12</option>
-                </select>
-                <input type=button onclick="PhaseshiftPlus(); " id=PlusButton value="<">
-                <input type=button onclick="PhaseshiftMinus(); " id=MinusButton value=">">
-                <input type=button onclick="SaveSettings(); " id=SaveButton value="guardar">
-            </td>-->
+            </tr>
+            <!-- Aquí se generarán las filas dinámicamente -->
+            <!-- Fila de Frecuencia -->
+            <tr>
+              <td colspan="16">
+                <b>Frecuencia:</b> <span id="frequency">-- Hz</span>
+              </td>
+            </tr>
+          </tbody>
         </table>
-   </table>
-</div> 
-<div id="cursor-tooltip" style="position: absolute; display: none; background-color: white; border: 1px solid black; padding: 5px; font-size: 12px;"></div>
-</body>
+      </div>
+      <br></br>
+      <div>
+        <!-- Canales activos -->
+        <input type="checkbox" id="channel0" checked /><label for="channel0"
+          >L1 Corriente</label
+        >
+        <input type="checkbox" id="channel1" checked /><label for="channel1"
+          >L1 Tensión</label
+        >
+        <input type="checkbox" id="channel2" checked /><label for="channel2"
+          >L1 Potencia</label
+        >
+        <input type="checkbox" id="channel3" checked /><label for="channel3"
+          >L1 Potencia Reactiva</label
+        ><br />
+        <input type="checkbox" id="channel4" checked /><label for="channel4"
+          >L2 Corriente</label
+        >
+        <input type="checkbox" id="channel5" checked /><label for="channel5"
+          >L2 Tensión</label
+        >
+        <input type="checkbox" id="channel6" checked /><label for="channel6"
+          >L2 Potencia</label
+        >
+        <input type="checkbox" id="channel7" checked /><label for="channel7"
+          >L2 Potencia Reactiva</label
+        ><br />
+        <input type="checkbox" id="channel8" checked /><label for="channel8"
+          >L3 Corriente</label
+        >
+        <input type="checkbox" id="channel9" checked /><label for="channel9"
+          >L3 Tensión</label
+        >
+        <input type="checkbox" id="channel10" checked /><label for="channel10"
+          >L3 Potencia</label
+        >
+        <input type="checkbox" id="channel11" checked /><label for="channel11"
+          >L3 Potencia Reactiva</label
+        ><br />
+        <input type="checkbox" id="channel12" checked /><label for="channel12"
+          >Total Potencias</label
+        >
+      </div>
+    </div>
+  </body>
 </html>
-
-<style>
-  #status {
-      white-space: pre-wrap;  /* Esto asegura que los saltos de línea \n sean respetados */
-  }
-</style>

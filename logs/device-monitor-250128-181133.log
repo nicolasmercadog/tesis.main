@@ -1,0 +1,145 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:26] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][webserver.cpp:920] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:194] measure_init(): Medición: Controlador I2S listo
+[I][wificlient.cpp:84] wificlient_Task(): WiFi connection lost, attempting to reconnect...
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 203 - ASSOC_FAIL
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:109] wificlient_Task(): Connected to WiFi. IP address: 192.168.100.109
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+Core 1 register dump:
+PC      : 0x400d6caa  PS      : 0x00060930  A0      : 0x800d762e  A1      : 0x3ffe7100  
+A2      : 0x3ffe1e0c  A3      : 0x3ffe2bc8  A4      : 0x00303030  A5      : 0x3ffe2bc4  
+A6      : 0x3f4010c4  A7      : 0x3ffc8c80  A8      : 0x0000003e  A9      : 0x3ffe70e0  
+A10     : 0x0030306e  A11     : 0x3ffe71cc  A12     : 0x00000f00  A13     : 0x00000000  
+A14     : 0x00000018  A15     : 0x3ffc1f08  SAR     : 0x0000001d  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x0030306e  LBEG    : 0x400014fd  LEND    : 0x4000150d  LCOUNT  : 0xffffffff  
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x400d6caa:0x3ffe7100 0x400d762b:0x3ffe8170 0x401678ab:0x3ffe8190 0x40167c21:0x3ffe81b0 0x400daf75:0x3ffe8200 0x400daf91:0x3ffe8240 0x4016047a:0x3ffe8260 0x401604f9:0x3ffe82a0 0x40160c6e:0x3ffe82c0 0x40089c26:0x3ffe82f0
+  #0  0x400d6caa:0x3ffe7100 in _ZL9onWsEventP14AsyncWebSocketP20AsyncWebSocketClient12AwsEventTypePvPhj$part$12 at src/webserver.cpp:401
+  #1  0x400d762b:0x3ffe8170 in onWsEvent(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at src/webserver.cpp:95
+  #2  0x401678ab:0x3ffe8190 in std::_Function_handler<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int), void (*)(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::_M_invoke(std::_Any_data const&, AsyncWebSocket*&&, AsyncWebSocketClient*&&, AwsEventType&&, void*&&, unsigned char*&&, unsigned int&&) at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #3  0x40167c21:0x3ffe81b0 in std::function<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::operator()(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) const at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:2271
+      (inlined by) AsyncWebSocket::_handleEvent(AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:869
+  #4  0x400daf75:0x3ffe8200 in AsyncWebSocketClient::_onData(void*, unsigned int) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:847
+  #5  0x400daf91:0x3ffe8240 in std::_Function_handler<void (void*, AsyncClient*, void*, unsigned int), AsyncWebSocketClient::AsyncWebSocketClient(AsyncWebServerRequest*, AsyncWebSocket*)::{lambda(void*, AsyncClient*, void*, unsigned int)#7}>::_M_invoke(std::_Any_data const&, void*&&, AsyncClient*&&, std::_Any_data const&, unsigned int&&) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:847
+      (inlined by) _M_invoke at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #6  0x4016047a:0x3ffe8260 in std::function<void (void*, AsyncClient*, void*, unsigned int)>::operator()(void*, AsyncClient*, void*, unsigned int) const at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:1020
+      (inlined by) AsyncClient::_recv(tcp_pcb*, pbuf*, signed char) at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:915
+  #7  0x401604f9:0x3ffe82a0 in AsyncClient::_s_recv(void*, tcp_pcb*, pbuf*, signed char) at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:1020
+  #8  0x40160c6e:0x3ffe82c0 in _async_service_task(void*) at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:1020
+      (inlined by) _async_service_task at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:194
+  #9  0x40089c26:0x3ffe82f0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:26] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:920] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:194] measure_init(): Medición: Controlador I2S listo
+[I][wificlient.cpp:84] wificlient_Task(): WiFi connection lost, attempting to reconnect...
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:109] wificlient_Task(): Connected to WiFi. IP address: 192.168.100.109
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+Core 1 register dump:
+PC      : 0x400d6caa  PS      : 0x00060030  A0      : 0x800d762e  A1      : 0x3ffe7100  
+A2      : 0x3ffe3790  A3      : 0x3ffe0e08  A4      : 0x00303030  A5      : 0x3ffe0e04  
+A6      : 0x3f4010c4  A7      : 0x3ffc8c80  A8      : 0x0000003e  A9      : 0x3ffe70e0  
+A10     : 0x0030306e  A11     : 0x3ffe71cc  A12     : 0x00000f00  A13     : 0x00000000  
+A14     : 0x00000018  A15     : 0x3ffc1f08  SAR     : 0x0000001d  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x0030306e  LBEG    : 0x400014fd  LEND    : 0x4000150d  LCOUNT  : 0xffffffff  
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x400d6caa:0x3ffe7100 0x400d762b:0x3ffe8170 0x401678ab:0x3ffe8190 0x40167c21:0x3ffe81b0 0x400daf75:0x3ffe8200 0x400daf91:0x3ffe8240 0x4016047a:0x3ffe8260 0x401604f9:0x3ffe82a0 0x40160c6e:0x3ffe82c0 0x40089c26:0x3ffe82f0
+  #0  0x400d6caa:0x3ffe7100 in _ZL9onWsEventP14AsyncWebSocketP20AsyncWebSocketClient12AwsEventTypePvPhj$part$12 at src/webserver.cpp:401
+  #1  0x400d762b:0x3ffe8170 in onWsEvent(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at src/webserver.cpp:95
+  #2  0x401678ab:0x3ffe8190 in std::_Function_handler<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int), void (*)(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::_M_invoke(std::_Any_data const&, AsyncWebSocket*&&, AsyncWebSocketClient*&&, AwsEventType&&, void*&&, unsigned char*&&, unsigned int&&) at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #3  0x40167c21:0x3ffe81b0 in std::function<void (AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int)>::operator()(AsyncWebSocket*, AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) const at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:2271
+      (inlined by) AsyncWebSocket::_handleEvent(AsyncWebSocketClient*, AwsEventType, void*, unsigned char*, unsigned int) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:869
+  #4  0x400daf75:0x3ffe8200 in AsyncWebSocketClient::_onData(void*, unsigned int) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:847
+  #5  0x400daf91:0x3ffe8240 in std::_Function_handler<void (void*, AsyncClient*, void*, unsigned int), AsyncWebSocketClient::AsyncWebSocketClient(AsyncWebServerRequest*, AsyncWebSocket*)::{lambda(void*, AsyncClient*, void*, unsigned int)#7}>::_M_invoke(std::_Any_data const&, void*&&, AsyncClient*&&, std::_Any_data const&, unsigned int&&) at .pio/libdeps/esp32dev/ESP Async WebServer/src/AsyncWebSocket.cpp:847
+      (inlined by) _M_invoke at c:\users\nico\.platformio\packages\toolchain-xtensa32\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #6  0x4016047a:0x3ffe8260 in std::function<void (void*, AsyncClient*, void*, unsigned int)>::operator()(void*, AsyncClient*, void*, unsigned int) const at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:1020
+      (inlined by) AsyncClient::_recv(tcp_pcb*, pbuf*, signed char) at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:915
+  #7  0x401604f9:0x3ffe82a0 in AsyncClient::_s_recv(void*, tcp_pcb*, pbuf*, signed char) at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:1020
+  #8  0x40160c6e:0x3ffe82c0 in _async_service_task(void*) at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:1020
+      (inlined by) _async_service_task at .pio/libdeps/esp32dev/AsyncTCP/src/AsyncTCP.cpp:194
+  #9  0x40089c26:0x3ffe82f0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:26] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:920] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:194] measure_init(): Medición: Controlador I2S listo
+[I][wificlient.cpp:84] wificlient_Task(): WiFi connection lost, attempting to reconnect...
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+[I][wificlient.cpp:109] wificlient_Task(): Connected to WiFi. IP address: 192.168.100.109
+[I][ntp.cpp:64] ntp_Task(): NTP-client: renew time
+NTP-client: Tuesday, January 28 2025 18:12:05

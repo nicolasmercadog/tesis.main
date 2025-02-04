@@ -38,6 +38,7 @@ void setup( void ) {
      * Configuración de tareas
      */
     measure_StartTask(); // Inicia la tarea de medición
+    measure_get_fft(); // Obtiene la FFT de los canales
     //startMongoDBTask(); // Inicia la tarea del cliente MQTT
     asyncwebserver_StartTask(); // Inicia la tarea del servidor web asíncrono
     ntp_StartTask(); // Inicia la tarea para sincronización de hora mediante NTP

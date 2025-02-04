@@ -140,7 +140,7 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
             //  display_save_settings();
             // ioport_save_settings();
             measure_save_settings();
-            //mqtt_save_settings();
+            // mqtt_save_settings();
             wificlient_save_settings();
             client->printf("status\\Save");
         }
@@ -256,11 +256,11 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
         {
             // Obtener valores de configuración de medición
             float networkFrequency = measure_get_network_frequency(); // Frecuencia de red
-            int samplerateCorrection = measure_get_samplerate_corr(); // Corrección de muestreo
+            //int samplerateCorrection = measure_get_samplerate_corr(); // Corrección de muestreo
 
             // Enviar los valores al cliente
             client->printf("network_frequency\\%f", networkFrequency);   // Frecuencia de red
-            client->printf("samplerate_corr\\%d", samplerateCorrection); // Corrección de la frecuencia de muestreo
+            //client->printf("samplerate_corr\\%d", samplerateCorrection); // Corrección de la frecuencia de muestreo
         }
 
         else if (!strcmp("get_hostname_settings", cmd))
@@ -367,11 +367,9 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
                     SampleScale = 1;
 
                 // Construir datos iniciales
-                snprintf(tmp, sizeof(tmp), "OScopeProbe\\%d\\%d\\%d\\%f\\",
-                         active_channel_count,
+                snprintf(tmp, sizeof(tmp), "OScopeProbe\\%d\\%d\\",
                          numbersOfSamples / SampleScale,
-                         numbersOfFFTSamples / FFTScale,
-                         0.01);
+                         numbersOfFFTSamples / FFTScale);
                 strncat(request, tmp, sizeof(request));
 
                 // Procesar muestras
@@ -383,6 +381,8 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
 
                     for (int i = 0; i < numbersOfSamples; i += SampleScale)
                     {
+                                uint16_t sample_value = mybuffer[numbersOfSamples * channel + i];
+
                         snprintf(tmp, sizeof(tmp), "%03x",
                                  mybuffer[numbersOfSamples * channel + i] > 0x0fff ? 0x0fff : mybuffer[numbersOfSamples * channel + i]);
                         strncat(request, tmp, sizeof(request));
@@ -394,13 +394,10 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
                 mybuffer = measure_get_fft();
 
                 // Canales específicos que queremos procesar
-                int selectedChannels[] = {0, 1, 4, 5, 8, 9};
-                size_t numSelectedChannels = sizeof(selectedChannels) / sizeof(selectedChannels[0]);
-
-                for (size_t idx = 0; idx < numSelectedChannels; idx++)
-                {
-                    int channel = selectedChannels[idx];
-
+                for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++)
+                {   
+                    if (*(value + channel) == '0')
+                        continue;
                     // Procesar únicamente los canales seleccionados
                     for (int i = 0; i < numbersOfFFTSamples; i += FFTScale)
                     {
@@ -409,6 +406,7 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
                         strncat(request, tmp, sizeof(request));
                     }
                 }
+
                 strncat(request, "\\", sizeof(request));
 
                 // Convertir canales activos a hexadecimal
@@ -607,44 +605,44 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
         if (value)
         { // Validar que el valor no sea NULL
             /* Configuraciones del servidor MQTT */
-           /* if (!strcmp("mqtt_server", cmd))
-            {
-                // Establecer la dirección del servidor MQTT
-                mqtt_client_set_server(value);
-            }
-            else if (!strcmp("mqtt_port", cmd))
-            {
-                // Establecer el puerto del servidor MQTT
-                mqtt_client_set_port(atoi(value));
-            }
-            else if (!strcmp("mqtt_username", cmd))
-            {
-                // Establecer el nombre de usuario para MQTT
-                mqtt_client_set_username(value);
-            }
-            else if (!strcmp("mqtt_password", cmd))
-            {
-                // Establecer la contraseña MQTT (solo si no es un marcador genérico)
-                if (strcmp("********", value))
-                {
-                    mqtt_client_set_password(value);
-                }
-            }
-            else if (!strcmp("mqtt_topic", cmd))
-            {
-                // Establecer el tópico MQTT
-                mqtt_client_set_topic(value);
-            }
-            else if (!strcmp("mqtt_interval", cmd))
-            {
-                // Establecer el intervalo de envío de datos MQTT
-                mqtt_client_set_interval(atoi(value));
-            }
-            else if (!strcmp("mqtt_realtimestats", cmd))
-            {
-                // Habilitar o deshabilitar el envío de estadísticas en tiempo real por MQTT
-                mqtt_client_set_realtimestats(atoi(value) ? true : false);
-            }*/
+            /* if (!strcmp("mqtt_server", cmd))
+             {
+                 // Establecer la dirección del servidor MQTT
+                 mqtt_client_set_server(value);
+             }
+             else if (!strcmp("mqtt_port", cmd))
+             {
+                 // Establecer el puerto del servidor MQTT
+                 mqtt_client_set_port(atoi(value));
+             }
+             else if (!strcmp("mqtt_username", cmd))
+             {
+                 // Establecer el nombre de usuario para MQTT
+                 mqtt_client_set_username(value);
+             }
+             else if (!strcmp("mqtt_password", cmd))
+             {
+                 // Establecer la contraseña MQTT (solo si no es un marcador genérico)
+                 if (strcmp("********", value))
+                 {
+                     mqtt_client_set_password(value);
+                 }
+             }
+             else if (!strcmp("mqtt_topic", cmd))
+             {
+                 // Establecer el tópico MQTT
+                 mqtt_client_set_topic(value);
+             }
+             else if (!strcmp("mqtt_interval", cmd))
+             {
+                 // Establecer el intervalo de envío de datos MQTT
+                 mqtt_client_set_interval(atoi(value));
+             }
+             else if (!strcmp("mqtt_realtimestats", cmd))
+             {
+                 // Habilitar o deshabilitar el envío de estadísticas en tiempo real por MQTT
+                 mqtt_client_set_realtimestats(atoi(value) ? true : false);
+             }*/
             /* Configuraciones de frecuencia de muestreo */
             if (!strcmp("samplerate_corr", cmd))
             {
@@ -751,7 +749,7 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
  */
 static void handleUpdate(AsyncWebServerRequest *request, const String &filename, size_t index, uint8_t *data, size_t len, bool final)
 {
-    //mqtt_client_disable();
+    // mqtt_client_disable();
 
     if (!index)
     {
@@ -785,12 +783,12 @@ static void handleUpdate(AsyncWebServerRequest *request, const String &filename,
             //   display_save_settings();
             // ioport_save_settings();
             measure_save_settings();
-           // mqtt_save_settings();
+            // mqtt_save_settings();
             wificlient_save_settings();
             ESP.restart();
         }
     }
-    //void mqtt_client_enable();
+    // void mqtt_client_enable();
 }
 /**
  * Configuración inicial del servidor web asíncrono.

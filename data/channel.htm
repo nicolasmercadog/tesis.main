@@ -9,6 +9,7 @@
    <script src="script.js"></script>
 </head>
 <body>
+  <button-dark id="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button-dark>
 <div id='cssmenu'>
 <ul>
     <li><a href='index.htm'>Principal</a></li>
@@ -598,6 +599,38 @@
 <br>
 <br>
 <br>
-<div id='fixedfooter'><span id='status'>desconectado</span></div>
-</body>
+<div id="fixedfooter">
+  <table>
+      <thead>
+          <tr>
+              <th>Grupo</th>
+              <th>RMS (I)</th>
+              <th>I3</th>
+              <th>I5</th>
+              <th>I7</th>
+              <th>I9</th>
+              <th>RMS (U)</th>
+              <th>U3</th>
+              <th>U5</th>
+              <th>U7</th>
+              <th>U9</th>
+              <th>THD</th>
+              <th>P</th>
+              <th>Pvar</th>
+              <th>Cos Φ</th>
+          </tr>
+      </thead>
+      <tbody id="status-table-body">
+          <!-- Fila del Estado General -->
+          <tr>
+              <td colspan="16"><b>Estado General:</b> <span id="general-status">Desconectado</span></td>
+          </tr>
+          <!-- Aquí se generarán las filas dinámicamente -->
+          <!-- Fila de Frecuencia -->
+          <tr>
+              <td colspan="16"><b>Frecuencia:</b> <span id="frequency">-- Hz</span></td>
+          </tr>
+      </tbody>
+  </table>
+</div></body>
 </html>

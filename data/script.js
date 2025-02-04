@@ -48,14 +48,17 @@
         cssmenu.css('position', 'relative');
         cssmenu.find("#menu-button").css({
           'position': 'absolute',
-          'right': '10px',
-          'top': '10px',
+          'right': '-37px',
+          'top': '0px',
           'cursor': 'pointer',
           'z-index': '9999', // Ensure button is above other elements
-          'background': '#333333', // Match background color
+          'background': '#333', // Match background color
           'color': '#ffffff', // Set text color
           'padding': '10px',
-          'border-radius': '5px'
+          'border-radius': '10px',
+          'transition': 'color-background 0.3s',
+          'box-shadow': '0 0.4rem #dfd9d9',
+
         });
 
         // Always show the menu button and keep menu items hidden initially
@@ -69,7 +72,7 @@
 $(document).ready(function(){
 
 $("#cssmenu").menumaker({
-   title: "☰", // Use hamburger icon for the button
+   title: " ☰ ", // Use hamburger icon for the button
    format: "multitoggle"
 });
 

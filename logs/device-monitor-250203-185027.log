@@ -1,0 +1,3162 @@
+��␀x␀x�x␀x�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:26] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:922] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:194] measure_init(): Medición: Controlador I2S listo
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 0.000000
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1783.464844
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1783.464844
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1780.930420
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1780.930420
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1781.395874
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1781.395874
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1780.861572
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1780.861572
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1779.327637
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1779.327637
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1783.792358
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1783.792358
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1790.255249
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1790.255249
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1781.720703
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1781.720703
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1786.184692
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1786.184692
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1801.643921
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1801.643921
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1808.101440
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1808.101440
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1814.557007
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1814.557007
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1814.012817
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1814.012817
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después[I][wificli del filtrent.cpp:84] wo Canal 8:ificlient_Tas 1820.466431
+ADC Indek(): WiFi cox: 9 | Canannection losl Físico: t, attemptin2 | Valor: g to reconne1807
+ADC Ict...
+ndex: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1820.466431
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1817.920776
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1817.920776
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1820.374634
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1820.374634
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1821.827759
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1821.827759
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1824.280151
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1824.280151
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1822.733276
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1822.733276
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1827.185059
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1827.185059
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1823.637817
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1823.637817
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1821.091187
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1821.091187
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1824.543823
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1824.543823
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1821.997192
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1821.997192
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1824.449585
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1824.449585
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1815.904785
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1815.904785
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1825.357056
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1825.357056
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1819.810791
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1819.810791
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1821.264282
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1821.264282
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1813.719849
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1813.719849
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1818.174072
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1818.174072
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1817.628662
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1817.628662
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1812.084839
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1812.084839
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1813.540771
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1813.540771
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1820.994385
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1820.994385
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1813.450195
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1813.450195
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1813.905884
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1813.905884
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1816.360718
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1816.360718
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1809.817749
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1809.817749
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1812.274048
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1812.274048
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1806.731812
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1806.731812
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1812.188110
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1812.188110
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1814.643433
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1814.643433
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1809.100708
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1809.100708
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1806.558472
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1806.558472
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1807.016357
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1807.016357
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1811.472778
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1811.472778
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1803.931274
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1803.931274
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1802.390259
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1802.390259
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1810.846680
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1810.846680
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1805.304932
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Ind[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+ex: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1805.304932
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1809.761841
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físic[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+o[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.100.109, MASK: 255.255.255.0, GW: 192.168.100.1
+: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1809.761841
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1805.219971
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1805.219971
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1807.677490
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1807.677490
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1799.137573
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1799.137573
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1800.597412
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1800.597412
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1796.058472
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1796.058472
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1800.518311
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1800.518311
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1794.979614
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1794.979614
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1804.437988
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1804.437988
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1800.897583
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1800.897583
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1809.354492
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1809.354492
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1819.808350
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1819.808350
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1827.260010
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1827.260010
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1837.708496
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1837.708496
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1842.155762
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1842.155762
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1845.601929
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Fí[I][wificlsico: 2 | ient.cpp:109]Valor: 182 wificlient_T1
+ADC Index: 0 | Canaask(): Connel Físico: cted to WiFi2 | Valor: . IP address:1784
+ADC  192.168.100.Index: 1 |109
+ Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1845.601929
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1846.048096
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1846.048096
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1850.492798
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1850.492798
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1846.938477
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1846.938477
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1834.388062
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1834.388062
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1835.837280
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1835.837280
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1832.287598
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1832.287598
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1827.739136
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1827.739136
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1810.196045
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1810.196045
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1798.656250
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1798.656250
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1796.117310
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1796.117310
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1787.580811
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1787.580811
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1787.044556
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1787.044556
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1785.508667
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1785.508667
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1782.973755
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1782.973755
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1780.439331
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1780.439331
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1787.902954
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1787.902954
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1784.367432
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1784.367432
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1778.833618
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1778.833618
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1777.300171
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1777.300171
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1783.765015
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal Físico: 2 | Valor: 1786
+Antes del filtro Canal 8: 1783.765015
+ADC Index: 8 | Canal Físico: 2 | Valor: 1791
+Después del filtro Canal 8: 1777.231812
+ADC Index: 9 | Canal Físico: 2 | Valor: 1807
+ADC Index: 10 | Canal Físico: 2 | Valor: 1814
+ADC Index: 11 | Canal Físico: 2 | Valor: 1821
+ADC Index: 0 | Canal Físico: 2 | Valor: 1784
+ADC Index: 1 | Canal Físico: 2 | Valor: 1782
+ADC Index: 2 | Canal Físico: 2 | Valor: 1783
+ADC Index: 3 | Canal Físico: 2 | Valor: 1783
+ADC Index: 4 | Canal Físico: 2 | Valor: 1782
+ADC Index: 5 | Canal Físico: 2 | Valor: 1787
+ADC Index: 6 | Canal Físico: 2 | Valor: 1794
+ADC Index: 7 | Canal FíE (5927) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (5927) task_wdt:  - IDLE0 (CPU 0)
+E (5927) task_wdt: Tasks currently running:
+E (5927) task_wdt: CPU 0: measure measure
+E (5927) task_wdt: CPU 1: loopTask
+E (5927) task_wdt: Aborting.
+abort() was called at PC 0x401500d4 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401500d4:0x3ffbfec0 0x40087095:0x3ffbfee0 0x40165bdd:0x3ffd8250 0x401669ad:0x3ffd8270 0x4014f6f1:0x3ffd82a0 0x4000bd83:0x3ffd82c0 0x4000117d:0x3ffd82e0 0x400592fe:0x3ffd8300 0x4005937a:0x3ffd8320 0x40058bbf:0x3ffd8340 0x401063f9:0x3ffd8370 0x4010bbf6:0x3ffd83a0 0x401017f9:0x3ffd86b0 0x400d3d05:0x3ffd8700 0x400d45f1:0x3ffd9570 0x40089c26:0x3ffd9590
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401500d4:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x40165bdd:0x3ffd8250 in uart_tx_char at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/vfs/vfs_uart.c:142
+  #5  0x401669ad:0x3ffd8270 in uart_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/vfs/vfs_uart.c:142
+  #6  0x4014f6f1:0x3ffd82a0 in esp_vfs_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/vfs/vfs.c:976
+  #7  0x4000bd83:0x3ffd82c0 in ?? ??:0
+  #8  0x4000117d:0x3ffd82e0 in ?? ??:0
+  #9  0x400592fe:0x3ffd8300 in ?? ??:0
+  #10 0x4005937a:0x3ffd8320 in ?? ??:0
+  #11 0x40058bbf:0x3ffd8340 in ?? ??:0
+  #12 0x401063f9:0x3ffd8370 in __sprint_r at /Users/ivan/e/newlib_xtensa-2.2.0-bin/newlib_xtensa-2.2.0/xtensa-esp32-elf/newlib/libc/stdio/../../../.././newlib/libc/stdio/vfprintf.c:437
+  #13 0x4010bbf6:0x3ffd83a0 in _vfprintf_r at /Users/ivan/e/newlib_xtensa-2.2.0-bin/newlib_xtensa-2.2.0/xtensa-esp32-elf/newlib/libc/stdio/../../../.././newlib/libc/stdio/vfprintf.c:1782 (discriminator 1)
+  #14 0x401017f9:0x3ffd86b0 in printf at /Users/ivan/e/newlib_xtensa-2.2.0-bin/newlib_xtensa-2.2.0/xtensa-esp32-elf/newlib/libc/stdio/../../../.././newlib/libc/stdio/printf.c:58
+  #15 0x400d3d05:0x3ffd8700 in measure_mes() at src/measure.cpp:1173
+  #16 0x400d45f1:0x3ffd9570 in measure_Task(void*) at src/measure.cpp:1173
+  #17 0x40089c26:0x3ffd9590 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:26] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:922] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:194] measure_init(): Medición: Controlador I2S listo
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 0.000000
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1839.447998
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1839.447998
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1842.895020
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1842.895020
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1838.343384
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1838.343384
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1837.791748
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1837.791748
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1838.240112
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1838.240112
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1835.689331
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1835.689331
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1837.138184
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1837.138184
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1835.587402
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1835.587402
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1835.036743
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1835.036743
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1839.484619
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1839.484619
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1831.934937
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1831.934937
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1829.386108
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1829.386108
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1833.835938
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1833.835938
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro[I][wificl Canal 8: 1ient.cpp:84] 834.285522wificlient_Ta
+ADC Indesk(): WiFi cox: 9 | Canal Físico: nnection los2 | Valor: t, attemptin1845
+ADC Ig to reconnendex: 10 | ct...
+Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1834.285522
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1830.736328
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1830.736328
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1831.186768
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1831.186768
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1830.637451
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1830.637451
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1834.087036
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1834.087036
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1829.537964
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1829.537964
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1828.989258
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1828.989258
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1828.440552
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1828.440552
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1827.891968
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1827.891968
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1827.343750
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1827.343750
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1826.795532
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1826.795532
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1826.247437
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1826.247437
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1825.699707
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1825.699707
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1822.152954
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1822.152954
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1821.606201
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1821.606201
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1824.058838
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1824.058838
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1825.510986
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1825.510986
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1822.963989
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1822.963989
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1822.416992
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1822.416992
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1819.870850
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1819.870850
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1821.324341
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1821.324341
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1820.777832
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1820.777832
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1817.232544
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1817.232544
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1819.686401
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1819.686401
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1819.140625
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1819.140625
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1827.592163
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1827.592163
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1834.041870
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1834.041870
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1844.488525
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1844.488525
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1849.933350
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1849.933350
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1849.378418
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1849.378418
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1858.820679
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1858.820679
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1850.265625
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1850.265625
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1849.710571
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1849.710571
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1846.156494
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1846.156494
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1845.602661
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1845.602661
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1835.051880
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1835.051880
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1825.503906
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1825.503906
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1814.959229
+ADC Index: 9 | Canal Físico[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 5 - STA_DISCONNECTED
+[W][WiFiGeneric.cpp:391] _eventCallback(): Reason: 2 - AUTH_EXPIRE
+: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1814.959229
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1811.415649
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1811.415649
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1808.872681
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1808.872681
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1811.328979
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1811.328979
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1809.786011
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1809.786011
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1810.242920
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1810.242920
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1799.702881
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1799.702881
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1808.160278
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1808.160278
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1802.619263
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1802.619263
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1802.078369
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1802.078369
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1800.538086
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1800.538086
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1802.997070
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1802.997070
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1800.456787
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1800.456787
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1804.915161
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1804.915161
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1801.374512
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1801.374512
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1798.834717
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1798.834717
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1802.293823
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1802.293823
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1796.754761
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1796.754761
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1797.215576
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1797.215576
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1795.676758
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1795.676758
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1792.138916
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1792.138916
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1791.601318
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1791.601318
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1789.064453
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1789.064453
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1798.524780
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1798.524780
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1786.988647
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1786.988647
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1787.452393
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1787.452393
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1793.914062
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1793.914062
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1794.375610
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1794.375610
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1796.836304
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1796.836304
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1795.297729
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1795.297729
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1790.760498
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1790.760498
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1790.223267
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1790.223267
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1788.686401
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1788.686401
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1790.149292
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1790.149292
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1790.612061
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1790.612061
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1793.073975
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1793.073975
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1788.537231
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1788.537231
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del filtro Canal 8: 1783.0[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+02075
+ADC Index: 9 | Canal Físico: 2 | Valor: 1845
+ADC Index: 10 | Canal Físico: 2 | Valor: 1838
+ADC Index: 11 | Canal Físico: 2 | Valor: 1836
+ADC Index: 0 | Canal Físico: 2 | Valor: 1840
+ADC Index: 1 | Canal Físico: 2 | Valor: 1844
+ADC Index: 2 | Canal Físico: 2 | Valor: 1840
+ADC Index: 3 | Canal Físico: 2 | Valor: 1840
+ADC Index: 4 | Canal Físico: 2 | Valor: 1841
+ADC Index: 5 | Canal Físico: 2 | Valor: 1839
+ADC Index: 6 | Canal Físico: 2 | Valor: 1841
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1783.002075
+ADC Index: 8 | Canal Físico: 2 | Valor: 1840
+Después del fiE (5928) task_wdt: Task watchdog got triggered. The following tasks did not reset the watchdog in time:
+E (5928) task_wdt:  - IDLE0 (CPU 0)
+E (5928) task_wdt: Tasks currently running:
+E (5928) task_wdt: CPU 0: measure measure
+E (5928) task_wdt: CPU 1: loopTask
+E (5928) task_wdt: Aborting.
+abort() was called at PC 0x401500d4 on core 0
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x40088958:0x3ffbfe80 0x40088bd5:0x3ffbfea0 0x401500d4:0x3ffbfec0 0x40087095:0x3ffbfee0 0x40165bdd:0x3ffd8220 0x401669ad:0x3ffd8240 0x4014f6f1:0x3ffd8270 0x4000bd83:0x3ffd8290 0x4000117d:0x3ffd82b0 0x400592fe:0x3ffd82d0 0x4005937a:0x3ffd82f0 0x40058bbf:0x3ffd8310 0x401063f9:0x3ffd8340 0x4010bbf6:0x3ffd8370 0x401017f9:0x3ffd8680 0x400d4025:0x3ffd86d0 0x400d45f1:0x3ffd9540 0x40089c26:0x3ffd9560
+  #0  0x40088958:0x3ffbfe80 in invoke_abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #1  0x40088bd5:0x3ffbfea0 in abort at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/panic.c:715
+  #2  0x401500d4:0x3ffbfec0 in task_wdt_isr at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/esp32/task_wdt.c:252
+  #3  0x40087095:0x3ffbfee0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #4  0x40165bdd:0x3ffd8220 in uart_tx_char at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/vfs/vfs_uart.c:142
+  #5  0x401669ad:0x3ffd8240 in uart_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/vfs/vfs_uart.c:142
+  #6  0x4014f6f1:0x3ffd8270 in esp_vfs_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/vfs/vfs.c:976
+  #7  0x4000bd83:0x3ffd8290 in ?? ??:0
+  #8  0x4000117d:0x3ffd82b0 in ?? ??:0
+  #9  0x400592fe:0x3ffd82d0 in ?? ??:0
+  #10 0x4005937a:0x3ffd82f0 in ?? ??:0
+  #11 0x40058bbf:0x3ffd8310 in ?? ??:0
+  #12 0x401063f9:0x3ffd8340 in __sprint_r at /Users/ivan/e/newlib_xtensa-2.2.0-bin/newlib_xtensa-2.2.0/xtensa-esp32-elf/newlib/libc/stdio/../../../.././newlib/libc/stdio/vfprintf.c:437
+  #13 0x4010bbf6:0x3ffd8370 in _vfprintf_r at /Users/ivan/e/newlib_xtensa-2.2.0-bin/newlib_xtensa-2.2.0/xtensa-esp32-elf/newlib/libc/stdio/../../../.././newlib/libc/stdio/vfprintf.c:1782 (discriminator 1)
+  #14 0x401017f9:0x3ffd8680 in printf at /Users/ivan/e/newlib_xtensa-2.2.0-bin/newlib_xtensa-2.2.0/xtensa-esp32-elf/newlib/libc/stdio/../../../.././newlib/libc/stdio/printf.c:58
+  #15 0x400d4025:0x3ffd86d0 in measure_mes() at src/measure.cpp:1173
+  #16 0x400d45f1:0x3ffd9540 in measure_Task(void*) at src/measure.cpp:1173
+  #17 0x40089c26:0x3ffd9560 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+[I][powermeter.cpp:26] setup(): Start Main Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /wifi.json
+[I][wifi_config.cpp:73] onDefault(): Write first config to SPIFFS
+
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 2 - STA_START
+[I][measure.cpp:107] measure_Task(): Iniciando tarea de medición en núcleo: 0
+[I][webserver.cpp:922] asyncwebserver_Task(): Start Webserver on Core: 1
+[I][ntp.cpp:58] ntp_Task(): Start NTP Task on Core: 1
+[I][basejsonconfig.cpp:64] load(): reading json failed, call defaults, file: /measure.json
+[I][measure.cpp:194] measure_init(): Medición: Controlador I2S listo
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 0.000000
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1836.448975
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1836.448975
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1835.898071
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1835.898071
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1833.347778
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1833.347778
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1838.795898
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1838.795898
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1840.243652
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1840.243652
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1836.692505
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1836.692505
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1828.143799
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1828.143799
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1835.593018
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1835.593018
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1837.041748
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1837.041748
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1834.491211
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1834.491211
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1828.942383
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1828.942383
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1832.392578
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1832.392578
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1832.842529
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1832.842529
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después[I][wificli del filtrent.cpp:84] wo Canal 8:ificlient_Tas 1829.293579
+ADC Indek(): WiFi cox: 9 | Canannection losl Físico: t, attemptin2 | Valor: g to reconne1840
+ADC Ict...
+ndex: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1829.293579
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1831.743774
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1831.743774
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1841.191162
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1841.191162
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1846.636963
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1846.636963
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1852.081177
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1852.081177
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1856.523926
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1856.523926
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1860.965454
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1860.965454
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1853.409180
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1853.409180
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1854.852539
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1854.852539
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1850.297241
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1850.297241
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1845.743530
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1845.743530
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1836.192627
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1836.192627
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1826.644531
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1826.644531
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1825.096802
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1825.096802
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1823.549438
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1823.549438
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1822.002563
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1822.002563
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1821.455811
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1821.455811
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1821.909058
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1821.909058
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1819.363281
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1819.363281
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1821.816650
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1821.816650
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1816.271606
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1816.271606
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1811.727783
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1811.727783
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1814.183350
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1814.183350
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1815.638550
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1815.638550
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del filtro Canal 8: 1815.093994
+ADC Index: 9 | Canal Físico: 2 | Valor: 1840
+ADC Index: 10 | Canal Físico: 2 | Valor: 1835
+ADC Index: 11 | Canal Físico: 2 | Valor: 1839
+ADC Index: 0 | Canal Físico: 2 | Valor: 1837
+ADC Index: 1 | Canal Físico: 2 | Valor: 1837
+ADC Index: 2 | Canal Físico: 2 | Valor: 1835
+ADC Index: 3 | Canal Físico: 2 | Valor: 1841
+ADC Index: 4 | Canal Físico: 2 | Valor: 1843
+ADC Index: 5 | Canal Físico: 2 | Valor: 1840
+ADC Index: 6 | Canal Físico: 2 | Valor: 1832
+ADC Index: 7 | Canal Físico: 2 | Valor: 1840
+Antes del filtro Canal 8: 1815.093994
+ADC Index: 8 | Canal Físico: 2 | Valor: 1842
+Después del fi
