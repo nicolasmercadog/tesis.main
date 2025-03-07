@@ -867,8 +867,12 @@ uint16_t *measure_get_fft(void)
     static double vImag[numbersOfFFTSamples * 2];
 
     // Configuración de frecuencia de muestreo ajustada
-    double samplingRate = (256 * 6) * measure_get_network_frequency() / 4;
-    samplingRate = round(samplingRate / 50.0) * 50.0; // Ajuste para evitar errores de cuantización
+    double samplingRate = (numbersOfSamples) * measure_get_network_frequency();
+    samplingRate = round(samplingRate / measure_get_network_frequency()) * measure_get_network_frequency();
+
+    log_i("FFT: Frecuencia de muestreo: %.2f Hz, Frecuencia de red: %.2f Hz", 
+          samplingRate, measure_get_network_frequency());
+    log_i("FFT: Resolución espectral: %.2f Hz/bin", samplingRate / (numbersOfFFTSamples * 2));
 
     arduinoFFT FFT(vReal, vImag, numbersOfFFTSamples * 2, samplingRate);
 
@@ -878,95 +882,125 @@ uint16_t *measure_get_fft(void)
     for (size_t idx = 0; idx < numSelectedChannels; idx++)
     {
         const int channel = selectedChannels[idx];
+        log_i("FFT: Procesando canal %d (%s)", channel, measure_get_channel_name(channel));
 
-        // Preprocesamiento: Eliminación de offset DC
+        // Preprocesamiento
         double suma = 0;
         for (int i = 0; i < numbersOfFFTSamples * 2; i++)
         {
-            vReal[i] = buffer_probe[channel][(i * 6) % numbersOfSamples] - 2048;
+            int sampleIdx = i * numbersOfSamples / (numbersOfFFTSamples * 2);
+            vReal[i] = buffer_probe[channel][sampleIdx] - 2048.0;
             vImag[i] = 0;
             suma += vReal[i];
         }
 
-        // Remueve el valor medio para eliminar DC
         double media = suma / (numbersOfFFTSamples * 2);
+        log_i("FFT: Canal %d - Valor medio: %.2f", channel, media);
+
         for (int i = 0; i < numbersOfFFTSamples * 2; i++)
         {
             vReal[i] -= media;
+            vReal[i] *= 0.5 * (1 - cos(2 * PI * i / (numbersOfFFTSamples * 2 - 1)));
         }
 
-        FFT.Windowing(FFT_WIN_TYP_HANN, FFT_FORWARD);
         FFT.Compute(FFT_FORWARD);
         FFT.ComplexToMagnitude();
 
-        // Normalización correcta
         for (int i = 1; i < numbersOfFFTSamples; i++)
         {
             vReal[i] = vReal[i] / numbersOfFFTSamples;
         }
 
-        // Imprimir primeros valores de la FFT para depuración
-        /*for (int i = 0; i < 20; i++)
+        // Búsqueda de la fundamental
+        int freqBinWidth = samplingRate / (numbersOfFFTSamples * 2);
+        int minFundamentalBin = (int)(measure_get_network_frequency() * 0.9 / freqBinWidth);
+        int maxFundamentalBin = (int)(measure_get_network_frequency() * 1.1 / freqBinWidth);
+
+        log_i("FFT: Canal %d - Buscando fundamental entre bin %d (%.2f Hz) y bin %d (%.2f Hz)", 
+              channel, minFundamentalBin, minFundamentalBin * freqBinWidth, 
+              maxFundamentalBin, maxFundamentalBin * freqBinWidth);
+
+        int fundamentalIndex = minFundamentalBin;
+        double maxValue = vReal[minFundamentalBin];
+
+        for (int i = minFundamentalBin + 1; i <= maxFundamentalBin; i++)
         {
-            //  log_i("Canal %d - FFT[%d] = %.2f", channel, i, vReal[i]);
-        }*/
-
-        // Detección de la fundamental restringida a los primeros 2 índices
-        int fundamentalIndex = 1;
-        double maxValue = vReal[1];
-
-        for (int i = 2; i < 3; i++)
-        { // SOLO se compara con FFT[2]
-            if (vReal[i] > maxValue)
+            if (i < numbersOfFFTSamples && vReal[i] > maxValue)
             {
                 maxValue = vReal[i];
                 fundamentalIndex = i;
             }
         }
 
-        // log_i("Canal %d - Fundamental detectada en FFT[%d] = %.2f", channel, fundamentalIndex, maxValue);
-        // log_i("Sampling Rate: %.2f Hz", samplingRate);
+        log_i("FFT: Canal %d - Fundamental detectada en bin %d (%.2f Hz) con amplitud %.2f", 
+              channel, fundamentalIndex, fundamentalIndex * freqBinWidth, maxValue);
 
-        // Cálculo dinámico de los armónicos basados en la fundamental detectada
-        const int thirdHarmonicIndex = fundamentalIndex * 3;
-        const int fifthHarmonicIndex = fundamentalIndex * 5;
-        const int seventhHarmonicIndex = fundamentalIndex * 7;
-        const int ninthHarmonicIndex = fundamentalIndex * 9;
+        // Función para obtener amplitud armónica con interpolación
+        auto getHarmonicAmplitude = [&](int harmonicMultiple) {
+            int binIndex = fundamentalIndex * harmonicMultiple;
+            if (binIndex >= numbersOfFFTSamples) 
+                return 0.0;
+                
+            double y1 = (binIndex > 0) ? vReal[binIndex-1] : 0;
+            double y2 = vReal[binIndex];
+            double y3 = (binIndex < numbersOfFFTSamples-1) ? vReal[binIndex+1] : 0;
+            
+            double d = (y3 - y1) / (2 * (2 * y2 - y1 - y3));
+            if (fabs(d) < 1.0)
+                return y2 - 0.25 * (y1 - y3) * d;
+            else
+                return y2;
+        };
 
-        harmonic_values[channel].fundamental = vReal[fundamentalIndex];
-        harmonic_values[channel].thirdHarmonic = (thirdHarmonicIndex < numbersOfFFTSamples) ? vReal[thirdHarmonicIndex] : 0;
-        harmonic_values[channel].fifthHarmonic = (fifthHarmonicIndex < numbersOfFFTSamples) ? vReal[fifthHarmonicIndex] : 0;
-        harmonic_values[channel].seventhHarmonic = (seventhHarmonicIndex < numbersOfFFTSamples) ? vReal[seventhHarmonicIndex] : 0;
-        harmonic_values[channel].ninthHarmonic = (ninthHarmonicIndex < numbersOfFFTSamples) ? vReal[ninthHarmonicIndex] : 0;
+        // Cálculo de los armónicos
+        harmonic_values[channel].fundamental = getHarmonicAmplitude(1);
+        harmonic_values[channel].thirdHarmonic = getHarmonicAmplitude(3);
+        harmonic_values[channel].fifthHarmonic = getHarmonicAmplitude(5);
+        harmonic_values[channel].seventhHarmonic = getHarmonicAmplitude(7);
+        harmonic_values[channel].ninthHarmonic = getHarmonicAmplitude(9);
 
-        // Cálculo de THD
-        if (harmonic_values[channel].fundamental > 0)
-        {
-            double sumSquares = pow(harmonic_values[channel].thirdHarmonic, 2) +
-                                pow(harmonic_values[channel].fifthHarmonic, 2) +
-                                pow(harmonic_values[channel].seventhHarmonic, 2) +
-                                pow(harmonic_values[channel].ninthHarmonic, 2);
+        log_i("FFT: Canal %d - Armónicos: F: %.2f, 3°: %.2f, 5°: %.2f, 7°: %.2f, 9°: %.2f Hz", 
+              channel, 
+              fundamentalIndex * freqBinWidth,
+              fundamentalIndex * 3 * freqBinWidth,
+              fundamentalIndex * 5 * freqBinWidth,
+              fundamentalIndex * 7 * freqBinWidth,
+              fundamentalIndex * 9 * freqBinWidth);
 
-            harmonic_values[channel].thd = (sqrt(sumSquares) / harmonic_values[channel].fundamental) * 100.0;
-        }
-        else
-        {
-            harmonic_values[channel].thd = 0.0;
-        }
-
-        /*log_i("Canal %d - Fundamental: %.2f, I3: %.2f, I5: %.2f, I7: %.2f, I9: %.2f, THD: %.2f%%",
-              channel,
+        log_i("FFT: Canal %d - Amplitudes: F: %.2f, 3°: %.2f, 5°: %.2f, 7°: %.2f, 9°: %.2f", 
+              channel, 
               harmonic_values[channel].fundamental,
               harmonic_values[channel].thirdHarmonic,
               harmonic_values[channel].fifthHarmonic,
               harmonic_values[channel].seventhHarmonic,
-              harmonic_values[channel].ninthHarmonic,
-              harmonic_values[channel].thd); */
+              harmonic_values[channel].ninthHarmonic);
+
+        double sumSquaresHarmonics = 
+            pow(harmonic_values[channel].thirdHarmonic, 2) +
+            pow(harmonic_values[channel].fifthHarmonic, 2) +
+            pow(harmonic_values[channel].seventhHarmonic, 2) +
+            pow(harmonic_values[channel].ninthHarmonic, 2);
+
+        if (harmonic_values[channel].fundamental > 0)
+        {
+            harmonic_values[channel].thd = (sqrt(sumSquaresHarmonics) / harmonic_values[channel].fundamental) * 100.0;
+            log_i("FFT: Canal %d - THD: %.2f%%", channel, harmonic_values[channel].thd);
+        }
+        else
+        {
+            harmonic_values[channel].thd = 0.0;
+            log_i("FFT: Canal %d - THD: 0.00% (fundamental = 0)", channel);
+        }
+
+        // Guardar datos para visualización
+        for (int i = 0; i < numbersOfFFTSamples && i < numbersOfSamples; i++)
+        {
+            buffer_fft[channel][i] = (uint16_t)(vReal[i] * 100 + 2048);
+        }
     }
 
     return &buffer_fft[0][0];
 }
-
 double measure_get_max_freq(void)
 {
     return (netfrequency);
