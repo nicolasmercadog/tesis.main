@@ -8,19 +8,36 @@
     #define MAX_GROUPS              6               /** @brief max groups */
     #define MAX_MICROCODE_OPS       10              /** @brief max channel opcodes size */
 
-    #define numbersOfSamples        256             /** @brief number of samples per time domain */
-    #define numbersOfFFTSamples     32 //32              /** @brief number of sampled for fft per time domain */
+    #define numbersOfSamples        128//256             /** @brief number of samples per time domain */
+    #define numbersOfFFTSamples     512  //32              /** @brief number of sampled for fft per time domain */
     #define samplingFrequency       numbersOfSamples*VIRTUAL_ADC_CHANNELS //número de muestras (256*6)
     #define DELAY                   1000
     #define I2S_PORT                I2S_NUM_0
     // Macros relacionados con el módulo de medición
-    #define HIGH_PASS_FILTER(current, last, sample) (high_pass_coef * ((last) + (sample) - (current)))
-
-
+    #define HIGH_PASS_FILTER(current, last, sample) (FILTER_HP_ALPHA * ((last) + (sample) - (current)))
 
     #define OPMASK 0xf0
+    #define DEBUG_FFT 
 
     #include <ArduinoJson.h>  // Asegúrate de incluir la librería ArduinoJson
+
+    // Estructura para el estado del filtro
+    typedef struct {
+        float prev_input;
+        float prev_output;
+        float dc_component;
+        float gain_compensation;  // Factor de compensación de ganancia
+    } FilterState;
+
+    // Constantes del filtro ajustadas
+    #define FILTER_HP_ALPHA 0.997f    // Coefiente para filtro paso alto (menos agresivo)
+    #define FILTER_LP_ALPHA 0.2f      // Coeficiente para filtro paso bajo (más rápido)
+    #define DC_REMOVAL_ALPHA 0.005f   // Coeficiente para eliminación de DC (más suave)
+    #define GAIN_COMPENSATION 1.25f   // Factor de compensación de ganancia
+
+    // Declaraciones de funciones
+    float apply_filters(float input, FilterState* state);
+    void init_filter_state(FilterState* state);
 
     /**
      * @brief channel type enum
@@ -83,17 +100,12 @@
 
     // Estructura para armónicos
 struct HarmonicData {
-    float fundamental;
-    float thirdHarmonic;
-    float fifthHarmonic;
-    float seventhHarmonic;
-    float ninthHarmonic;
-    float thd;  // Distorsión Armónica Total en porcentaje
-    float ffund;
-    float fthird;
-    float ffifth;
-    float fsevent;
-    float fninth;
+    double fundamental;
+    double thirdHarmonic;
+    double fifthHarmonic;
+    double seventhHarmonic;
+    double ninthHarmonic;
+    double thd;  // Distorsión Armónica Total en porcentaje
     char uF[3] = "Hz";
     char porcentaje[3] = "%";
 };
@@ -124,9 +136,19 @@ extern HarmonicData harmonic_values[VIRTUAL_CHANNELS];  // Declaración como ext
         float           sum;                                /** @brief channel sum */
         int             report_exp;                         /** @brief channel report exponent */
         int             group_id;                           /** @brief channel group ID for output groups */
+        //float           escala_osc;                         /** @brief channel oscilloscope scale */
+        //float           escala_foot;                        /** @brief channel foot scale */
         float           sign;                               /** @brief channel reactive power sign */
         uint8_t         operation[ MAX_MICROCODE_OPS ];     /** @brief opcode sequence */
     };
+
+
+    void measure_acquire_data();
+void measure_process_data();
+void handle_tx_buffer();
+void measure_store_fft_samples(int round);
+void measure_calculate_fft();
+void measure_calculate_rms();
 
     // Declara la función en measure.h
     int calculate_phaseshift(int base_shift, int n, int samples);
@@ -240,7 +262,7 @@ extern HarmonicData harmonic_values[VIRTUAL_CHANNELS];  // Declaración como ext
      * @return channel_type_t 
      */
     void measure_set_channel_type( uint16_t channel, channel_type_t value );
-    uint16_t* measure_get_fft_for_mqtt(StaticJsonDocument<4096>& doc);
+    //uint16_t* measure_get_fft_for_mqtt(StaticJsonDocument<4096>& doc);
     /**
      * @brief Obtiene el offset del canal
      * 
@@ -274,6 +296,30 @@ extern HarmonicData harmonic_values[VIRTUAL_CHANNELS];  // Declaración como ext
      * 
      * @param channel 
      * @return int16_t 
+     */
+    /*double measure_get_channel_escala_osc( uint16_t channel );
+     * @brief Setea el actual desplazamiento del canal dado
+     * 
+     * @param channel 
+     * @param scale_factor 
+     */
+    /*void measure_set_channel_escala_osc( uint16_t channel, float escala_osc);
+     * @brief Obtiene el actual desplazamiento del canal dado
+     * 
+     * @param channel 
+     * @return int16_t 
+     */
+   /* double measure_get_channel_escala_foot( uint16_t channel );
+     * @brief Setea el actual desplazamiento del canal dado
+     * 
+     * @param channel 
+     * @param scale_factor 
+     */
+    /*void measure_set_channel_escala_foot(uint16_t channel, float escala_foot);
+     * @brief Obtiene el desplazamiento de fase del canal dado
+     * 
+     * @param channel 
+     * @return int 
      */
     int measure_get_channel_phaseshift( uint16_t channel );
     /**

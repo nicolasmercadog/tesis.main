@@ -42,6 +42,7 @@ void setup( void ) {
     //startMongoDBTask(); // Inicia la tarea del cliente MQTT
     asyncwebserver_StartTask(); // Inicia la tarea del servidor web asíncrono
     ntp_StartTask(); // Inicia la tarea para sincronización de hora mediante NTP
+    esp_log_level_set("*", ESP_LOG_VERBOSE); // Muestra todos los logs posibles
 
     //sendDataToMongoDB("test_topic", "Test message desde ESP32"); // Código comentado para enviar datos a MongoDB
 }
@@ -50,6 +51,5 @@ void setup( void ) {
  * @brief Bucle principal de Arduino
  */
 void loop() {
-    // Código para el bucle principal (comentado en este caso)
     //ioport_loop();
 }

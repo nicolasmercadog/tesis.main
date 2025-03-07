@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 OScopeProbe(); // Obtiene datos del osciloscopio si no está pausado
             }
         }
-    }, 500);
+    }, 1000);
 
     // Restaurar modo oscuro desde localStorage
     if (localStorage.getItem("dark-Mode") === "true") {
@@ -70,9 +70,9 @@ function getconnect() {
     partsarry = e.data.split("\\"); // Divide el mensaje recibido en partes
 
     if (partsarry[0] == "OScopeProbe") {
-      console.time("GotOScope Execution");
+      //console.time("GotOScope Execution");
       window.GotOScope(e.data); // Procesa los datos del osciloscopio
-      console.timeEnd("GotOScope Execution");
+      //console.timeEnd("GotOScope Execution");
       return;
     }
     if (partsarry[0] === "status") {
@@ -109,6 +109,7 @@ function getconnect() {
                       <th>I5</th>
                       <th>I7</th>
                       <th>I9</th>
+                      <th>THDI</th>
                       <th>RMS (U)</th>
                       <th>U3</th>
                       <th>U5</th>
@@ -132,51 +133,73 @@ function getconnect() {
 
       groups.forEach((group) => {
         const matchGroup = group.match(
-          /L(\d+):\[.*?I=([\d.]+A).*?I3=([\d.]+A).*?I5=([\d.]+A).*?I7=([\d.]+A).*?I9=([\d.]+A).*?U=([\d.]+V).*?U3=([\d.]+V).*?U5=([\d.]+V).*?U7=([\d.]+V).*?U9=([\d.]+V).*?THDV=([\d.]+).*?P=([\d.]+kW).*?Pvar=([\d.-]+kVAr).*?Cos=([\d.]+)/
+            /L(\d+):\[.*?I=([\d.]+)A.*?I3=([\d.]+)A.*?I5=([\d.]+)A.*?I7=([\d.]+)A.*?I9=([\d.]+)A.*?THDI=([\d.]+).*?U=([\d.]+)V.*?U3=([\d.]+)V.*?U5=([\d.]+)V.*?U7=([\d.]+)V.*?U9=([\d.]+)V.*?THDV=([\d.]+).*?P=([\d.]+)kW.*?Pvar=([\d.-]+)kVAr.*?Cos=([\d.]+)/
         );
-
+    
         if (matchGroup) {
-          const [
-            ,
-            groupId,
-            rmsCurrent,
-            i3,
-            i5,
-            i7,
-            i9,
-            rmsVoltage,
-            u3,
-            u5,
-            u7,
-            u9,
-            thdv,
-            p,
-            pvar,
-            cosPhi,
-          ] = matchGroup;
-
-          const row = `
-                  <tr>
-                      <td>L${groupId}</td>
-                      <td>${rmsCurrent}</td>
-                      <td>${i3}</td>
-                      <td>${i5}</td>
-                      <td>${i7}</td>
-                      <td>${i9}</td>
-                      <td>${rmsVoltage}</td>
-                      <td>${u3}</td>
-                      <td>${u5}</td>
-                      <td>${u7}</td>
-                      <td>${u9}</td>
-                      <td>${thdv}</td>
-                      <td>${p}</td>
-                      <td>${pvar}</td>
-                      <td>${cosPhi}</td>
-                  </tr>
-              `;
-          tbody.innerHTML += row;
+            const [
+                ,
+                groupId,
+                rmsCurrent,
+                i3,
+                i5,
+                i7,
+                i9,
+                thdi,          // Nuevo campo THDI
+                rmsVoltage,
+                u3,
+                u5,
+                u7,
+                u9,
+                thdv,
+                p,
+                pvar,
+                cosPhi,
+            ] = matchGroup;
+    
+            // Determinar el canal basado en el grupo
+            const currentChannel = groupId === "1" ? 0 : groupId === "2" ? 4 : 8;
+            const voltageChannel = groupId === "1" ? 1 : groupId === "2" ? 5 : 9;
+    
+            // Aplicar escalamiento a los valores de corriente y voltaje
+            const scaledRMSCurrent = (parseFloat(rmsCurrent) * getScalingFactorFoot(currentChannel)).toFixed(2) + "A";
+            const scaledI3 = (parseFloat(i3) * getScalingFactorFoot(currentChannel)).toFixed(2) + "A";
+            const scaledI5 = (parseFloat(i5) * getScalingFactorFoot(currentChannel)).toFixed(2) + "A";
+            const scaledI7 = (parseFloat(i7) * getScalingFactorFoot(currentChannel)).toFixed(2) + "A";
+            const scaledI9 = (parseFloat(i9) * getScalingFactorFoot(currentChannel)).toFixed(2) + "A";
+    
+            const scaledRMSVoltage = (parseFloat(rmsVoltage) * getScalingFactorFoot(voltageChannel)).toFixed(2) + "V";
+            const scaledU3 = (parseFloat(u3) * getScalingFactorFoot(voltageChannel)).toFixed(2) + "V";
+            const scaledU5 = (parseFloat(u5) * getScalingFactorFoot(voltageChannel)).toFixed(2) + "V";
+            const scaledU7 = (parseFloat(u7) * getScalingFactorFoot(voltageChannel)).toFixed(2) + "V";
+            const scaledU9 = (parseFloat(u9) * getScalingFactorFoot(voltageChannel)).toFixed(2) + "V";
+    
+            // Generar la fila con valores escalados
+            const row = `
+                <tr>
+                    <td>L${groupId}</td>
+                    <td>${scaledRMSCurrent}</td>
+                    <td>${scaledI3}</td>
+                    <td>${scaledI5}</td>
+                    <td>${scaledI7}</td>
+                    <td>${scaledI9}</td>
+                    <td>${thdi}</td>
+                    <td>${scaledRMSVoltage}</td>
+                    <td>${scaledU3}</td>
+                    <td>${scaledU5}</td>
+                    <td>${scaledU7}</td>
+                    <td>${scaledU9}</td>
+                    <td>${thdv}</td>
+                    <td>${p} kW</td>
+                    <td>${pvar} kVAr</td>
+                    <td>${cosPhi}</td>
+                </tr>
+            `;
+    
+            tbody.innerHTML += row;
         }
-      });
+    });
+    
 
       // Agregar frecuencia como pie de página
       let footer = document.getElementById("statusFooter");
@@ -274,11 +297,18 @@ function setSensor(sensor) {
   const phaseShiftElem = document.getElementById("channel_phaseshift");
   const offsetElem = document.getElementById("channel_offset");
   const trueRmsElem = document.getElementById("channel_true_rms");
+  //const escalaOscElem = document.getElementById("channel_escala_osc");
+  //const escalaFoot = document.getElementById("channel_escala_foot");
 
   if (ratioElem) ratioElem.value = partsarry[0];
   if (phaseShiftElem) phaseShiftElem.value = partsarry[1];
   if (offsetElem) offsetElem.value = partsarry[2];
   if (trueRmsElem) trueRmsElem.checked = partsarry[3] === "true";
+  //if (escalaOscElem) escalaOscElem.value = partsarry[4];
+  //if (escalaFoot) escalaFoot.value = partsarry[5];
+
+  //updateScaleFactors(escalaOscElem); // Guardar el factor de escala
+
 }
 
 function sendCMD(value) {
@@ -336,7 +366,8 @@ function check_opcode_and_options(id, option) {
     default: Array(13).fill("-"),
   };
 
-  if (["1", "2", "3", "8", "c", "9", "b"].includes(value)) {
+  if (["1", "2", "3", "8", "9", "b", "c"].includes(value)) {
+    //  if (["1", "2", "3", "8", "c", "9", "b"].includes(value)) {
     // Copiar opciones del elemento "channel"
     for (let i = 0; i < 13; i++) {
       selectElement.options[i].text =
@@ -560,10 +591,9 @@ function GotOScope(data) {
     const parts = data.split("\\");
 
     const numSamples = parseInt(parts[1], 10); // Número de muestras del osciloscopio
-    const fftSamples = parseInt(parts[2], 10); // Número de muestras FFT
-    const activeChannelsHex = parts[5]; // Hexadecimal de canales activos
-    const rawData = parts[3]; // Datos en formato hexadecimal (Osciloscopio)
-    const fftData = parts[4]; // Datos en formato hexadecimal (FFT)
+    const activeChannelsHex = parts[4]; // Hexadecimal de canales activos
+    const rawData = parts[2]; // Datos en formato hexadecimal (Osciloscopio)
+    const exp = parts[3]; //exponente del canal
 
     // Decodificar canales activos desde la parte correcta
     //console.log("Hexadecimal recibido para canales activos:", activeChannelsHex);
@@ -574,13 +604,12 @@ function GotOScope(data) {
     const oscilloscopeData = preprocessData(
       rawData,
       numSamples,
-      activeChannels
+      activeChannels,
+      exp
     );
 
     // Procesar datos FFT
     const fftProcessedData = prepareFFTData(
-      fftData,
-      fftSamples,
       activeChannels
     );
 
@@ -588,7 +617,7 @@ function GotOScope(data) {
     createOrUpdateChart(oscilloscopeData, "Osciloscopio", numSamples, "Gráfico Osciloscopio", "Amplitud");
 
     // Gráfico de FFT (barras)
-    createOrUpdateChart(fftProcessedData, "Armonicos", fftSamples, "Gráfico Armonicos", "Amplitud", true);
+    createOrUpdateChart(fftProcessedData, "Armonicos",32, "Gráfico Armonicos", "Amplitud", true);
 
   } catch (error) {
     console.error("Error al procesar GotOScope:", error);
@@ -602,7 +631,6 @@ function GotOScope(data) {
 function decodeActiveChannels(activeChannelsHex) {
   // Convertir hexadecimal a binario y rellenar hasta 13 bits
   const binaryString = parseInt(activeChannelsHex, 16).toString(2).padStart(13, '0');
-  console.log("Canales activos en binario:", binaryString);
 
   // Crear un array con los índices de los canales activos
   const activeChannels = binaryString
@@ -610,33 +638,13 @@ function decodeActiveChannels(activeChannelsHex) {
     .map((bit, index) => (bit === '1' ? index : null)) // Mapear bits activos ('1') a sus índices
     .filter(index => index !== null); // Filtrar solo los canales activos
 
-    console.log("Canales activos decodificados:", activeChannels);
 
   return activeChannels;
 }
 
-// Función para obtener el factor de ajuste según el canal
-function getAdjustmentFactor(channelIndex) {
-  switch (true) {
-    case [0, 4, 8].includes(channelIndex):
-      return 1.5;
-    case [1, 5, 9].includes(channelIndex):
-      return 0.65;
-    case [2, 6, 10].includes(channelIndex):
-      return 3;
-    case [3, 7, 11].includes(channelIndex):
-      return 4;
-    default:
-      console.warn(
-        `Canal ${channelIndex} no tiene un factor definido. Usando 1.`
-      );
-      return 1;
-  }
-}
-
 // Objeto global para almacenar las instancias de los gráficos
 const charts = {};
-function preprocessData(rawData, numSamples, activeChannels) {
+function preprocessData(rawData, numSamples, activeChannels, exp) {
   if (!rawData || activeChannels.length === 0) {
       console.warn("No hay datos o no hay canales activos.");
       return [];
@@ -647,6 +655,8 @@ function preprocessData(rawData, numSamples, activeChannels) {
   activeChannels.forEach((channelIndex, channelPos) => {
       const values = [];
       const offsetBase = channelPos * numSamples;
+      //const scaleFactor = getChannelScaleFactor(channelIndex);
+
 
       for (let i = 0; i < numSamples; i++) {
           const offset = (offsetBase + i) * 3;
@@ -655,31 +665,124 @@ function preprocessData(rawData, numSamples, activeChannels) {
 
           if (isNaN(adcValue)) continue;
 
-          let adjustedValue = adcValue - 2048; // Ajuste centrado en 0
+          // Ajustar la referencia de 2048 y aplicar la escala
+          let adjustedValue = (adcValue - 2048) * getScalingFactor(channelIndex);// * scaleFactor;
+          //console.log(`Canal ${channelIndex} - Factor de escala: ${scaleFactor}`);
+
 
           values.push({ x: i, y: adjustedValue });
       }
 
+      // Aplicar interpolación y suavizado
+      let interpolatedValues = interpolateData(values);
+      interpolatedValues = smoothData(interpolatedValues, 5);
+
       datasets.push({
           label: `Canal ${channelIndex}`,
-          data: values,
+          data: interpolatedValues,
           borderColor: getColor(channelIndex),
           fill: false,
           pointRadius: 0,
-          tension: 0.01,
+          tension: 0.2,
       });
   });
 
-  console.log("Datos procesados para graficar:", datasets);
   return datasets;
 }
 
+/*const channelScaleFactors = {}; // Objeto para almacenar factores de escala
 
-function prepareFFTData(data, fftSamples, activeChannels) {
-  if (!data || activeChannels.length === 0) {
-    console.warn("No hay datos o no hay canales activos.");
-    return [];
+function getChannelScaleFactor(channelIndex) {
+    return channelScaleFactors[channelIndex] || 1; // Si no hay valor, devuelve 1 (sin ajuste)
+}
+
+// Esta función actualiza los factores de escala desde el ESP
+function updateScaleFactors(sensorData) {
+    console.log("Actualizando factores de escala desde el sensor:", sensorData);
+    const parts = sensorData.split("\\");
+    if (parts.length < 5) return;
+
+    const channelIndex = parseInt(parts[0], 10);
+    const scaleFactor = parseFloat(parts[4]);
+
+    if (!isNaN(channelIndex) && !isNaN(scaleFactor)) {
+        channelScaleFactors[channelIndex] = scaleFactor;
+    }
+    console.log("Escalas actualizadas:", channelScaleFactors);
+
+}
+*/
+
+// Función de interpolación lineal para suavizar la señal
+function interpolateData(data) {
+  if (data.length < 2) return data;
+
+  const interpolatedData = [];
+  for (let i = 0; i < data.length - 1; i++) {
+      interpolatedData.push(data[i]);
+      const midX = (data[i].x + data[i + 1].x) / 2;
+      const midY = (data[i].y + data[i + 1].y) / 2;
+      interpolatedData.push({ x: midX, y: midY });
   }
+  interpolatedData.push(data[data.length - 1]);
+
+  return interpolatedData;
+}
+
+// Filtro de media móvil para suavizar la señal
+function smoothData(data, windowSize) {
+  if (data.length < windowSize) return data;
+
+  const smoothedData = [];
+  for (let i = 0; i < data.length; i++) {
+      let sum = 0;
+      let count = 0;
+
+      for (let j = -Math.floor(windowSize / 2); j <= Math.floor(windowSize / 2); j++) {
+          const index = i + j;
+          if (index >= 0 && index < data.length) {
+              sum += data[index].y;
+              count++;
+          }
+      }
+
+      smoothedData.push({ x: data[i].x, y: sum / count });
+  }
+
+  return smoothedData;
+}
+
+function getScalingFactorFoot(channelIndex) {
+  // Factores de escala según el canal, estos valores deben coincidir con los usados en el hardware
+  const scaleMap = {
+      0: 0.098,  // Escalar corriente L1
+      1: 1.302,  // Escalar voltaje L1
+      4: 0.122,  // Escalar corriente L2
+      5: 1.286,  // Escalar voltaje L2
+      8: 0.125,  // Escalar corriente L3
+      9: 1.325   // Escalar voltaje L3
+  };
+
+  return scaleMap[channelIndex] || 1; // Si el canal no está definido, usar 1 (sin ajuste)
+}
+
+
+function getScalingFactor(channelIndex) {
+  // Factores de escala según el canal, estos valores deben coincidir con los usados en el hardware
+  const scaleMap = {
+      0: 0.0933 ,  // Escalar corriente L1    si disminuyo el valor de abajo, aumenta la corriente
+      1: 1.11,  // Escalar voltaje L1
+      4: 0.115,  // Escalar corriente L2
+      5: 1.2,  // Escalar voltaje L2
+      8: 0.123,  // Escalar corriente L3
+      9: 1.217   // Escalar voltaje L3
+  };
+
+  return scaleMap[channelIndex] || 1; // Si el canal no está definido, usar 1 (sin ajuste)
+}
+
+
+function prepareFFTData(activeChannels) {
 
   const datasets = [];
   const allowedChannels = [0, 1, 4, 5, 8, 9]; // Canales permitidos
@@ -746,114 +849,179 @@ function prepareFFTData(data, fftSamples, activeChannels) {
   return datasets;
 }
 
-function createOrUpdateChart(datasets, chartId, numSamples, title, yLabel, isFFT = false) {
-  console.log(`Actualizando gráfico ${chartId} con datos:`, datasets);
+function determineYAxisScale(activeChannels, isFFT = false) {
+  // Canales que requieren escala -1 a 1
+  const smallScaleChannels = [0, 4, 8];
+  // Canales que requieren escala -400 a 400
+  const mediumScaleChannels = [1, 5, 9];
+  // Escala máxima -600 a 600 para osciloscopio
+  const maxScale = { min: -600, max: 600 };
 
-  let chart = charts[chartId]; // Verificar si el gráfico ya existe
-
-  if (chart) {
-    // Si el gráfico ya existe, solo actualiza los datos
-    chart.data.datasets = datasets;
-    chart.update();
-    return;
-  }
-
-  // Si el gráfico no existe, crearlo
-  const canvas = document.getElementById(chartId);
-  if (!canvas) {
-    console.error(`Canvas con ID '${chartId}' no encontrado.`);
-    return;
-  }
-
-  const ctx = canvas.getContext("2d");
-
-  const harmonicLabels = isFFT ? ["1º", "3º", "5º", "7º", "9º"] : undefined;
-
-  charts[chartId] = new Chart(ctx, {
-    type: isFFT ? 'bar' : 'line',
-    data: {
-      labels: isFFT ? harmonicLabels : undefined,
-      datasets: datasets,
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: false,
-      plugins: {
-        legend: { display: true },
-        title: { display: true, text: title },
-        tooltip: {
-          enabled: true,
-          backgroundColor: "rgba(0, 0, 0, 0.8)",
-          titleFont: { size: 14, weight: "bold" },
-          bodyFont: { size: 12 },
-          padding: 10,
-          cornerRadius: 5,
-          displayColors: true,
-          callbacks: {
-            label: function (tooltipItem) {
-              let datasetLabel = tooltipItem.dataset.label || "";
-              let value = tooltipItem.raw;
-
-              // Para el osciloscopio, extraer el valor de "y"
-              if (typeof value === "object" && value !== null && "y" in value) {
-                value = value.y;
-              }
-
-              // Verificar si el valor es un número antes de formatearlo
-              if (typeof value === "number") {
-                value = value.toFixed(2);
-              } else {
-                value = "N/A"; // Si no es un número, mostrar "N/A"
-              }
-
-              return `${datasetLabel}: ${value}`;
-            },
-            title: function (tooltipItems) {
-              if (isFFT) {
-                return `Armónico ${tooltipItems[0].label}`;
-              }
-              return `Muestra ${tooltipItems[0].parsed.x}`;
-            }
-          }
-        },
-        zoom: {
-          zoom: {
-            drag: { enabled: true, backgroundColor: 'rgba(0, 0, 0, 0.1)' },
-            mode: isFFT ? 'y' : 'y',
-            wheel: { enabled: false },
-          },
-          pan: {
-            enabled: true,
-            mode: isFFT ? 'xy' : 'y',
-          },
-        },
-      },
-      scales: {
-        x: {
-          type: isFFT ? 'category' : 'linear',
-          position: 'bottom',
-          title: { display: true, text: isFFT ? 'Armónicos' : 'Muestras' },
-        },
-        y: {
-          title: { display: true, text: yLabel },
-          beginAtZero: true,
-        },
-      },
-      interaction: {
-        mode: "index", // Captura todos los puntos en el mismo eje X
-        intersect: false, // Permite ver los valores sin necesidad de tocar el punto exacto
-      },
-      elements: {
-        point: {
-          radius: 3, // Asegura que los puntos sean visibles
-          hitRadius: 10, // Aumenta el área de detección del tooltip
-          hoverRadius: 6, // Hace que el punto se agrande al pasar el mouse
-        }
+  if (isFFT) {
+      // Para FFT, los valores son siempre positivos (sin negativo)
+      let maxY = 600; // Valor por defecto
+      if (activeChannels.length === 1) {
+          if (smallScaleChannels.includes(activeChannels[0])) return { min: 0, max: 1 };
+          if (mediumScaleChannels.includes(activeChannels[0])) return { min: 0, max: 400 };
       }
-    },
-  });
+      if (activeChannels.some(ch => smallScaleChannels.includes(ch)) && !activeChannels.some(ch => mediumScaleChannels.includes(ch))) {
+          return { min: 0, max: 1 };
+      }
+      if (activeChannels.some(ch => mediumScaleChannels.includes(ch)) && !activeChannels.some(ch => smallScaleChannels.includes(ch))) {
+          return { min: 0, max: 400 };
+      }
+      return { min: 0, max: maxY }; // Para múltiples canales, usar escala máxima
+  } else {
+      let minY = 0, maxY = 0;
+      if (activeChannels.length === 1) {
+          if (smallScaleChannels.includes(activeChannels[0])) return { min: -1, max: 1 };
+          if (mediumScaleChannels.includes(activeChannels[0])) return { min: -400, max: 400 };
+      }
+      if (activeChannels.some(ch => smallScaleChannels.includes(ch)) && !activeChannels.some(ch => mediumScaleChannels.includes(ch))) {
+          return { min: -1, max: 1 };
+      }
+      if (activeChannels.some(ch => mediumScaleChannels.includes(ch)) && !activeChannels.some(ch => smallScaleChannels.includes(ch))) {
+          return { min: -400, max: 400 };
+      }
+      return maxScale;
+  }
 }
+
+// Modificar la función para que aplique la escala correcta según si es FFT o no
+function createOrUpdateChart(datasets, chartId, numSamples, title, yLabel, isFFT = false) {
+    console.log(`Actualizando gráfico ${chartId} con datos:`, datasets);
+
+    let chart = charts[chartId];
+    let activeChannels = datasets.map(ds => parseInt(ds.label.split(" ")[1])); // Extraer números de canales
+    let yScaleLimits = determineYAxisScale(activeChannels, isFFT);
+
+    if (chart) {
+        // Guardar los valores actuales del zoom en Y
+        let currentYMin = chart.scales.y.min;
+        let currentYMax = chart.scales.y.max;
+
+        // Detectar si hay un canal nuevo activado
+        let previousActiveChannels = chart.activeChannels || [];
+        let isNewChannelActivated = JSON.stringify(previousActiveChannels) !== JSON.stringify(activeChannels);
+        chart.activeChannels = activeChannels; // Guardar los canales actuales para la próxima actualización
+
+        // Actualizar datos
+        chart.data.datasets = datasets;
+
+        // Si se activó un canal nuevo, aplicar la escala automática
+        if (isNewChannelActivated) {
+            chart.options.scales.y.min = yScaleLimits.min;
+            chart.options.scales.y.max = yScaleLimits.max;
+        } else {
+            // Mantener el zoom actual del usuario en Y
+            chart.options.scales.y.min = currentYMin;
+            chart.options.scales.y.max = currentYMax;
+        }
+
+        chart.update();
+        return;
+    }
+
+    const canvas = document.getElementById(chartId);
+    if (!canvas) {
+        console.error(`Canvas con ID '${chartId}' no encontrado.`);
+        return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    charts[chartId] = new Chart(ctx, {
+        type: isFFT ? 'bar' : 'line',
+        data: {
+            labels: isFFT ? ["1º", "3º", "5º", "7º", "9º"] : undefined,
+            datasets: datasets,
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            plugins: {
+                legend: { display: true },
+                title: { display: true, text: title },
+                tooltip: {
+                    enabled: true,
+                    backgroundColor: "rgba(0, 0, 0, 0.8)",
+                    titleFont: { size: 14, weight: "bold" },
+                    bodyFont: { size: 12 },
+                    padding: 10,
+                    cornerRadius: 5,
+                    displayColors: true,
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            let datasetLabel = tooltipItem.dataset.label || "";
+                            let value = tooltipItem.raw;
+                            if (typeof value === "object" && value !== null && "y" in value) {
+                                value = value.y;
+                            }
+                            return `${datasetLabel}: ${value.toFixed(2)}`;
+                        },
+                        title: function (tooltipItems) {
+                            return isFFT ? `Armónico ${tooltipItems[0].label}` : `Muestra ${tooltipItems[0].parsed.x}`;
+                        }
+                    }
+                },
+                zoom: {
+                    zoom: {
+                        drag: { enabled: true }, // Permite hacer zoom con arrastre
+                        mode: 'y', // 🔥 Solo zoom en Y
+                        wheel: { enabled: true }, // Habilita zoom con la rueda del mouse
+                    },
+                    pan: {
+                        enabled: true,
+                        mode: 'y', // 🔥 Solo pan en Y
+                    },
+                },
+            },
+            scales: {
+                x: { 
+                    type: isFFT ? 'category' : 'linear', 
+                    title: { display: true, text: isFFT ? 'Armónicos' : 'Muestras' } 
+                },
+                y: { 
+                    title: { display: true, text: yLabel },
+                    min: yScaleLimits.min, 
+                    max: yScaleLimits.max 
+                },
+            },
+            interaction: { mode: "index", intersect: false },
+            elements: { point: { radius: 3, hitRadius: 10, hoverRadius: 6 } }
+        },
+    });
+
+    // Guardar los canales activos iniciales
+    charts[chartId].activeChannels = activeChannels;
+
+    // Agregar después de la creación del chart en createOrUpdateChart
+    if (!document.getElementById(`download-${chartId}`)) {
+        const downloadButton = document.createElement('button');
+        downloadButton.id = `download-${chartId}`;
+        downloadButton.innerHTML = 'Descargar CSV';
+        downloadButton.className = 'download-button';
+        downloadButton.onclick = () => downloadCSV(chartId);
+        
+        // Agregar estilos al botón
+        downloadButton.style.position = 'absolute';
+        downloadButton.style.right = '10px';
+        downloadButton.style.top = '10px';
+        downloadButton.style.padding = '5px 10px';
+        downloadButton.style.backgroundColor = '#4CAF50';
+        downloadButton.style.color = 'white';
+        downloadButton.style.border = 'none';
+        downloadButton.style.borderRadius = '4px';
+        downloadButton.style.cursor = 'pointer';
+        
+        // Agregar el botón junto al canvas
+        const container = canvas.parentElement;
+        container.style.position = 'relative';
+        container.appendChild(downloadButton);
+    }
+}
+
 
 
 // Actualizar gráficos
@@ -925,19 +1093,53 @@ function ToggleOScopePause() {
   if (!pause_osc) OScopeProbe();
 }
 
-/*function PhaseshiftPlus() {
-    sendCMD("PS+");
-}
+function downloadCSV(chartId) {
+    const chart = charts[chartId];
+    if (!chart) {
+        console.error(`No se encontró el gráfico con ID: ${chartId}`);
+        return;
+    }
 
-function PhaseshiftMinus() {
-    sendCMD("PS-");
-}
+    let csvContent = "data:text/csv;charset=utf-8,";
+    
+    // Agregar encabezados
+    const headers = ["Índice"];
+    chart.data.datasets.forEach(dataset => {
+        headers.push(dataset.label);
+    });
+    csvContent += headers.join(",") + "\n";
 
-function SampleratePlus() {
-    sendCMD( "FQ+" );	
-}
+    // Determinar si es un gráfico FFT o de osciloscopio
+    const isFFT = chart.config.type === 'bar';
 
-function SamplerateMinus() {
-    sendCMD( "FQ-" );		
+    if (isFFT) {
+        // Para gráfico FFT (datos de armónicos)
+        const harmonics = ["1º", "3º", "5º", "7º", "9º"];
+        harmonics.forEach((harmonic, idx) => {
+            let row = [harmonic];
+            chart.data.datasets.forEach(dataset => {
+                row.push(dataset.data[idx]);
+            });
+            csvContent += row.join(",") + "\n";
+        });
+    } else {
+        // Para gráfico de osciloscopio (datos de muestras)
+        const maxLength = Math.max(...chart.data.datasets.map(ds => ds.data.length));
+        for (let i = 0; i < maxLength; i++) {
+            let row = [i];
+            chart.data.datasets.forEach(dataset => {
+                row.push(dataset.data[i]?.y || "");
+            });
+            csvContent += row.join(",") + "\n";
+        }
+    }
+
+    // Crear y activar el enlace de descarga
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `datos_${chartId}_${new Date().toISOString().slice(0,19).replace(/[:]/g, '-')}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
-*/

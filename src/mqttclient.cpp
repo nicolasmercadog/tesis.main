@@ -12,8 +12,8 @@
 const char* serverName = "https://sa-east-1.aws.data.mongodb-api.com/app/conecthttp-fhbjiiu/endpoint/test";
 
 // Buffers de datos medidos
-static float measure_rms[VIRTUAL_CHANNELS];  // Buffer para medidas RMS
-static float measure_frequency;              // Frecuencia medida actual
+//static float measure_rms[VIRTUAL_CHANNELS];  // Buffer para medidas RMS
+//static float measure_frequency;              // Frecuencia medida actual
 
 char reset_state[64] = "";                   // Buffer para guardar el estado de reinicio
 
@@ -56,7 +56,10 @@ void sendDataToMongoDB(const char* topic, const char* payload) {
  */
 void sendPowerDataToMongoDB(void) {
     String ip = WiFi.localIP().toString();
-    StaticJsonDocument<8192> doc;
+    JsonDocument doc;
+    doc.to<JsonObject>();
+    //StaticJsonDocument<8192> doc;
+    //DynamicJsonDocument doc(8192);  // Se asigna en el heap dinámico (PSRAM si está disponible)
 
     struct tm timeinfo;
     char timeStr[64] = "";

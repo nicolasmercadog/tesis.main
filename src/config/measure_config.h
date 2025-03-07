@@ -16,7 +16,7 @@
         public:
             measure_config_t();
             float network_frequency = 50;
-            int samplerate_corr = 0;
+            int samplerate_corr = 146;
             bool true_rms = false;
             
         protected:

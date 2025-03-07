@@ -190,6 +190,8 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
             client->printf("old_channel_opcodeseq_str\\%s", measure_get_channel_opcodeseq_str(selectedchannel, sizeof(tmp), tmp));
             client->printf("channel_offset\\%f", measure_get_channel_offset(selectedchannel));
             client->printf("channel_ratio\\%f", measure_get_channel_ratio(selectedchannel));
+            // client->printf("channel_escala_osc\\%f", measure_get_channel_escala_osc(selectedchannel));
+            // client->printf("channel_escala_foot\\%f", measure_get_channel_escala_foot(selectedchannel));
             client->printf("channel_name\\%s", measure_get_channel_name(selectedchannel));
             client->printf("channel_group_id\\%d", measure_get_channel_group_id(selectedchannel));
 
@@ -256,11 +258,11 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
         {
             // Obtener valores de configuración de medición
             float networkFrequency = measure_get_network_frequency(); // Frecuencia de red
-            //int samplerateCorrection = measure_get_samplerate_corr(); // Corrección de muestreo
+            // int samplerateCorrection = measure_get_samplerate_corr(); // Corrección de muestreo
 
             // Enviar los valores al cliente
-            client->printf("network_frequency\\%f", networkFrequency);   // Frecuencia de red
-            //client->printf("samplerate_corr\\%d", samplerateCorrection); // Corrección de la frecuencia de muestreo
+            client->printf("network_frequency\\%f", networkFrequency); // Frecuencia de red
+            // client->printf("samplerate_corr\\%d", samplerateCorrection); // Corrección de la frecuencia de muestreo
         }
 
         else if (!strcmp("get_hostname_settings", cmd))
@@ -367,44 +369,38 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
                     SampleScale = 1;
 
                 // Construir datos iniciales
-                snprintf(tmp, sizeof(tmp), "OScopeProbe\\%d\\%d\\",
-                         numbersOfSamples / SampleScale,
-                         numbersOfFFTSamples / FFTScale);
+                snprintf(tmp, sizeof(tmp), "OScopeProbe\\%d\\",
+                         numbersOfSamples / SampleScale);
                 strncat(request, tmp, sizeof(request));
 
                 // Procesar muestras
                 mybuffer = measure_get_buffer();
+                if (mybuffer == NULL)
+                {
+                    Serial.println("ERROR: Buffer de medición es NULL en onWsEvent()");
+                    return;
+                }
+
                 for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++)
                 {
                     if (*(value + channel) == '0')
                         continue;
 
-                    for (int i = 0; i < numbersOfSamples; i += SampleScale)
+                    for (int i = 0; i < numbersOfSamples; i = i + SampleScale)
                     {
-                                uint16_t sample_value = mybuffer[numbersOfSamples * channel + i];
-
-                        snprintf(tmp, sizeof(tmp), "%03x",
-                                 mybuffer[numbersOfSamples * channel + i] > 0x0fff ? 0x0fff : mybuffer[numbersOfSamples * channel + i]);
+                        snprintf(tmp, sizeof(tmp), "%03x", (mybuffer[numbersOfSamples * channel + i]) > 0x0fff ? 0x0fff : mybuffer[numbersOfSamples * channel + i]);
                         strncat(request, tmp, sizeof(request));
                     }
                 }
                 strncat(request, "\\", sizeof(request));
-
-                // Obtener datos FFT y construir el bloque de datos solo para los canales seleccionados
                 mybuffer = measure_get_fft();
-
-                // Canales específicos que queremos procesar
                 for (int channel = 0; channel < VIRTUAL_CHANNELS; channel++)
-                {   
+                {
                     if (*(value + channel) == '0')
                         continue;
-                    // Procesar únicamente los canales seleccionados
-                    for (int i = 0; i < numbersOfFFTSamples; i += FFTScale)
-                    {
-                        snprintf(tmp, sizeof(tmp), "%03x",
-                                 mybuffer[numbersOfFFTSamples * channel + i] > 0x0fff ? 0x0fff : mybuffer[numbersOfFFTSamples * channel + i]);
-                        strncat(request, tmp, sizeof(request));
-                    }
+
+                    snprintf(tmp, sizeof(tmp), "%1f", measure_get_channel_ratio(channel));
+                    strncat(request, tmp, sizeof(request));
                 }
 
                 strncat(request, "\\", sizeof(request));
@@ -416,13 +412,14 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
                     activeChannelsBinary[channel] = (*(value + channel) == '0') ? '0' : '1';
                 }
                 char hexChannels[8];
-                snprintf(hexChannels, sizeof(hexChannels), "%03X", strtol(activeChannelsBinary, NULL, 2));
+                snprintf(hexChannels, sizeof(hexChannels), "%03lX", strtol(activeChannelsBinary, NULL, 2));
                 strncat(request, hexChannels, sizeof(request));
 
                 // Enviar respuesta
                 client->text(request);
             }
         }
+
         /* Obtener la línea de estado (STS) */
         else if (!strcmp("STS", cmd))
         {
@@ -716,6 +713,16 @@ static void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsE
                 // Establecer el ratio del canal
                 measure_set_channel_ratio(selectedchannel, atof(value));
             }
+            /* else if (!strcmp("channel_escala_osc", cmd))
+             {
+                 // Establecer el ratio del osc
+                 measure_set_channel_escala_osc(selectedchannel, atof(value));
+             }
+             else if (!strcmp("channel_escala_foot", cmd))
+             {
+                 // Establecer el ratio del foot
+                 measure_set_channel_escala_foot(selectedchannel, atof(value));
+             }*/
             else if (!strcmp("channel_name", cmd))
             {
                 // Establecer el nombre del canal
